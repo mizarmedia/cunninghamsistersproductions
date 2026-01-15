@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cunningham Sisters Productions - Website Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 80px 24px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        .mockups {
+            display: grid;
+            gap: 32px;
+        }
+
+        .mockup {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 48px;
+            background: #141414;
+            border: 1px solid #222;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .mockup:hover {
+            background: #1a1a1a;
+            border-color: #333;
+            transform: translateY(-4px);
+        }
+
+        .mockup-info h3 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .mockup-info .style {
+            font-size: 13px;
+            color: #c9a962;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .mockup-info p {
+            font-size: 15px;
+            color: #888;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .mockup-info ul {
+            list-style: none;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mockup-info li {
+            padding: 4px 0;
+        }
+
+        .mockup-info li::before {
+            content: "→ ";
+            color: #444;
+        }
+
+        .mockup-preview {
+            background: #0a0a0a;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-label {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        .footer-note {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid #222;
+            font-size: 14px;
+            color: #666;
+        }
+
+        code {
+            background: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cunningham Sisters Productions</h1>
+        <h2>Website Mockups</h2>
+
+        <div class="mockups">
+            <a href="mockup-1-a24/index.html" class="mockup">
+                <div class="mockup-info">
+                    <h3>The A24 Clone</h3>
+                    <p class="style">Mockup 1</p>
+                    <p>Clean, minimal, and sophisticated. White background with bold typography. Ready to scale as the production company grows.</p>
+                    <ul>
+                        <li>White background, high contrast</li>
+                        <li>Large film poster grid layout</li>
+                        <li>Grayscale team photos with hover color</li>
+                        <li>Established distributor aesthetic</li>
+                    </ul>
+                </div>
+                <div class="mockup-preview">
+                    <span class="preview-label">Click to Preview</span>
+                </div>
+            </a>
+
+            <a href="mockup-2-editorial/index.html" class="mockup">
+                <div class="mockup-info">
+                    <h3>Modern Films Editorial</h3>
+                    <p class="style">Mockup 2</p>
+                    <p>Dark, text-forward, and storytelling-focused. Features a bold mission statement and timeline visualization.</p>
+                    <ul>
+                        <li>Black background, gold accents</li>
+                        <li>Editorial typography with serifs</li>
+                        <li>Production timeline with progress bar</li>
+                        <li>Nonprofit positioning emphasized</li>
+                    </ul>
+                </div>
+                <div class="mockup-preview">
+                    <span class="preview-label">Click to Preview</span>
+                </div>
+            </a>
+
+            <a href="mockup-3-cinematic/index.html" class="mockup">
+                <div class="mockup-info">
+                    <h3>Cinematic Single-Project</h3>
+                    <p class="style">Mockup 3</p>
+                    <p>Full-screen immersive experience with parallax scrolling. Dramatic and emotional, perfect for a single-film focus.</p>
+                    <ul>
+                        <li>Full-bleed hero images</li>
+                        <li>Parallax scroll effects</li>
+                        <li>Dramatic typography</li>
+                        <li>Maximum emotional impact</li>
+                    </ul>
+                </div>
+                <div class="mockup-preview">
+                    <span class="preview-label">Click to Preview</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer-note">
+            <p>To preview locally, run <code>python3 -m http.server 8000</code> in this directory, then open <code>http://localhost:8000</code></p>
+        </div>
+    </div>
+</body>
+</html>
