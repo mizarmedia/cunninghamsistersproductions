@@ -138,13 +138,13 @@
                 <p>20+ years with Fox, Disney, ABC. Founded Global Virtual Studios.</p>
             </div>
             <div class="team-card">
-                <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/3f05b433-e252-4901-a347-39fd68bea38b/40ba43ae-0570-4c86-ab4b-bd982629724c.png" alt="Mike Leahy">
+                <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/333a0bdb-d486-4781-8c58-f846a33c10c4/mike.jpg" alt="Mike Leahy">
                 <h4>Mike Leahy</h4>
                 <span>Producer</span>
                 <p>Co-founder NEO Art & Logic. 30+ feature films.</p>
             </div>
             <div class="team-card">
-                <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/333a0bdb-d486-4781-8c58-f846a33c10c4/mike.jpg" alt="Janet Batchler">
+                <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/3f05b433-e252-4901-a347-39fd68bea38b/40ba43ae-0570-4c86-ab4b-bd982629724c.png" alt="Janet Batchler">
                 <h4>Janet Batchler</h4>
                 <span>Advisor</span>
                 <p>Writer, Batman Forever. USC Professor.</p>
@@ -237,19 +237,34 @@
     <footer class="footer">
         <div class="footer-content">
             <span class="footer-logo">CUNNINGHAM SISTERS PRODUCTIONS</span>
-            <p>&copy; 2025 All Rights Reserved</p>
+            <p>&copy; 2026 All Rights Reserved</p>
         </div>
     </footer>
 
     <script>
-        // Simple parallax effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.querySelectorAll('.parallax img').forEach(img => {
-                const speed = 0.5;
-                img.style.transform = `translateY(${scrolled * speed}px)`;
+        // Fixed parallax effect - relative to each section
+        function updateParallax() {
+            document.querySelectorAll('.parallax').forEach(container => {
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Only apply when section is in view
+                if (rect.bottom > 0 && rect.top < windowHeight) {
+                    const img = container.querySelector('img');
+                    if (img) {
+                        // Calculate how far through the viewport the section is
+                        const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                        // Limit parallax to reasonable range (-30px to +30px)
+                        const offset = (scrollProgress - 0.5) * 60;
+                        img.style.transform = `translateY(${offset}px)`;
+                    }
+                }
             });
-        });
+        }
+
+        window.addEventListener('scroll', updateParallax);
+        window.addEventListener('resize', updateParallax);
+        updateParallax();
 
         // Nav background on scroll
         const nav = document.querySelector('.nav');
@@ -261,14 +276,26 @@
             }
         });
 
-        // Smooth scroll
+        // Smooth scroll with nav offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
+            });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
             });
         });
     </script>
