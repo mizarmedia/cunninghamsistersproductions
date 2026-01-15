@@ -1,0 +1,720 @@
+/* ============================================
+   CUNNINGHAM SISTERS PRODUCTIONS
+   A24-Style Design System
+   ============================================ */
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    z-index: 100;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+.nav-donate {
+    background: #1a1a1a;
+    color: #ffffff !important;
+    padding: 10px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+
+.nav-donate:hover {
+    background: #333333;
+    opacity: 1 !important;
+}
+
+/* Mobile Toggle */
+.nav-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile-toggle.active span:first-child {
+    transform: rotate(45deg) translate(3px, 3px);
+}
+
+.nav-mobile-toggle.active span:last-child {
+    transform: rotate(-45deg) translate(3px, -3px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu a {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+    padding-top: 65px; /* Nav height */
+}
+
+.hero-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    text-align: center;
+}
+
+.film-title {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.film-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.film-year {
+    font-size: 14px;
+    font-weight: 500;
+    color: #999999;
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+}
+
+.film-credits {
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.film-credits p {
+    margin-bottom: 4px;
+}
+
+.film-credits strong {
+    font-weight: 600;
+}
+
+/* ============================================
+   QUOTE
+   ============================================ */
+
+.quote-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+    text-align: center;
+}
+
+.quote p {
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.quote cite {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: #666666;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+
+.divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1px;
+    background: #e5e5e5;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-credit {
+    font-size: 13px;
+    color: #999999;
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+/* ============================================
+   STORY
+   ============================================ */
+
+.story-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.story-text {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 24px;
+}
+
+.story-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   GALLERY
+   ============================================ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+/* ============================================
+   SUPPORT / FUNDING
+   ============================================ */
+
+.support-section {
+    background: #fafafa;
+    max-width: none;
+    padding: 80px 40px;
+}
+
+.support-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.support-text {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 48px;
+}
+
+.funding-box {
+    background: #ffffff;
+    padding: 48px;
+    border: 1px solid #e5e5e5;
+}
+
+.funding-stats {
+    margin-bottom: 16px;
+}
+
+.funding-raised {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.funding-goal {
+    font-size: 18px;
+    font-weight: 400;
+    color: #666666;
+    margin-left: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #e5e5e5;
+    margin-bottom: 16px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #1a1a1a;
+    transition: width 1s ease-out;
+}
+
+.funding-percent {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.funding-note {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 32px;
+}
+
+.donate-button {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+
+.donate-button:hover {
+    background: #333333;
+}
+
+/* ============================================
+   TEAM
+   ============================================ */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #999999;
+}
+
+.team-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.team-role {
+    font-size: 13px;
+    color: #666666;
+}
+
+.team-advisory {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.advisory-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 16px;
+}
+
+.advisory-names {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.advisory-credits {
+    font-size: 13px;
+    color: #666666;
+}
+
+/* ============================================
+   MODEL
+   ============================================ */
+
+.model-section {
+    text-align: center;
+}
+
+.model-intro {
+    font-size: 18px;
+    color: #666666;
+    margin-bottom: 48px;
+}
+
+.model-split {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.model-half {
+    text-align: center;
+}
+
+.model-percent {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.model-desc {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* ============================================
+   WATCH
+   ============================================ */
+
+.watch-container {
+    text-align: center;
+}
+
+.watch-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 48px;
+    border: 1px solid #e5e5e5;
+    transition: border-color 0.2s ease;
+}
+
+.watch-link:hover {
+    border-color: #1a1a1a;
+}
+
+.watch-label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.watch-platform {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-link {
+    font-size: 18px;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+    opacity: 0.6;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 16px 24px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-mobile-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .hero-content {
+        padding: 40px 24px 60px;
+    }
+
+    .film-title {
+        font-size: 40px;
+    }
+
+    .film-subtitle {
+        font-size: 16px;
+    }
+
+    .quote-section {
+        padding: 40px 24px 60px;
+    }
+
+    .quote p {
+        font-size: 22px;
+    }
+
+    .section {
+        padding: 60px 24px;
+    }
+
+    .story-text {
+        font-size: 18px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .support-section {
+        padding: 60px 24px;
+    }
+
+    .funding-box {
+        padding: 32px 24px;
+    }
+
+    .funding-raised {
+        font-size: 28px;
+    }
+
+    .funding-goal {
+        font-size: 16px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .model-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .model-percent {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 11px;
+    }
+
+    .film-title {
+        font-size: 32px;
+    }
+
+    .quote p {
+        font-size: 20px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-photo-placeholder {
+        width: 100px;
+        height: 100px;
+    }
+}
