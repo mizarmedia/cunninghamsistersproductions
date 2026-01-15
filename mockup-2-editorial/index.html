@@ -40,7 +40,7 @@
                 <h1 class="hero-title">Championing stories<br>that protect<br>the vulnerable.</h1>
                 <p class="hero-subtitle">We create non-profit narrative films that expose injustice and drive systemic change.</p>
                 <div class="hero-actions">
-                    <a href="#film" class="btn btn-outline">Watch Trailer</a>
+                    <a href="#video" class="btn btn-outline">Watch Trailer</a>
                     <a href="https://gofund.me/d00b98309" target="_blank" class="btn btn-solid">Support Our Work</a>
                 </div>
             </div>
@@ -120,6 +120,23 @@
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/0a1aadcb-ec64-43ed-b562-15cf858764a9/000119550030.jpg" alt="Production">
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/1768434605602-CU5HRJXHVOWY129VLOXL/image-asset.jpeg" alt="BTS">
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/1768434607730-DTZBE2HFX1JMLO05941G/image-asset.jpeg" alt="BTS">
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video" class="video-section">
+            <div class="container">
+                <span class="label">Proof of Concept</span>
+                <h2 class="section-title">Watch</h2>
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe
+                            src="https://player.vimeo.com/video/1115004786?title=0&byline=0&portrait=0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -289,9 +306,34 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Cunningham Sisters Productions. All rights reserved.</p>
+                <p>&copy; 2026 Cunningham Sisters Productions. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scroll with nav offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -390,6 +390,33 @@ img {
     100% { transform: translateX(-50%); }
 }
 
+/* Video Section - Mobile First */
+.video-section {
+    padding: 80px 0;
+    background: var(--color-dark);
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 /* Timeline Section - Mobile First */
 .timeline-section {
     padding: 80px 0;
@@ -861,6 +888,10 @@ img {
         height: 300px;
     }
 
+    .video-section {
+        padding: 120px 0;
+    }
+
     .timeline-section {
         padding: 120px 0;
     }
@@ -959,6 +990,7 @@ img {
 
     .cta-actions {
         flex-direction: row;
+        justify-content: center;
         gap: 16px;
     }
 
