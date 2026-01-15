@@ -531,37 +531,33 @@ a {
 }
 
 /* ============================================
-   WATCH
+   WATCH / VIDEO
    ============================================ */
 
-.watch-container {
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-caption {
     text-align: center;
-}
-
-.watch-link {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 48px;
-    border: 1px solid #e5e5e5;
-    transition: border-color 0.2s ease;
-}
-
-.watch-link:hover {
-    border-color: #1a1a1a;
-}
-
-.watch-label {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.watch-platform {
-    font-size: 12px;
-    color: #999999;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 16px;
 }
 
 /* ============================================
