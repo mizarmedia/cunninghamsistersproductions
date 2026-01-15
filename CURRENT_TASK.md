@@ -1,20 +1,69 @@
 # Current Task
 
 ---
-## 🔴 ACTIVE SESSION: CLAUDE-cunninghamsistersproductions-20260114-195156
-**Started:** 2026-01-14 19:51:56
+## ✅ COMPLETED: CLAUDE-cunninghamsistersproductions-20260114-234500
+**Date:** 2026-01-14
+**Duration:** 35 minutes
+**Goal:** Fix Editorial and Cinematic mockups - buttons, images, missing sections
+**Status:** Completed
 
-### Session Goal:
-Study A24 Films website to understand their design system
+### Accomplished:
+- Fixed Editorial mockup: CTA buttons centered, year updated to 2026, video embed added, smooth scroll with nav offset, mobile menu close on link click
+- Swapped Mike/Janet images in both Editorial and Cinematic mockups (mike.jpg is actually Mike Leahy's photo)
+- Integrated Janet & Lee Batchler into main team grid (previously tiny circular thumbnails)
+- Fixed Cinematic parallax effect (was broken - images flying off screen)
+- Fixed Cinematic Support button border (CSS specificity issue)
+- Changed Cinematic nav logo from "RESILIENCE" to "CUNNINGHAM SISTERS"
+- Added video section, production timeline, and newsletter signup to Cinematic mockup
 
-### Actions This Session:
-- Analyzed a24films.com/films page in detail
-- Analyzed homepage and individual film pages
-- Analyzed television page for consistency
-- Created comprehensive A24_DESIGN_STUDY.md
+### Issues Encountered:
+- Parallax effect broken: Was translating based on total page scroll instead of relative to each section's viewport position
+- CSS specificity: `.nav-links a:last-child { border-bottom: none }` was overriding `.nav-cta` border styles
+
+### Learnings:
+- File named "mike.jpg" is actually Mike Leahy's photo, not Janet's
+- Parallax effects must calculate relative to each section's viewport position, not total page scroll
+- CSS specificity matters: pseudo-selectors like :last-child add specificity
+- All mockups now feature-complete with video, timeline, newsletter, proper team images
+
+### Stopping Point:
+All 3 mockups fully functional and deployed. Ready for client review.
+
+### Next Session:
+- Get client feedback on which mockup direction to pursue
+- Apply chosen design to final production site
+- Consider adding actual form handling for newsletter signup
+
+---
+## ✅ COMPLETED: CLAUDE-cunninghamsistersproductions-20260114-195156
+**Date:** 2026-01-14
+**Goal:** Study A24 and rebuild mockup with proper design
+**Status:** Completed
+
+### Accomplished:
+- Deep analyzed a24films.com (films, homepage, TV pages)
+- Created A24_DESIGN_STUDY.md with complete design system
+- Scraped all CSP content from Squarespace site
+- Created CSP_CONTENT_DATA.md with all text, images, team info
+- Created BRAND_FUSION_PLAN.md for merging CSP + A24 aesthetics
+- Built complete A24-style mockup (mockup-a24-v2/)
+- Downloaded and optimized all production images
+- Deployed to Cloudflare Pages
 
 ### Key Discovery:
-**Previous assumption was WRONG** - A24 uses WHITE background, not black!
+**A24 uses WHITE background, not black!** Both previous attempts were wrong.
+
+### Design Implemented:
+- White background, minimal chrome
+- Image-forward 16:9 hero
+- Clean sans-serif typography (Inter)
+- Generous whitespace (60-80px sections)
+- Single-page scroll layout for single-film focus
+- Funding CTA integrated tastefully
+- Mobile responsive
+
+### Live URL:
+https://csp-mockup-a24.pages.dev
 
 ---
 ## ✅ COMPLETED: CLAUDE-cunninghamsistersproductions-20260114-223045
@@ -43,12 +92,6 @@ Study A24 Films website to understand their design system
 ### Stopping Point:
 A24 mockup folder wiped clean. Ready to rebuild from scratch with proper A24 style study.
 
-### Next Session:
-- Deep study of A24 Films website (a24films.com) - exact layout, typography, spacing
-- Build A24 mockup from scratch matching their actual aesthetic
-- Fix Editorial and Cinematic mockups
-- All mockups need: working buttons, proper mobile nav, smooth scroll
-
 ---
 
 ## ✅ COMPLETED: CSP-2026-01-14-001
@@ -75,28 +118,19 @@ A24 mockup folder wiped clean. Ready to rebuild from scratch with proper A24 sty
 - Reference sites share: white space, image-centric, gallery-like layouts
 - Current project "Resilience" is in post-production, 59% funded ($89k of $150k)
 
-### Stopping Point:
-All 3 mockups complete. User was about to restart session to fix Cloudflare MCP auth for deploying to temp domains.
-
-### Next Session:
-- Initialize git repo
-- Push to GitHub
-- Deploy each mockup to Cloudflare Pages on temp domains
-- Get client feedback on which direction to pursue
-
 ---
 
 ## Live URLs:
-1. **A24 Clone**: https://csp-mockup-a24.pages.dev (NEEDS REBUILD)
-2. **Editorial**: https://csp-mockup-editorial.pages.dev
-3. **Cinematic**: https://csp-mockup-cinematic.pages.dev
+1. **A24 Style (v2)**: https://csp-mockup-a24.pages.dev ✅ REBUILT
+2. **Editorial**: https://csp-mockup-editorial.pages.dev ✅ FIXED
+3. **Cinematic**: https://csp-mockup-cinematic.pages.dev ✅ FIXED
 4. **FINAL SITE**: https://csp-final.pages.dev
 
 ## Key Project Info:
 - **Client**: Kenna Cunningham, Madi Grace Cunningham
 - **Film**: Resilience - non-profit narrative feature about troubled teen treatment programs
 - **Funding**: 59% of $150k ($89,111 raised)
-- **GoFundMe**: https://gofund.me/d00b9830
+- **GoFundMe**: https://gofund.me/d00b98309
 - **Instagram**: @thecunninghamsisters
 - **Email**: filmresilience@gmail.com
 - **Vimeo**: vimeo.com/1115004786
