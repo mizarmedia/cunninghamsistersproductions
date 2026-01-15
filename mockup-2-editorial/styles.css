@@ -624,50 +624,6 @@ img {
     margin: 0 auto;
 }
 
-.advisors {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid var(--color-gray-800);
-}
-
-.advisors-title {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-gray-600);
-    margin-bottom: 24px;
-}
-
-.advisors-list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.advisor {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.advisor img {
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.advisor strong {
-    display: block;
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.advisor span {
-    font-size: 13px;
-    color: var(--color-gray-400);
-}
 
 /* CTA Section - Mobile First */
 .cta-section {
@@ -968,11 +924,6 @@ img {
         width: 120px;
         flex-shrink: 0;
         margin: 0;
-    }
-
-    .advisors-list {
-        flex-direction: row;
-        gap: 48px;
     }
 
     .cta-section {
