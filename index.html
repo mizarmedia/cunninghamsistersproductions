@@ -346,61 +346,74 @@
         </div>
     </section>
 
-    <!-- Funding CTA -->
-    <section class="funding">
-        <div class="funding-content">
-            <h2>Help Us Cross the Finish Line</h2>
-            <p>We're in the final phase of post-production. Your support brings this story to the world.</p>
-
-            <div class="funding-progress">
-                <div class="progress-numbers">
-                    <span class="current">$89,111</span>
-                    <span class="goal">$150,000</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <span class="progress-percent">59% Funded</span>
+    <!-- CTA Hub - Newsletter, Donate, Instagram -->
+    <section class="cta-hub">
+        <div class="cta-grid">
+            <!-- Newsletter Card -->
+            <div class="cta-card cta-newsletter">
+                <span class="overline">Stay Updated</span>
+                <h3>Join the Movement</h3>
+                <p>Be the first to know about screenings, releases, and ways to help.</p>
+                <!-- Mailchimp Form - Replace action URL with your Mailchimp form action -->
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" name="EMAIL" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
             </div>
 
-            <a href="https://gofund.me/d00b98309" target="_blank" class="btn-donate">
-                <span>Support the Film</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+            <!-- Donate Card -->
+            <div class="cta-card cta-donate">
+                <span class="overline">Support the Film</span>
+                <h3>Help Us Finish</h3>
+                <p>We're in the final phase of post-production.</p>
+                <div class="funding-progress">
+                    <div class="progress-numbers">
+                        <span class="current">$89,111</span>
+                        <span class="goal">$150,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-percent">59% Funded</span>
+                </div>
+                <a href="https://gofund.me/d00b98309" target="_blank" class="btn-donate">
+                    <span>Donate Now</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Instagram Card -->
+            <div class="cta-card cta-instagram">
+                <span class="overline">Follow Our Journey</span>
+                <h3>@thecunninghamsisters</h3>
+                <p>Behind the scenes, updates, and more.</p>
+                <!-- Behold.so Instagram Embed - Replace with your embed code from behold.so -->
+                <div class="instagram-embed-placeholder">
+                    <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" class="instagram-link">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        <span>View on Instagram</span>
+                    </a>
+                    <p class="embed-note">Instagram feed coming soon</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="cta-contact">
+            <a href="mailto:filmresilience@gmail.com" class="contact-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
                 </svg>
+                filmresilience@gmail.com
             </a>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="newsletter-content">
-            <span class="overline">Stay Updated</span>
-            <h2>Join the Movement</h2>
-            <p>Be the first to know about screenings, releases, and ways to help.</p>
-            <form class="newsletter-form" action="#" method="post">
-                <input type="email" name="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="newsletter-privacy">We respect your privacy.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="contact-content">
-            <h3>Stay Connected</h3>
-            <p>Follow our journey and be first to know about screenings.</p>
-            <div class="contact-links">
-                <a href="mailto:filmresilience@gmail.com" class="contact-item">
-                    <span class="contact-label">Email</span>
-                    <span class="contact-value">filmresilience@gmail.com</span>
-                </a>
-                <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" class="contact-item">
-                    <span class="contact-label">Instagram</span>
-                    <span class="contact-value">@thecunninghamsisters</span>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -408,7 +421,8 @@
     <footer class="footer">
         <div class="footer-content">
             <span class="footer-logo">CUNNINGHAM SISTERS PRODUCTIONS</span>
-            <p>&copy; 2026 All Rights Reserved</p>
+            <p class="footer-copyright">&copy; 2026 All Rights Reserved</p>
+            <p class="footer-credit">Designed by <a href="https://alohamediastudio.com" target="_blank">Aloha Media Studio</a></p>
         </div>
     </footer>
 

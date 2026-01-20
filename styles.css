@@ -1176,60 +1176,75 @@ img {
     }
 }
 
-/* Newsletter Section - Mobile First */
-.newsletter-section {
+/* ============================================
+   CTA HUB - Newsletter, Donate, Instagram
+   ============================================ */
+.cta-hub {
     padding: 80px 20px;
     background: var(--color-gray-900);
 }
 
-.newsletter-content {
-    max-width: 500px;
-    margin: 0 auto;
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto 48px;
+}
+
+.cta-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(201, 169, 98, 0.15);
+    border-radius: 4px;
+    padding: 32px 24px;
     text-align: center;
 }
 
-.newsletter-content h2 {
+.cta-card h3 {
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     margin-bottom: 12px;
 }
 
-.newsletter-content > p {
+.cta-card > p {
     font-size: 14px;
     color: var(--color-gray-400);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    line-height: 1.6;
 }
 
-.newsletter-form {
+/* Newsletter Form in CTA Card */
+.cta-card .newsletter-form {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 16px;
 }
 
-.newsletter-form input {
-    padding: 16px 20px;
+.cta-card .newsletter-form input {
+    padding: 14px 16px;
     font-size: 14px;
     font-family: var(--font-body);
     background: var(--color-gray-800);
     border: 1px solid var(--color-gray-800);
     color: var(--color-white);
     min-height: 48px;
+    border-radius: 2px;
 }
 
-.newsletter-form input::placeholder {
+.cta-card .newsletter-form input::placeholder {
     color: var(--color-gray-600);
 }
 
-.newsletter-form input:focus {
+.cta-card .newsletter-form input:focus {
     outline: none;
     border-color: var(--color-gold);
 }
 
-.newsletter-form button {
-    padding: 16px 32px;
-    font-size: 12px;
+.cta-card .newsletter-form button {
+    padding: 14px 24px;
+    font-size: 11px;
     font-weight: 600;
     font-family: var(--font-body);
     letter-spacing: 0.15em;
@@ -1239,6 +1254,13 @@ img {
     border: none;
     cursor: pointer;
     min-height: 48px;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.cta-card .newsletter-form button:hover {
+    background: var(--color-gold-dark);
+    transform: translateY(-1px);
 }
 
 .newsletter-privacy {
@@ -1246,33 +1268,9 @@ img {
     color: var(--color-gray-600);
 }
 
-/* Funding Section - Mobile First */
-.funding {
-    padding: 80px 20px;
-    background: var(--color-black);
-}
-
-.funding-content {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.funding-content h2 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 12px;
-}
-
-.funding-content > p {
-    font-size: 15px;
-    color: var(--color-gray-400);
-    margin-bottom: 48px;
-}
-
-.funding-progress {
-    margin-bottom: 40px;
+/* Funding Progress in CTA Card */
+.cta-card .funding-progress {
+    margin-bottom: 24px;
 }
 
 .progress-numbers {
@@ -1282,13 +1280,13 @@ img {
 }
 
 .progress-numbers .current {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 300;
     color: var(--color-gold);
 }
 
 .progress-numbers .goal {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--color-gray-600);
     align-self: flex-end;
 }
@@ -1298,6 +1296,7 @@ img {
     background: var(--color-gray-800);
     margin-bottom: 10px;
     overflow: visible;
+    border-radius: 2px;
 }
 
 .progress-fill {
@@ -1315,6 +1314,7 @@ img {
     background-position: -30% 0, 0 0;
     background-repeat: no-repeat;
     position: relative;
+    border-radius: 2px;
     animation: progress-pulse 2.5s ease-in-out infinite;
 }
 
@@ -1332,13 +1332,14 @@ img {
     color: var(--color-gray-600);
 }
 
+/* Donate Button */
 .btn-donate {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 18px 40px;
-    font-size: 12px;
+    padding: 16px 32px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1346,8 +1347,9 @@ img {
     color: var(--color-black);
     min-height: 48px;
     width: 100%;
-    max-width: 300px;
+    max-width: 240px;
     white-space: nowrap;
+    border-radius: 2px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1364,56 +1366,75 @@ img {
     transform: translateX(4px);
 }
 
-/* Contact Section - Mobile First */
-.contact {
-    padding: 80px 20px;
-    background: var(--color-gray-900);
-}
-
-.contact-content {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-content h3 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 12px;
-}
-
-.contact-content > p {
-    font-size: 14px;
-    color: var(--color-gray-400);
-    margin-bottom: 40px;
-}
-
-.contact-links {
+/* Instagram Embed Placeholder */
+.instagram-embed-placeholder {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed rgba(201, 169, 98, 0.3);
+    border-radius: 4px;
 }
 
-.contact-item {
+.instagram-link {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 12px;
-    min-height: 48px;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-gold);
+    transition: color 0.2s, transform 0.2s;
 }
 
-.contact-label {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-gray-600);
-}
-
-.contact-value {
-    font-size: 15px;
+.instagram-link:hover {
     color: var(--color-white);
+    transform: scale(1.05);
+}
+
+.instagram-link svg {
+    opacity: 0.8;
+}
+
+.instagram-link span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.embed-note {
+    font-size: 11px;
+    color: var(--color-gray-600);
+    font-style: italic;
+}
+
+/* CTA Contact Row */
+.cta-contact {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(201, 169, 98, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-gray-400);
+    font-size: 14px;
+    padding: 12px;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: var(--color-gold);
+}
+
+.contact-link svg {
+    opacity: 0.7;
 }
 
 /* Footer - Mobile First */
@@ -1426,7 +1447,7 @@ img {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -1439,9 +1460,23 @@ img {
     color: var(--color-gray-600);
 }
 
-.footer-content p {
+.footer-copyright {
     font-size: 11px;
     color: var(--color-gray-600);
+}
+
+.footer-credit {
+    font-size: 10px;
+    color: var(--color-gray-600);
+}
+
+.footer-credit a {
+    color: var(--color-gray-400);
+    transition: color 0.2s;
+}
+
+.footer-credit a:hover {
+    color: var(--color-gold);
 }
 
 /* ============================================
@@ -1711,68 +1746,40 @@ img {
         font-size: 14px;
     }
 
-    .newsletter-section {
-        padding: 120px 48px;
+    /* CTA Hub - Tablet 3-column grid */
+    .cta-hub {
+        padding: 100px 48px;
     }
 
-    .newsletter-content h2 {
-        font-size: 32px;
+    .cta-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 
-    .newsletter-form {
-        flex-direction: row;
-        max-width: 480px;
-        margin: 0 auto 16px;
+    .cta-card {
+        padding: 40px 28px;
     }
 
-    .newsletter-form input {
-        flex: 1;
+    .cta-card h3 {
+        font-size: 22px;
     }
 
-    .funding {
-        padding: 160px 48px;
-    }
-
-    .funding-content h2 {
-        font-size: clamp(32px, 4vw, 48px);
-    }
-
-    .funding-content > p {
-        font-size: 16px;
-        margin-bottom: 64px;
+    .cta-card .newsletter-form {
+        flex-direction: column;
     }
 
     .progress-numbers .current {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .btn-donate {
-        width: auto;
-        padding: 20px 48px;
-        font-size: 13px;
+        padding: 14px 28px;
+        font-size: 10px;
+        max-width: 200px;
     }
 
-    .contact {
-        padding: 120px 48px;
-    }
-
-    .contact-content h3 {
-        font-size: 32px;
-    }
-
-    .contact-links {
-        flex-direction: row;
-        justify-content: center;
-        gap: 64px;
-    }
-
-    .contact-item {
-        padding: 0;
-        min-height: auto;
-    }
-
-    .contact-value {
-        font-size: 16px;
+    .instagram-embed-placeholder {
+        padding: 40px 20px;
     }
 
     .footer {
@@ -1784,14 +1791,16 @@ img {
         justify-content: space-between;
         align-items: center;
         text-align: left;
+        gap: 24px;
     }
 
     .footer-logo {
         font-size: 11px;
     }
 
-    .footer-content p {
-        font-size: 12px;
+    .footer-copyright,
+    .footer-credit {
+        font-size: 11px;
     }
 }
 
@@ -1808,6 +1817,33 @@ img {
     .team-grid {
         grid-template-columns: repeat(4, 1fr);
         max-width: 1200px;
+    }
+
+    /* CTA Hub - Desktop refinements */
+    .cta-hub {
+        padding: 120px 48px;
+    }
+
+    .cta-grid {
+        gap: 32px;
+    }
+
+    .cta-card {
+        padding: 48px 32px;
+    }
+
+    .cta-card h3 {
+        font-size: 26px;
+    }
+
+    .progress-numbers .current {
+        font-size: 32px;
+    }
+
+    .btn-donate {
+        padding: 16px 32px;
+        font-size: 11px;
+        max-width: 220px;
     }
 }
 
