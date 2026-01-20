@@ -1304,6 +1304,19 @@ img {
     width: 59%;
     height: 100%;
     background: linear-gradient(to right, var(--color-gold-dark), var(--color-gold));
+    position: relative;
+    animation: progress-pulse 2s ease-in-out infinite;
+}
+
+@keyframes progress-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(201, 169, 98, 0.4);
+        filter: brightness(1);
+    }
+    50% {
+        box-shadow: 0 0 8px 2px rgba(201, 169, 98, 0.6);
+        filter: brightness(1.15);
+    }
 }
 
 .progress-percent {
@@ -1326,6 +1339,7 @@ img {
     min-height: 48px;
     width: 100%;
     max-width: 300px;
+    white-space: nowrap;
 }
 
 /* Contact Section - Mobile First */
