@@ -1305,17 +1305,18 @@ img {
     height: 100%;
     background: linear-gradient(to right, var(--color-gold-dark), var(--color-gold));
     position: relative;
-    animation: progress-pulse 2s ease-in-out infinite;
+    transform-origin: left center;
+    animation: progress-pulse 2.5s ease-in-out infinite;
 }
 
 @keyframes progress-pulse {
     0%, 100% {
-        box-shadow: 4px 0 8px rgba(201, 169, 98, 0.2);
+        transform: scaleX(1);
         filter: brightness(1);
     }
     50% {
-        box-shadow: 6px 0 12px rgba(201, 169, 98, 0.4);
-        filter: brightness(1.1);
+        transform: scaleX(1.008);
+        filter: brightness(1.08);
     }
 }
 
