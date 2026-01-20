@@ -1480,6 +1480,64 @@ img {
 }
 
 /* ============================================
+   MOBILE VIEWPORT FIXES
+   Ensure sections fit within ~667px viewport
+   ============================================ */
+@media (max-width: 767px) {
+    /* Team Spotlight - reduce image height & spacing */
+    .spotlight-image {
+        aspect-ratio: 3/4;
+        max-width: 280px;
+    }
+
+    .team-spotlight {
+        gap: 32px;
+        margin-bottom: 48px;
+    }
+
+    /* Team Cards - tighten card body */
+    .team-card-body {
+        min-height: 120px;
+        padding: 16px;
+    }
+
+    /* Impact Section - reduce padding */
+    .impact {
+        padding: 60px 20px;
+    }
+
+    .impact-split {
+        padding: 24px;
+    }
+
+    .impact-model {
+        gap: 16px;
+    }
+
+    /* CTA Hub - reduce card heights */
+    .cta-hub {
+        padding: 48px 20px;
+    }
+
+    .cta-grid {
+        gap: 20px;
+    }
+
+    .cta-card {
+        padding: 24px 20px;
+    }
+
+    .cta-card h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .cta-card > p {
+        margin-bottom: 16px;
+    }
+}
+
+/* ============================================
    TABLET AND UP (min-width: 768px)
    ============================================ */
 @media (min-width: 768px) {
