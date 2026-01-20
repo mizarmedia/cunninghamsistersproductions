@@ -1310,12 +1310,12 @@ img {
 
 @keyframes progress-pulse {
     0%, 100% {
-        box-shadow: 0 0 4px 1px rgba(201, 169, 98, 0.3);
+        box-shadow: 4px 0 8px rgba(201, 169, 98, 0.2);
         filter: brightness(1);
     }
     50% {
-        box-shadow: 0 0 12px 4px rgba(201, 169, 98, 0.7);
-        filter: brightness(1.25);
+        box-shadow: 6px 0 12px rgba(201, 169, 98, 0.4);
+        filter: brightness(1.1);
     }
 }
 
