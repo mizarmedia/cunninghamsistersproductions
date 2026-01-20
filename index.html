@@ -173,6 +173,7 @@
             </div>
             <div class="spotlight-content">
                 <h3>Kenna Cunningham</h3>
+                <a href="https://www.imdb.com/name/nm12095838/" target="_blank" class="imdb-link">IMDB</a>
                 <span class="role">Director / Producer</span>
                 <p>Kenna began her journey at age 16 through The Film Institute apprenticeship, progressing to first assistant directing and line producing. With credits spanning Netflix, Apple TV, Amazon Prime, and National Geographic, Resilience marks her powerful directorial debut.</p>
             </div>
@@ -184,6 +185,7 @@
             </div>
             <div class="spotlight-content">
                 <h3>Madi Grace Cunningham</h3>
+                <a href="https://www.imdb.com/name/nm2420805/" target="_blank" class="imdb-link">IMDB</a>
                 <span class="role">Writer / Actor / Producer</span>
                 <p>From acting in ABC's Kevin Costner presents: The First Christmas, to assistant writing in a Fox series (to be released in 2026), Madi Grace has a range of both on and off screen experience in the industry that infuses Resilience with authentic emotional power.</p>
             </div>
@@ -195,24 +197,40 @@
                 <h4>David Cunningham</h4>
                 <span>Producer</span>
                 <p>20+ years with Fox, Disney, ABC. Founded Global Virtual Studios.</p>
+                <div class="team-card-links">
+                    <a href="https://www.imdb.com/name/nm0192289/" target="_blank" class="imdb-link">IMDB</a>
+                    <button class="learn-more-btn" data-person="david">Learn More</button>
+                </div>
             </div>
             <div class="team-card">
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/333a0bdb-d486-4781-8c58-f846a33c10c4/mike.jpg" alt="Mike Leahy">
                 <h4>Mike Leahy</h4>
                 <span>Producer</span>
                 <p>Co-founder NEO Art & Logic. 30+ feature films.</p>
+                <div class="team-card-links">
+                    <a href="https://www.imdb.com/name/nm0494999/" target="_blank" class="imdb-link">IMDB</a>
+                    <button class="learn-more-btn" data-person="mike">Learn More</button>
+                </div>
             </div>
             <div class="team-card">
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/3f05b433-e252-4901-a347-39fd68bea38b/40ba43ae-0570-4c86-ab4b-bd982629724c.png" alt="Janet Batchler">
                 <h4>Janet Batchler</h4>
                 <span>Advisor</span>
                 <p>Writer, Batman Forever. USC Professor.</p>
+                <div class="team-card-links">
+                    <a href="https://www.imdb.com/name/nm0060761/" target="_blank" class="imdb-link">IMDB</a>
+                    <button class="learn-more-btn" data-person="janet">Learn More</button>
+                </div>
             </div>
             <div class="team-card">
                 <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/93e1df87-14dc-4720-a73f-49285095786c/Batman_Forever_-_Lee_Batchler+%281%29.webp" alt="Lee Batchler">
                 <h4>Lee Batchler</h4>
                 <span>Advisor</span>
                 <p>Writer, Batman Forever & Pompeii.</p>
+                <div class="team-card-links">
+                    <a href="https://www.imdb.com/name/nm0060760/" target="_blank" class="imdb-link">IMDB</a>
+                    <button class="learn-more-btn" data-person="lee">Learn More</button>
+                </div>
             </div>
         </div>
     </section>
@@ -358,6 +376,18 @@
             <p>&copy; 2026 All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- Bio Modal -->
+    <div class="bio-modal" id="bioModal">
+        <div class="bio-modal-backdrop"></div>
+        <div class="bio-modal-content">
+            <button class="bio-modal-close" aria-label="Close">&times;</button>
+            <h3 class="bio-modal-name"></h3>
+            <span class="bio-modal-role"></span>
+            <p class="bio-modal-text"></p>
+            <a class="bio-modal-imdb" href="#" target="_blank">View on IMDB</a>
+        </div>
+    </div>
 
     <!-- Theater Mode Exit Hint -->
     <div class="theater-exit-hint">Scroll to exit theater mode</div>
@@ -653,6 +683,75 @@
 
         // Initialize Vimeo player on page load
         document.addEventListener('DOMContentLoaded', initVimeoPlayer);
+
+        // ============================================
+        // Bio Modal for Team Members
+        // ============================================
+        const bioData = {
+            david: {
+                name: 'David Cunningham',
+                role: 'Producer',
+                bio: 'Filmmaker with over 20 years of experience who has directed major productions for Fox, Disney, and ABC, plus independent features across 50+ countries. He founded multiple creative companies including Global Virtual Studios and focuses on media campaigns addressing indigenous rights, human trafficking, and orphans with special needs.',
+                imdb: 'https://www.imdb.com/name/nm0192289/'
+            },
+            mike: {
+                name: 'Mike Leahy',
+                role: 'Producer',
+                bio: 'Co-founding producer of NEO Art & Logic, a production company serving studios and distributors like Miramax and Disney. NEO produced 30 feature films including 5 franchises featuring actors like Viggo Mortensen and Christopher Walken. Since leaving NEO, he has produced eight additional feature films across various genres.',
+                imdb: 'https://www.imdb.com/name/nm0494999/'
+            },
+            janet: {
+                name: 'Janet Batchler',
+                role: 'Advisor',
+                bio: 'Co-writer (with Lee Batchler) of Batman Forever, Smoke and Mirrors, and Pompeii. She serves as associate professor at USC\'s School of Cinematic Arts teaching screenwriting. Recent projects include Jack and Dick and Midnight Ride (for Disney). The Batchlers were executive producers on Running For Grace through Hawaii\'s Film Accelerator Program.',
+                imdb: 'https://www.imdb.com/name/nm0060761/'
+            },
+            lee: {
+                name: 'Lee Batchler',
+                role: 'Advisor',
+                bio: 'Screenwriter whose credits include Batman Forever, Smoke and Mirrors, and Pompeii, among many other projects. Recent works are Jack and Dick and Midnight Ride (Disney/Johnny Depp). Served as executive producer and advisor on Running For Grace through Hawaii\'s Film Accelerator Program.',
+                imdb: 'https://www.imdb.com/name/nm0060760/'
+            }
+        };
+
+        // Modal elements
+        const bioModal = document.getElementById('bioModal');
+        const modalName = bioModal.querySelector('.bio-modal-name');
+        const modalRole = bioModal.querySelector('.bio-modal-role');
+        const modalText = bioModal.querySelector('.bio-modal-text');
+        const modalImdb = bioModal.querySelector('.bio-modal-imdb');
+        const modalClose = bioModal.querySelector('.bio-modal-close');
+        const modalBackdrop = bioModal.querySelector('.bio-modal-backdrop');
+
+        // Open modal
+        document.querySelectorAll('.learn-more-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const person = btn.dataset.person;
+                const data = bioData[person];
+                if (data) {
+                    modalName.textContent = data.name;
+                    modalRole.textContent = data.role;
+                    modalText.textContent = data.bio;
+                    modalImdb.href = data.imdb;
+                    bioModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeBioModal() {
+            bioModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeBioModal);
+        modalBackdrop.addEventListener('click', closeBioModal);
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && bioModal.classList.contains('active')) {
+                closeBioModal();
+            }
+        });
     </script>
 </body>
 </html>

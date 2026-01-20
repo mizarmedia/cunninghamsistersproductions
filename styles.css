@@ -492,6 +492,148 @@ img {
     line-height: 1.6;
 }
 
+/* Team card links */
+.team-card-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.imdb-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgba(201, 169, 98, 0.5);
+    transition: all 0.3s;
+}
+
+.imdb-link:hover {
+    background: var(--color-gold);
+    color: #000;
+}
+
+.learn-more-btn {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-body);
+}
+
+.learn-more-btn:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* Spotlight IMDB link positioning */
+.spotlight-content .imdb-link {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Bio Modal */
+.bio-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.bio-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bio-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.bio-modal-content {
+    position: relative;
+    max-width: 500px;
+    margin: 20px;
+    padding: 40px;
+    background: #111;
+    border: 1px solid var(--color-gold);
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+
+.bio-modal.active .bio-modal-content {
+    transform: translateY(0);
+}
+
+.bio-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-gold);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+}
+
+.bio-modal-close:hover {
+    color: var(--color-white);
+}
+
+.bio-modal-name {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    margin-bottom: 5px;
+}
+
+.bio-modal-role {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+}
+
+.bio-modal-text {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.bio-modal-imdb {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    transition: background 0.3s, color 0.3s;
+}
+
+.bio-modal-imdb:hover {
+    background: var(--color-gold);
+    color: #000;
+}
+
 /* Video Section - Mobile First */
 .video-section {
     padding: 80px 20px;
