@@ -734,6 +734,56 @@ img {
     border-color: var(--color-gold);
 }
 
+/* Mobile modal optimizations - fit image + bio without scrolling */
+@media (max-width: 480px) {
+    .team-modal-content {
+        max-height: 90vh;
+    }
+
+    .team-modal-photo {
+        aspect-ratio: 4/3;
+    }
+
+    .team-modal-body {
+        padding: 16px;
+    }
+
+    .team-modal-body h4 {
+        font-size: 18px;
+    }
+
+    .team-modal-bio {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .team-modal-imdb {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+}
+
+/* Very small screens - even more compact */
+@media (max-width: 380px) {
+    .team-modal-photo {
+        aspect-ratio: 16/9;
+    }
+
+    .team-modal-body {
+        padding: 12px;
+    }
+
+    .team-modal-role {
+        margin-bottom: 12px;
+    }
+
+    .team-modal-bio {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+}
+
 /* Video Section - Mobile First */
 .video-section {
     padding: 80px 20px;
