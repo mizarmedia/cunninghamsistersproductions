@@ -792,22 +792,39 @@
                 });
             });
 
-            // Section-wide mouse tracking - each box reacts to mouse relative to itself
+            // Each box has unique movement personality
+            const boxSettings = [
+                { xMult: 0.06, yMult: 0.025, xOffset: 0, yOffset: 0 },   // Box 1: more horizontal
+                { xMult: 0.03, yMult: 0.05, xOffset: 0, yOffset: 0 }    // Box 2: more vertical
+            ];
+
+            // Section-wide mouse tracking - each box reacts uniquely
             impactSection.addEventListener('mousemove', (e) => {
-                impactBoxes.forEach(box => {
-                    if (hoveredBoxes.has(box)) return; // Skip hovered boxes
+                const sectionRect = impactSection.getBoundingClientRect();
+                const mouseX = e.clientX - sectionRect.left;
+                const mouseY = e.clientY - sectionRect.top;
 
-                    const rect = box.getBoundingClientRect();
-                    const boxCenterX = rect.left + rect.width / 2;
-                    const boxCenterY = rect.top + rect.height / 2;
+                impactBoxes.forEach((box, index) => {
+                    if (hoveredBoxes.has(box)) return;
 
-                    // How far is mouse from this box's center
-                    const distX = e.clientX - boxCenterX;
-                    const distY = e.clientY - boxCenterY;
+                    const settings = boxSettings[index];
 
-                    // Normalize and apply movement (box shifts toward mouse)
-                    const x = (distX / 200) * 10;
-                    const y = (distY / 200) * 6;
+                    // Each box responds to different aspects of mouse position
+                    let x, y;
+                    if (index === 0) {
+                        // Left box: follows mouse X more, subtle Y
+                        x = (mouseX - sectionRect.width * 0.3) * settings.xMult;
+                        y = (mouseY - sectionRect.height * 0.5) * settings.yMult;
+                    } else {
+                        // Right box: follows mouse Y more, inverted X for variety
+                        x = (sectionRect.width * 0.7 - mouseX) * settings.xMult;
+                        y = (mouseY - sectionRect.height * 0.4) * settings.yMult;
+                    }
+
+                    // Clamp to reasonable range
+                    x = Math.max(-15, Math.min(15, x));
+                    y = Math.max(-10, Math.min(10, y));
+
                     box.style.transform = `translate(${x}px, ${y}px)`;
                 });
             });
