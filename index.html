@@ -483,6 +483,9 @@
             if (theaterMode || theaterCooldown) return;
             theaterMode = true;
             scrollLocked = true;
+
+            // Hard lock: prevent ALL scrolling on body
+            document.body.style.overflow = 'hidden';
             document.body.classList.add('theater-mode');
 
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -499,13 +502,21 @@
                 vimeoPlayer.play();
             }
 
-            setTimeout(() => { scrollAccumulator = 0; }, 600);
+            // Wait for animation to complete before allowing escape attempts
+            scrollAccumulator = 0;
+            setTimeout(() => {
+                scrollAccumulator = 0;
+                scrollLocked = false; // Now allow escape attempts
+            }, 1000);
         }
 
         function exitTheaterMode() {
             theaterMode = false;
             scrollLocked = false;
             scrollAccumulator = 0;
+
+            // Restore scrolling
+            document.body.style.overflow = '';
             document.body.classList.remove('theater-mode');
 
             // Hide unmute hint and controls
@@ -589,13 +600,18 @@
         window.addEventListener('wheel', (e) => {
             if (!theaterMode) return;
 
+            // During lock period, block everything
+            if (scrollLocked) {
+                e.preventDefault();
+                return;
+            }
+
             scrollAccumulator += Math.abs(e.deltaY);
 
             if (scrollAccumulator > ESCAPE_THRESHOLD) {
                 exitTheaterMode();
-                // Allow natural scroll to continue
             } else {
-                e.preventDefault(); // Lock scroll until threshold
+                e.preventDefault();
             }
         }, { passive: false });
 
@@ -607,6 +623,12 @@
 
         window.addEventListener('touchmove', (e) => {
             if (!theaterMode) return;
+
+            // During lock period, block everything
+            if (scrollLocked) {
+                e.preventDefault();
+                return;
+            }
 
             const touchDelta = Math.abs(e.touches[0].clientY - touchStartY);
             scrollAccumulator += touchDelta * 0.5;
