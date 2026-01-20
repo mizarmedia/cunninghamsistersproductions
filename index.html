@@ -772,36 +772,55 @@
         });
 
         // ============================================
-        // Impact Section - Individual Floating Effect
+        // Impact Section - Floating Effect
         // ============================================
+        const impactSection = document.querySelector('.impact');
         const impactBoxes = document.querySelectorAll('.impact-split');
+        const hoveredBoxes = new Set();
 
         // Only enable on non-touch devices
         if (window.matchMedia('(hover: hover)').matches) {
+            // Track which boxes are being directly hovered
             impactBoxes.forEach(box => {
                 box.addEventListener('mouseenter', () => {
+                    hoveredBoxes.add(box);
                     box.style.transform = 'scale(1.03)';
                 });
 
-                box.addEventListener('mousemove', (e) => {
-                    const rect = box.getBoundingClientRect();
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const mouseX = e.clientX - rect.left;
-                    const mouseY = e.clientY - rect.top;
-
-                    // Calculate offset from center (-1 to 1)
-                    const offsetX = (mouseX - centerX) / centerX;
-                    const offsetY = (mouseY - centerY) / centerY;
-
-                    // Combine scale + translate for floating effect
-                    const x = offsetX * 12;
-                    const y = offsetY * 8;
-                    box.style.transform = `scale(1.03) translate(${x}px, ${y}px)`;
-                });
-
                 box.addEventListener('mouseleave', () => {
-                    box.style.transform = '';
+                    hoveredBoxes.delete(box);
+                });
+            });
+
+            // Section-wide mouse tracking - moves boxes that aren't being hovered
+            impactSection.addEventListener('mousemove', (e) => {
+                const rect = impactSection.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate offset from center (-1 to 1)
+                const offsetX = (mouseX - centerX) / centerX;
+                const offsetY = (mouseY - centerY) / centerY;
+
+                // Move boxes that aren't directly hovered
+                impactBoxes.forEach((box, index) => {
+                    if (hoveredBoxes.has(box)) return; // Skip hovered boxes
+
+                    const direction = index === 0 ? 1 : -1;
+                    const x = offsetX * 10 * direction;
+                    const y = offsetY * 6;
+                    box.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // Reset when leaving section
+            impactSection.addEventListener('mouseleave', () => {
+                impactBoxes.forEach(box => {
+                    if (!hoveredBoxes.has(box)) {
+                        box.style.transform = '';
+                    }
                 });
             });
         }
