@@ -15,14 +15,13 @@ Marketing website for "Resilience" - a film by The Cunningham Sisters Production
 ## Project Structure
 ```
 cunninghamsistersproductions/
-├── mockup-3-cinematic/     # APPROVED DESIGN (use this)
-│   ├── index.html          # Main page with all sections
-│   └── styles.css          # Mobile-first responsive CSS
-├── mockup-1-dark/          # Archived - not used
-└── mockup-2-editorial/     # Archived - not used
+├── index.html              # Main page with all sections
+├── styles.css              # Mobile-first responsive CSS
+├── CLAUDE.md               # This file
+└── *.md                    # Design docs and references
 ```
 
-## Current Design: Cinematic (mockup-3)
+## Design: Cinematic
 Dark, cinematic aesthetic with gold accents. Features:
 - Mobile-first responsive design
 - Parallax scrolling effects
