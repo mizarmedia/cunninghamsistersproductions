@@ -1494,21 +1494,36 @@ body.theater-mode .team {
     transition: opacity 0.8s ease;
 }
 
+/* Prevent touch scroll during theater mode */
+body.theater-mode {
+    touch-action: none;
+    -webkit-overflow-scrolling: auto;
+}
+
+body.theater-mode .video-section {
+    touch-action: pan-x pinch-zoom; /* Allow horizontal pan and pinch but not vertical scroll */
+}
+
 /* Mobile theater mode - less aggressive zoom */
 @media (max-width: 767px) {
     body.theater-mode .video-wrapper {
-        transform: scale(1.05);
+        transform: scale(1.02); /* Even smaller on mobile - screens are tiny */
     }
 
     .video-wrapper {
-        transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
     .unmute-hint {
-        bottom: 12px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .unmute-hint svg {
+        width: 24px;
+        height: 24px;
     }
 
     .video-controls {
@@ -1517,13 +1532,18 @@ body.theater-mode .team {
     }
 
     .video-btn {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
     }
 
     .video-time {
         font-size: 11px;
         min-width: 36px;
+    }
+
+    /* Larger touch targets on mobile */
+    .video-progress {
+        height: 8px;
     }
 }
 

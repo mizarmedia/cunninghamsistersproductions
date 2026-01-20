@@ -110,9 +110,11 @@
             <div class="video-wrapper">
                 <div class="video-container">
                     <iframe
-                        src="https://player.vimeo.com/video/1115004786?background=1&dnt=1"
+                        src="https://player.vimeo.com/video/1115004786?background=1&dnt=1&playsinline=1"
                         allow="autoplay; fullscreen; picture-in-picture"
-                        allowfullscreen>
+                        allowfullscreen
+                        playsinline
+                        webkit-playsinline>
                     </iframe>
                 </div>
                 <!-- Small Unmute Button -->
@@ -484,7 +486,8 @@
             theaterMode = true;
             scrollLocked = true;
 
-            // Hard lock: prevent ALL scrolling on body
+            // Hard lock: prevent ALL scrolling (iOS needs both html and body)
+            document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
             document.body.classList.add('theater-mode');
 
@@ -515,7 +518,8 @@
             scrollLocked = false;
             scrollAccumulator = 0;
 
-            // Restore scrolling
+            // Restore scrolling (both html and body for iOS)
+            document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
             document.body.classList.remove('theater-mode');
 
