@@ -57,3 +57,7 @@ A gritty drama exposing systemic abuse in unregulated teen residential treatment
 --font-display: 'Cormorant Garamond'
 --font-body: 'Montserrat'
 ```
+
+## Workflow
+- **No local testing** - Push directly to production (Cloudflare Pages auto-deploys from main)
+- Changes are live within seconds of pushing
