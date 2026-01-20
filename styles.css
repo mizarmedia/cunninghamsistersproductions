@@ -202,6 +202,7 @@ img {
     font-size: 56px;
     font-weight: 300;
     letter-spacing: 0.15em;
+    margin-right: -0.15em; /* Compensate for trailing letter-spacing */
     line-height: 1;
     margin-bottom: 20px;
 }
@@ -1592,6 +1593,7 @@ img {
     .hero-title {
         font-size: clamp(60px, 15vw, 180px);
         letter-spacing: 0.25em;
+        margin-right: -0.25em; /* Compensate for trailing letter-spacing */
     }
 
     .hero-tagline {
