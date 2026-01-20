@@ -202,7 +202,7 @@
                         <p>Filmmaker with over 20 years of experience who has directed major productions for Fox, Disney, and ABC, plus independent features across 50+ countries. He founded multiple creative companies including Global Virtual Studios and focuses on media campaigns addressing indigenous rights, human trafficking, and orphans with special needs.</p>
                         <a href="https://www.imdb.com/name/nm0192289/" target="_blank" class="team-card-imdb">View David's filmography →</a>
                     </div>
-                    <span class="team-card-indicator">▼</span>
+                    <span class="team-card-indicator">Read more →</span>
                 </div>
             </div>
             <div class="team-card" data-person="mike">
@@ -217,7 +217,7 @@
                         <p>Co-founding producer of NEO Art & Logic, a production company serving studios and distributors like Miramax and Disney. NEO produced 30 feature films including 5 franchises featuring actors like Viggo Mortensen and Christopher Walken. Since leaving NEO, he has produced eight additional feature films across various genres.</p>
                         <a href="https://www.imdb.com/name/nm0494999/" target="_blank" class="team-card-imdb">View Mike's filmography →</a>
                     </div>
-                    <span class="team-card-indicator">▼</span>
+                    <span class="team-card-indicator">Read more →</span>
                 </div>
             </div>
             <div class="team-card" data-person="janet">
@@ -232,7 +232,7 @@
                         <p>Co-writer (with Lee Batchler) of Batman Forever, Smoke and Mirrors, and Pompeii. She serves as associate professor at USC's School of Cinematic Arts teaching screenwriting. Recent projects include Jack and Dick and Midnight Ride (for Disney). The Batchlers were executive producers on Running For Grace through Hawaii's Film Accelerator Program.</p>
                         <a href="https://www.imdb.com/name/nm0060761/" target="_blank" class="team-card-imdb">View Janet's filmography →</a>
                     </div>
-                    <span class="team-card-indicator">▼</span>
+                    <span class="team-card-indicator">Read more →</span>
                 </div>
             </div>
             <div class="team-card" data-person="lee">
@@ -247,7 +247,7 @@
                         <p>Screenwriter whose credits include Batman Forever, Smoke and Mirrors, and Pompeii, among many other projects. Recent works are Jack and Dick and Midnight Ride (Disney/Johnny Depp). Served as executive producer and advisor on Running For Grace through Hawaii's Film Accelerator Program.</p>
                         <a href="https://www.imdb.com/name/nm0060760/" target="_blank" class="team-card-imdb">View Lee's filmography →</a>
                     </div>
-                    <span class="team-card-indicator">▼</span>
+                    <span class="team-card-indicator">Read more →</span>
                 </div>
             </div>
         </div>
@@ -754,6 +754,13 @@
 
         // Close modal on overlay click
         teamOverlay.addEventListener('click', closeTeamModal);
+
+        // Close modal when clicking outside the content box (on the modal backdrop)
+        teamModal.addEventListener('click', (e) => {
+            if (e.target === teamModal) {
+                closeTeamModal();
+            }
+        });
 
         // Close modal on Escape key
         window.addEventListener('keydown', (e) => {

@@ -582,9 +582,19 @@ img {
     display: none;
 }
 
-/* Chevron indicator - hidden, no longer used */
+/* Click indicator */
 .team-card-indicator {
-    display: none;
+    display: block;
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 12px;
+    color: var(--color-gold);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.team-card:hover .team-card-indicator {
+    opacity: 1;
 }
 
 /* Page Dim/Blur Overlay */
