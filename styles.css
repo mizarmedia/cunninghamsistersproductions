@@ -492,146 +492,77 @@ img {
     line-height: 1.6;
 }
 
-/* Team card links */
-.team-card-links {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.imdb-link {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+/* Inline IMDB link (flows with text) */
+.bio-imdb-link {
     color: var(--color-gold);
     text-decoration: none;
-    padding: 6px 12px;
-    border: 1px solid rgba(201, 169, 98, 0.5);
-    transition: all 0.3s;
+    font-style: italic;
+    transition: color 0.2s;
 }
 
-.imdb-link:hover {
-    background: var(--color-gold);
-    color: #000;
-}
-
-.learn-more-btn {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: #fff;
-    background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: var(--font-body);
-}
-
-.learn-more-btn:hover {
-    border-color: var(--color-gold);
-    color: var(--color-gold);
-}
-
-/* Spotlight IMDB link positioning */
-.spotlight-content .imdb-link {
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-/* Bio Modal */
-.bio-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
-.bio-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.bio-modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-}
-
-.bio-modal-content {
-    position: relative;
-    max-width: 500px;
-    margin: 20px;
-    padding: 40px;
-    background: #111;
-    border: 1px solid var(--color-gold);
-    text-align: center;
-    transform: translateY(20px);
-    transition: transform 0.3s;
-}
-
-.bio-modal.active .bio-modal-content {
-    transform: translateY(0);
-}
-
-.bio-modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: var(--color-gold);
-    font-size: 28px;
-    cursor: pointer;
-    line-height: 1;
-    padding: 5px;
-}
-
-.bio-modal-close:hover {
+.bio-imdb-link:hover {
     color: var(--color-white);
 }
 
-.bio-modal-name {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--color-gold);
-    margin-bottom: 5px;
+/* Expandable team cards */
+.team-card[data-person] {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding-bottom: 8px;
 }
 
-.bio-modal-role {
-    display: block;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 20px;
+.team-card[data-person]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(201, 169, 98, 0.15);
 }
 
-.bio-modal-text {
-    color: rgba(255,255,255,0.85);
+.team-card-teaser {
+    transition: opacity 0.3s;
+}
+
+.team-card.expanded .team-card-teaser {
+    display: none;
+}
+
+.team-card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.team-card.expanded .team-card-expanded {
+    max-height: 400px;
+    opacity: 1;
+    padding-top: 16px;
+    border-top: 1px solid rgba(201, 169, 98, 0.3);
+    margin-top: 16px;
+}
+
+.team-card-expanded p {
+    font-size: 13px;
+    color: var(--color-gray-400);
     line-height: 1.7;
-    margin-bottom: 25px;
-    font-size: 15px;
+    text-align: left;
 }
 
-.bio-modal-imdb {
-    display: inline-block;
-    padding: 10px 25px;
-    border: 1px solid var(--color-gold);
+/* Expand indicator chevron */
+.team-card-indicator {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
     color: var(--color-gold);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    transition: background 0.3s, color 0.3s;
+    font-size: 12px;
+    opacity: 0.6;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-.bio-modal-imdb:hover {
-    background: var(--color-gold);
-    color: #000;
+.team-card.expanded .team-card-indicator {
+    transform: rotate(180deg);
+    opacity: 1;
 }
 
 /* Video Section - Mobile First */
