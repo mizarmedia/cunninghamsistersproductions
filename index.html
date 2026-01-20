@@ -115,6 +115,17 @@
                         allowfullscreen>
                     </iframe>
                 </div>
+                <!-- Unmute Prompt Overlay -->
+                <div class="unmute-overlay">
+                    <button class="unmute-prompt">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                            <line x1="23" y1="9" x2="17" y2="15"/>
+                            <line x1="17" y1="9" x2="23" y2="15"/>
+                        </svg>
+                        <span>Tap to unmute</span>
+                    </button>
+                </div>
                 <!-- Custom Video Controls -->
                 <div class="video-controls">
                     <button class="video-btn play-btn" aria-label="Play video">
@@ -434,6 +445,8 @@
         const iconPause = document.querySelector('.icon-pause');
         const iconMuted = document.querySelector('.icon-muted');
         const iconUnmuted = document.querySelector('.icon-unmuted');
+        const unmuteOverlay = document.querySelector('.unmute-overlay');
+        const unmutePrompt = document.querySelector('.unmute-prompt');
 
         // Initialize Vimeo Player
         function initVimeoPlayer() {
@@ -477,8 +490,14 @@
 
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+            // Show unmute overlay
+            unmuteOverlay.classList.add('visible');
+
             if (vimeoPlayer) {
                 vimeoPlayer.setMuted(true);
+                isMuted = true;
+                iconMuted.style.display = 'block';
+                iconUnmuted.style.display = 'none';
                 vimeoPlayer.play();
             }
 
@@ -491,6 +510,9 @@
             scrollAccumulator = 0;
             document.body.classList.remove('theater-mode');
 
+            // Hide unmute overlay
+            unmuteOverlay.classList.remove('visible');
+
             if (vimeoPlayer) {
                 vimeoPlayer.pause();
                 vimeoPlayer.setMuted(true);
@@ -502,6 +524,16 @@
             theaterCooldown = true;
             setTimeout(() => { theaterCooldown = false; }, 2000);
         }
+
+        // Unmute overlay click handler
+        unmutePrompt.addEventListener('click', () => {
+            if (!vimeoPlayer) return;
+            isMuted = false;
+            vimeoPlayer.setMuted(false);
+            iconMuted.style.display = 'none';
+            iconUnmuted.style.display = 'block';
+            unmuteOverlay.classList.remove('visible');
+        });
 
         // Play/Pause button
         playBtn.addEventListener('click', () => {
