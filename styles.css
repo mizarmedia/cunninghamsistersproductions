@@ -1073,19 +1073,20 @@ img {
     position: relative;
     text-align: left;
     padding-left: 32px;
+    display: inline-block;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
     left: 8px;
-    top: 0;
-    bottom: 0;
+    top: 13px; /* Start at center of first marker */
+    bottom: -60px; /* Extend below last item */
     width: 2px;
     background: linear-gradient(
         to bottom,
         var(--color-gray-800) 0%,
-        var(--color-gray-800) 70%,
+        var(--color-gray-800) 92%,
         transparent 100%
     );
 }
@@ -1653,6 +1654,7 @@ img {
 
     .timeline::before {
         left: 10px;
+        top: 15px; /* Center of larger marker */
     }
 
     .timeline-marker {
