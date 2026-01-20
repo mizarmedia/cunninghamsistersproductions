@@ -770,6 +770,42 @@
                 closeTeamModal();
             }
         });
+
+        // ============================================
+        // Impact Section - Floating Glass Effect
+        // ============================================
+        const impactSection = document.querySelector('.impact');
+        const impactBoxes = document.querySelectorAll('.impact-split');
+
+        // Only enable on non-touch devices
+        if (window.matchMedia('(hover: hover)').matches) {
+            impactSection.addEventListener('mousemove', (e) => {
+                const rect = impactSection.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate offset from center (-1 to 1)
+                const offsetX = (mouseX - centerX) / centerX;
+                const offsetY = (mouseY - centerY) / centerY;
+
+                // Apply subtle shift (max 8px) - boxes move opposite directions
+                impactBoxes.forEach((box, index) => {
+                    const direction = index === 0 ? 1 : -1;
+                    const x = offsetX * 8 * direction;
+                    const y = offsetY * 4;
+                    box.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // Reset on mouse leave
+            impactSection.addEventListener('mouseleave', () => {
+                impactBoxes.forEach(box => {
+                    box.style.transform = '';
+                });
+            });
+        }
     </script>
 </body>
 </html>

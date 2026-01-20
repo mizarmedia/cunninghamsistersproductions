@@ -1006,9 +1006,23 @@ img {
 
 .impact-split {
     padding: 32px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--color-gray-800);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(201, 169, 98, 0.12);
     text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    cursor: default;
+}
+
+/* Desktop hover expand effect */
+@media (hover: hover) {
+    .impact-split:hover {
+        transform: scale(1.03) !important;
+        border-color: rgba(201, 169, 98, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .split-number {
