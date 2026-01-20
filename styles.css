@@ -641,30 +641,12 @@ img {
     opacity: 1;
 }
 
-/* Expanded Card - Fixed Overlay */
+/* Expanded Card - Pulls Forward */
 .team-card.expanded {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 500px;
-    max-height: 85vh;
-    overflow-y: auto;
-    z-index: 101;
+    position: relative;
+    z-index: 100;
+    transform: scale(1.02);
     border-color: var(--color-gold);
-    animation: card-pop 0.3s ease forwards;
-}
-
-@keyframes card-pop {
-    from {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
 }
 
 .team-card.expanded .team-card-photo img {
@@ -1615,15 +1597,9 @@ img {
         margin: 0 auto;
     }
 
-    /* 2x2 grid on desktop - wider cards, cleaner look */
     .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-    }
-
-    /* Hide chevron on desktop - hover effect is enough indication */
-    .team-card-indicator {
-        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1200px;
     }
 }
 
