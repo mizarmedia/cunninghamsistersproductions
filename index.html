@@ -115,17 +115,14 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-                <!-- Unmute Prompt Overlay -->
-                <div class="unmute-overlay">
-                    <button class="unmute-prompt">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                            <line x1="23" y1="9" x2="17" y2="15"/>
-                            <line x1="17" y1="9" x2="23" y2="15"/>
-                        </svg>
-                        <span>Tap to unmute</span>
-                    </button>
-                </div>
+                <!-- Small Unmute Button -->
+                <button class="unmute-hint" aria-label="Unmute">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                        <line x1="23" y1="9" x2="17" y2="15"/>
+                        <line x1="17" y1="9" x2="23" y2="15"/>
+                    </svg>
+                </button>
                 <!-- Custom Video Controls -->
                 <div class="video-controls">
                     <button class="video-btn play-btn" aria-label="Play video">
@@ -445,8 +442,8 @@
         const iconPause = document.querySelector('.icon-pause');
         const iconMuted = document.querySelector('.icon-muted');
         const iconUnmuted = document.querySelector('.icon-unmuted');
-        const unmuteOverlay = document.querySelector('.unmute-overlay');
-        const unmutePrompt = document.querySelector('.unmute-prompt');
+        const unmuteHint = document.querySelector('.unmute-hint');
+        const videoControls = document.querySelector('.video-controls');
 
         // Initialize Vimeo Player
         function initVimeoPlayer() {
@@ -490,8 +487,9 @@
 
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Show unmute overlay
-            unmuteOverlay.classList.add('visible');
+            // Show unmute hint, hide controls until unmuted
+            unmuteHint.classList.add('visible');
+            videoControls.classList.remove('revealed');
 
             if (vimeoPlayer) {
                 vimeoPlayer.setMuted(true);
@@ -510,8 +508,9 @@
             scrollAccumulator = 0;
             document.body.classList.remove('theater-mode');
 
-            // Hide unmute overlay
-            unmuteOverlay.classList.remove('visible');
+            // Hide unmute hint and controls
+            unmuteHint.classList.remove('visible');
+            videoControls.classList.remove('revealed');
 
             if (vimeoPlayer) {
                 vimeoPlayer.pause();
@@ -525,14 +524,15 @@
             setTimeout(() => { theaterCooldown = false; }, 2000);
         }
 
-        // Unmute overlay click handler
-        unmutePrompt.addEventListener('click', () => {
+        // Unmute hint click handler
+        unmuteHint.addEventListener('click', () => {
             if (!vimeoPlayer) return;
             isMuted = false;
             vimeoPlayer.setMuted(false);
             iconMuted.style.display = 'none';
             iconUnmuted.style.display = 'block';
-            unmuteOverlay.classList.remove('visible');
+            unmuteHint.classList.remove('visible');
+            videoControls.classList.add('revealed');
         });
 
         // Play/Pause button
