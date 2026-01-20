@@ -75,7 +75,7 @@
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Genre</span>
-                        <span class="meta-value">Non-Profit Narrative Feature Length Drama</span>
+                        <span class="meta-value">Drama</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Status</span>
@@ -317,6 +317,9 @@
         </div>
     </footer>
 
+    <!-- Theater Mode Exit Hint -->
+    <div class="theater-exit-hint">Scroll to exit theater mode</div>
+
     <script>
         // Fixed parallax effect - relative to each section
         function updateParallax() {
@@ -373,6 +376,86 @@
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
+        });
+
+        // ============================================
+        // Theater Mode for Video Section
+        // ============================================
+        const videoSection = document.querySelector('.video-section');
+        let theaterMode = false;
+        let scrollLocked = false;
+        let scrollAccumulator = 0;
+        const ESCAPE_THRESHOLD = 150; // pixels of scroll force needed to escape
+
+        function enterTheaterMode() {
+            if (theaterMode) return;
+            theaterMode = true;
+            scrollLocked = true;
+            document.body.classList.add('theater-mode');
+
+            // Smooth scroll to center video
+            videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Reset accumulator after snap
+            setTimeout(() => { scrollAccumulator = 0; }, 600);
+        }
+
+        function exitTheaterMode() {
+            theaterMode = false;
+            scrollLocked = false;
+            scrollAccumulator = 0;
+            document.body.classList.remove('theater-mode');
+        }
+
+        // Detect scroll into video section
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    enterTheaterMode();
+                }
+            });
+        }, { threshold: [0.5] });
+
+        videoObserver.observe(videoSection);
+
+        // Handle escape scrolling (wheel events)
+        window.addEventListener('wheel', (e) => {
+            if (!theaterMode) return;
+
+            scrollAccumulator += Math.abs(e.deltaY);
+
+            if (scrollAccumulator > ESCAPE_THRESHOLD) {
+                exitTheaterMode();
+                // Allow natural scroll to continue
+            } else {
+                e.preventDefault(); // Lock scroll until threshold
+            }
+        }, { passive: false });
+
+        // Touch support for mobile
+        let touchStartY = 0;
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!theaterMode) return;
+
+            const touchDelta = Math.abs(e.touches[0].clientY - touchStartY);
+            scrollAccumulator += touchDelta * 0.5;
+
+            if (scrollAccumulator > ESCAPE_THRESHOLD) {
+                exitTheaterMode();
+            } else {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Escape key also exits theater mode
+        window.addEventListener('keydown', (e) => {
+            if (theaterMode && e.key === 'Escape') {
+                exitTheaterMode();
+            }
         });
     </script>
 </body>

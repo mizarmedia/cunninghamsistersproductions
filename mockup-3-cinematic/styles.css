@@ -1301,3 +1301,61 @@ img {
         max-width: 1200px;
     }
 }
+
+/* ============================================
+   THEATER MODE - Cinematic Video Experience
+   ============================================ */
+
+/* Elements that fade during theater mode */
+.nav, .footer {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.theater-mode .nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+}
+
+body.theater-mode .footer {
+    opacity: 0;
+}
+
+/* Video section theater enhancements */
+.video-section {
+    transition: transform 0.6s ease, padding 0.6s ease;
+    position: relative;
+    z-index: 100;
+}
+
+body.theater-mode .video-section {
+    transform: scale(1.05);
+    padding: 120px 20px;
+}
+
+/* Fade adjacent sections */
+body.theater-mode .image-break,
+body.theater-mode .team {
+    opacity: 0.1;
+    transition: opacity 0.5s ease;
+}
+
+/* Theater exit hint */
+.theater-exit-hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--color-gray-600);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+body.theater-mode .theater-exit-hint {
+    opacity: 1;
+}
