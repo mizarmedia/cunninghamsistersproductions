@@ -1082,7 +1082,12 @@ img {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--color-gray-800);
+    background: linear-gradient(
+        to bottom,
+        var(--color-gray-800) 0%,
+        var(--color-gray-800) 70%,
+        transparent 100%
+    );
 }
 
 .timeline-item {
@@ -1113,6 +1118,16 @@ img {
 .timeline-item.active .timeline-marker {
     border-color: var(--color-gold);
     box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.2);
+    animation: marker-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes marker-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(201, 169, 98, 0.1), 0 0 12px rgba(201, 169, 98, 0.3);
+    }
 }
 
 .timeline-info h4 {
@@ -1129,6 +1144,35 @@ img {
 .timeline-info p {
     font-size: 13px;
     color: var(--color-gray-400);
+}
+
+/* Timeline hover interactions (desktop only) */
+@media (hover: hover) {
+    .timeline-item {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .timeline-item:hover {
+        transform: translateX(4px);
+    }
+
+    .timeline-item:hover .timeline-marker {
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.3);
+    }
+
+    .timeline-item:hover .timeline-info h4 {
+        color: var(--color-gold);
+    }
+
+    .timeline-info h4 {
+        transition: color 0.2s ease;
+    }
+
+    .timeline-marker {
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
 }
 
 /* Newsletter Section - Mobile First */
