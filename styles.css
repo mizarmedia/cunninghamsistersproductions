@@ -451,33 +451,54 @@ img {
     line-height: 1.8;
 }
 
+/* Team Grid - align-items: start prevents height sync */
 .team-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    align-items: start;
+    gap: 24px;
     max-width: 300px;
     margin: 0 auto;
+    position: relative;
 }
 
+/* Team Card Container */
 .team-card {
+    position: relative;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(201, 169, 98, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Photo Container - Edge to Edge */
+.team-card-photo {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.team-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Body Container - With Padding */
+.team-card-body {
+    padding: 20px;
     text-align: center;
 }
 
-.team-card img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    margin-bottom: 16px;
-    filter: grayscale(100%);
-}
-
-.team-card h4 {
+.team-card-body h4 {
     font-size: 17px;
     font-weight: 500;
     margin-bottom: 4px;
 }
 
-.team-card span {
+.team-card-role {
     display: block;
     font-size: 10px;
     letter-spacing: 0.15em;
@@ -486,13 +507,13 @@ img {
     margin-bottom: 12px;
 }
 
-.team-card p {
+.team-card-body p {
     font-size: 13px;
     color: var(--color-gray-400);
     line-height: 1.6;
 }
 
-/* Inline IMDB link (flows with text) */
+/* Inline IMDB link (for spotlight bios) */
 .bio-imdb-link {
     color: var(--color-gold);
     text-decoration: none;
@@ -504,18 +525,45 @@ img {
     color: var(--color-white);
 }
 
+/* IMDB Link as Block (for team cards) */
+.team-card-imdb {
+    display: block;
+    margin-top: 16px;
+    padding: 10px 16px;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    border-radius: 3px;
+    color: var(--color-gold);
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.team-card-imdb:hover {
+    background: rgba(201, 169, 98, 0.2);
+    border-color: var(--color-gold);
+}
+
 /* Expandable team cards */
 .team-card[data-person] {
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding-bottom: 8px;
 }
 
-.team-card[data-person]:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(201, 169, 98, 0.15);
+/* Desktop Hover - No Shadow Bleed */
+@media (hover: hover) {
+    .team-card[data-person]:hover {
+        transform: translateY(-4px);
+        border-color: rgba(201, 169, 98, 0.4);
+    }
+
+    .team-card[data-person]:hover .team-card-photo img {
+        filter: grayscale(50%);
+        transform: scale(1.03);
+    }
 }
 
+/* Teaser/Expanded Toggle */
 .team-card-teaser {
     transition: opacity 0.3s;
 }
@@ -534,7 +582,7 @@ img {
 }
 
 .team-card.expanded .team-card-expanded {
-    max-height: 400px;
+    max-height: 500px;
     opacity: 1;
     padding-top: 16px;
     border-top: 1px solid rgba(201, 169, 98, 0.3);
@@ -548,7 +596,7 @@ img {
     text-align: left;
 }
 
-/* Expand indicator chevron */
+/* Expand Indicator Chevron */
 .team-card-indicator {
     display: block;
     width: 100%;
@@ -563,6 +611,36 @@ img {
 .team-card.expanded .team-card-indicator {
     transform: rotate(180deg);
     opacity: 1;
+}
+
+/* Expanded Card - Pulls Forward */
+.team-card.expanded {
+    position: relative;
+    z-index: 100;
+    transform: scale(1.02);
+    border-color: var(--color-gold);
+}
+
+.team-card.expanded .team-card-photo img {
+    filter: grayscale(0%);
+}
+
+/* Page Dim/Blur Overlay */
+.team-grid-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 99;
+}
+
+.team-grid-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Video Section - Mobile First */
@@ -1309,15 +1387,11 @@ img {
 
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
+        gap: 24px;
         max-width: 800px;
     }
 
-    .team-card img {
-        margin-bottom: 20px;
-    }
-
-    .team-card h4 {
+    .team-card-body h4 {
         font-size: 18px;
     }
 
