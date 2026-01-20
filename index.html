@@ -792,25 +792,22 @@
                 });
             });
 
-            // Section-wide mouse tracking - moves boxes that aren't being hovered
+            // Section-wide mouse tracking - each box reacts to mouse relative to itself
             impactSection.addEventListener('mousemove', (e) => {
-                const rect = impactSection.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const mouseX = e.clientX - rect.left;
-                const mouseY = e.clientY - rect.top;
-
-                // Calculate offset from center (-1 to 1)
-                const offsetX = (mouseX - centerX) / centerX;
-                const offsetY = (mouseY - centerY) / centerY;
-
-                // Move boxes that aren't directly hovered
-                impactBoxes.forEach((box, index) => {
+                impactBoxes.forEach(box => {
                     if (hoveredBoxes.has(box)) return; // Skip hovered boxes
 
-                    const direction = index === 0 ? 1 : -1;
-                    const x = offsetX * 10 * direction;
-                    const y = offsetY * 6;
+                    const rect = box.getBoundingClientRect();
+                    const boxCenterX = rect.left + rect.width / 2;
+                    const boxCenterY = rect.top + rect.height / 2;
+
+                    // How far is mouse from this box's center
+                    const distX = e.clientX - boxCenterX;
+                    const distY = e.clientY - boxCenterY;
+
+                    // Normalize and apply movement (box shifts toward mouse)
+                    const x = (distX / 200) * 10;
+                    const y = (distY / 200) * 6;
                     box.style.transform = `translate(${x}px, ${y}px)`;
                 });
             });
