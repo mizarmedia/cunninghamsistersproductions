@@ -779,6 +779,10 @@
         // Only enable on non-touch devices
         if (window.matchMedia('(hover: hover)').matches) {
             impactBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    box.style.transform = 'scale(1.03)';
+                });
+
                 box.addEventListener('mousemove', (e) => {
                     const rect = box.getBoundingClientRect();
                     const centerX = rect.width / 2;
@@ -790,10 +794,10 @@
                     const offsetX = (mouseX - centerX) / centerX;
                     const offsetY = (mouseY - centerY) / centerY;
 
-                    // Subtle tilt/shift based on mouse position within this box
+                    // Combine scale + translate for floating effect
                     const x = offsetX * 6;
                     const y = offsetY * 4;
-                    box.style.transform = `translate(${x}px, ${y}px)`;
+                    box.style.transform = `scale(1.03) translate(${x}px, ${y}px)`;
                 });
 
                 box.addEventListener('mouseleave', () => {
