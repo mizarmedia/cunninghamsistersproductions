@@ -156,6 +156,13 @@
                         </svg>
                     </button>
                 </div>
+                <!-- Cinema Play Overlay - for re-entering theater mode -->
+                <button class="cinema-play-overlay" aria-label="Watch in cinema mode">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span>Tap to watch</span>
+                </button>
             </div>
         </div>
     </section>
@@ -513,6 +520,8 @@
         const iconUnmuted = document.querySelector('.icon-unmuted');
         const unmuteHint = document.querySelector('.unmute-hint');
         const videoControls = document.querySelector('.video-controls');
+        const cinemaOverlay = document.querySelector('.cinema-play-overlay');
+        const videoWrapper = document.querySelector('.video-wrapper');
 
         // Initialize Vimeo Player
         function initVimeoPlayer() {
@@ -560,7 +569,8 @@
 
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Show unmute hint, hide controls until unmuted
+            // Hide cinema overlay, show unmute hint, hide controls until unmuted
+            cinemaOverlay.classList.remove('visible');
             unmuteHint.classList.add('visible');
             videoControls.classList.remove('revealed');
 
@@ -590,9 +600,10 @@
             document.body.style.overflow = '';
             document.body.classList.remove('theater-mode');
 
-            // Hide unmute hint and controls
+            // Hide unmute hint and controls, show cinema overlay for re-entry
             unmuteHint.classList.remove('visible');
             videoControls.classList.remove('revealed');
+            cinemaOverlay.classList.add('visible');
 
             if (vimeoPlayer) {
                 vimeoPlayer.pause();
@@ -638,11 +649,26 @@
 
         // Fullscreen button
         fullscreenBtn.addEventListener('click', () => {
-            const wrapper = document.querySelector('.video-wrapper');
             if (document.fullscreenElement) {
                 document.exitFullscreen();
             } else {
-                wrapper.requestFullscreen();
+                videoWrapper.requestFullscreen();
+            }
+        });
+
+        // Click on cinema overlay to re-enter theater mode
+        cinemaOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cinemaOverlay.classList.remove('visible');
+            enterTheaterMode();
+        });
+
+        // Click on video section background (not video) exits theater mode
+        videoSection.addEventListener('click', (e) => {
+            if (!theaterMode) return;
+            // Only exit if clicking outside the video wrapper
+            if (!videoWrapper.contains(e.target)) {
+                exitTheaterMode();
             }
         });
 

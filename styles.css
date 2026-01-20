@@ -2026,6 +2026,56 @@ body.theater-mode .video-section {
     }
 }
 
+/* Cinema play overlay - shown after exiting theater mode for re-entry */
+.cinema-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.cinema-play-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cinema-play-overlay span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.cinema-play-overlay:hover {
+    color: var(--color-white);
+}
+
+.cinema-play-overlay svg {
+    filter: drop-shadow(0 0 20px rgba(201, 169, 98, 0.5));
+    transition: transform 0.2s;
+}
+
+.cinema-play-overlay:hover svg {
+    transform: scale(1.1);
+}
+
+/* Hide overlay during theater mode */
+body.theater-mode .cinema-play-overlay {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 /* Theater exit hint */
 .theater-exit-hint {
     position: fixed;
