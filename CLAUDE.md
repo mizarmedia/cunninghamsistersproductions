@@ -7,8 +7,8 @@ Official website for The Cunningham Sisters Productions, promoting their debut f
 
 ## Deployment
 - **Platform:** Cloudflare Pages
-- **Branch:** `main` (auto-deploys on push)
 - **Repo:** https://github.com/mizarmedia/cunninghamsistersproductions
+- **Deploy command:** `./deploy.sh` (or `npx wrangler pages deploy . --project-name=csp-mockup-cinematic`)
 
 ## Project Files
 ```
@@ -59,5 +59,6 @@ A gritty drama exposing systemic abuse in unregulated teen residential treatment
 ```
 
 ## Workflow
-- **No local testing** - Push directly to production (Cloudflare Pages auto-deploys from main)
-- Changes are live within seconds of pushing
+- **No local testing** - Deploy directly to production
+- After any change: `git add -A && git commit -m "message" && git push && ./deploy.sh`
+- Changes are live within seconds of deploying
