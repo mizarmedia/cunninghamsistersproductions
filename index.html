@@ -252,6 +252,20 @@
             </div>
         </div>
         <div class="team-grid-overlay"></div>
+
+        <!-- Team Modal -->
+        <div class="team-modal">
+            <div class="team-modal-content">
+                <button class="team-modal-close">×</button>
+                <div class="team-modal-photo"></div>
+                <div class="team-modal-body">
+                    <h4></h4>
+                    <span class="team-modal-role"></span>
+                    <p class="team-modal-bio"></p>
+                    <a class="team-modal-imdb" target="_blank"></a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Impact Section -->
@@ -692,37 +706,60 @@
         document.addEventListener('DOMContentLoaded', initVimeoPlayer);
 
         // ============================================
-        // Expandable Team Cards with Overlay
+        // Team Card Modal
         // ============================================
+        const teamModal = document.querySelector('.team-modal');
         const teamOverlay = document.querySelector('.team-grid-overlay');
 
+        // Team card click → show modal
         document.querySelectorAll('.team-card[data-person]').forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Don't collapse if clicking the IMDB link
-                if (e.target.closest('.team-card-imdb')) return;
+            card.addEventListener('click', () => {
+                // Get card data
+                const photo = card.querySelector('.team-card-photo img').cloneNode();
+                const name = card.querySelector('h4').textContent;
+                const role = card.querySelector('.team-card-role').textContent;
+                const bio = card.querySelector('.team-card-expanded p').innerHTML;
+                const imdbLink = card.querySelector('.team-card-imdb');
 
-                const wasExpanded = card.classList.contains('expanded');
+                // Populate modal
+                teamModal.querySelector('.team-modal-photo').innerHTML = '';
+                teamModal.querySelector('.team-modal-photo').appendChild(photo);
+                teamModal.querySelector('.team-modal-body h4').textContent = name;
+                teamModal.querySelector('.team-modal-role').textContent = role;
+                teamModal.querySelector('.team-modal-bio').innerHTML = bio;
 
-                // Close all expanded cards
-                document.querySelectorAll('.team-card.expanded').forEach(c => {
-                    c.classList.remove('expanded');
-                });
-
-                if (!wasExpanded) {
-                    card.classList.add('expanded');
-                    teamOverlay.classList.add('active');
+                const modalImdb = teamModal.querySelector('.team-modal-imdb');
+                if (imdbLink) {
+                    modalImdb.href = imdbLink.href;
+                    modalImdb.textContent = imdbLink.textContent;
+                    modalImdb.style.display = 'inline-block';
                 } else {
-                    teamOverlay.classList.remove('active');
+                    modalImdb.style.display = 'none';
                 }
+
+                // Show modal + overlay
+                teamModal.classList.add('active');
+                teamOverlay.classList.add('active');
             });
         });
 
-        // Click overlay to close expanded card
-        teamOverlay.addEventListener('click', () => {
-            document.querySelectorAll('.team-card.expanded').forEach(c => {
-                c.classList.remove('expanded');
-            });
+        // Close modal function
+        function closeTeamModal() {
+            teamModal.classList.remove('active');
             teamOverlay.classList.remove('active');
+        }
+
+        // Close modal on X button click
+        document.querySelector('.team-modal-close').addEventListener('click', closeTeamModal);
+
+        // Close modal on overlay click
+        teamOverlay.addEventListener('click', closeTeamModal);
+
+        // Close modal on Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && teamModal.classList.contains('active')) {
+                closeTeamModal();
+            }
         });
     </script>
 </body>
