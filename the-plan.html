@@ -202,16 +202,16 @@
             <div class="budget-visualization">
                 <div class="budget-chart-wrapper">
                     <svg class="budget-chart" viewBox="0 0 200 200">
-                        <!-- Production 47% -->
-                        <circle class="budget-segment" data-category="production" data-amount="$70,000" data-percent="47%" cx="100" cy="100" r="80" stroke-dasharray="236.31 266.92" stroke-dashoffset="0" transform="rotate(-90 100 100)"></circle>
+                        <!-- Production 47% - circumference at r=80 is 502.655 -->
+                        <circle class="budget-segment" data-category="production" data-amount="$70,000" data-percent="47%" cx="100" cy="100" r="80" stroke-dasharray="236.25 266.40" stroke-dashoffset="0" transform="rotate(-90 100 100)"></circle>
                         <!-- Marketing 27% -->
-                        <circle class="budget-segment" data-category="marketing" data-amount="$40,000" data-percent="27%" cx="100" cy="100" r="80" stroke-dasharray="135.72 367.51" stroke-dashoffset="-236.31" transform="rotate(-90 100 100)"></circle>
+                        <circle class="budget-segment" data-category="marketing" data-amount="$40,000" data-percent="27%" cx="100" cy="100" r="80" stroke-dasharray="135.72 366.93" stroke-dashoffset="-236.25" transform="rotate(-90 100 100)"></circle>
                         <!-- Post-Production 23% -->
-                        <circle class="budget-segment" data-category="post-production" data-amount="$35,000" data-percent="23%" cx="100" cy="100" r="80" stroke-dasharray="115.61 387.62" stroke-dashoffset="-372.03" transform="rotate(-90 100 100)"></circle>
+                        <circle class="budget-segment" data-category="post-production" data-amount="$35,000" data-percent="23%" cx="100" cy="100" r="80" stroke-dasharray="115.61 387.04" stroke-dashoffset="-371.97" transform="rotate(-90 100 100)"></circle>
                         <!-- Other 3% -->
-                        <circle class="budget-segment" data-category="other" data-amount="$5,000" data-percent="3%" cx="100" cy="100" r="80" stroke-dasharray="15.08 488.15" stroke-dashoffset="-487.64" transform="rotate(-90 100 100)"></circle>
-                        <!-- Center circle for donut effect -->
-                        <circle cx="100" cy="100" r="50" fill="var(--color-dark)"></circle>
+                        <circle class="budget-segment" data-category="other" data-amount="$5,000" data-percent="3%" cx="100" cy="100" r="80" stroke-dasharray="15.08 487.57" stroke-dashoffset="-487.58" transform="rotate(-90 100 100)"></circle>
+                        <!-- Center circle for donut effect - r=65 aligns with inner stroke edge -->
+                        <circle cx="100" cy="100" r="65" fill="var(--color-dark)"></circle>
                         <!-- Center text -->
                         <text x="100" y="95" class="budget-center-amount">$150K</text>
                         <text x="100" y="112" class="budget-center-label">Total Budget</text>
