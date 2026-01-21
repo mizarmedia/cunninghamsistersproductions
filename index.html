@@ -113,6 +113,8 @@
                         src="https://player.vimeo.com/video/1115004786?background=1&dnt=1&playsinline=1"
                         allow="autoplay; fullscreen; picture-in-picture"
                         allowfullscreen
+                        webkitallowfullscreen
+                        mozallowfullscreen
                         playsinline
                         webkit-playsinline>
                     </iframe>
@@ -659,13 +661,25 @@
             iconUnmuted.style.display = isMuted ? 'none' : 'block';
         });
 
-        // Fullscreen button
+        // Fullscreen button - use Vimeo's native fullscreen for mobile compatibility
         fullscreenBtn.addEventListener('click', () => {
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else {
-                videoWrapper.requestFullscreen();
-            }
+            if (!vimeoPlayer) return;
+
+            // Use Vimeo's requestFullscreen which handles mobile/iOS properly
+            vimeoPlayer.requestFullscreen().catch(() => {
+                // Fallback to standard Fullscreen API if Vimeo method fails
+                const iframe = document.querySelector('.video-container iframe');
+                if (iframe.webkitEnterFullscreen) {
+                    // iOS Safari
+                    iframe.webkitEnterFullscreen();
+                } else if (videoWrapper.requestFullscreen) {
+                    videoWrapper.requestFullscreen();
+                } else if (videoWrapper.webkitRequestFullscreen) {
+                    videoWrapper.webkitRequestFullscreen();
+                } else if (videoWrapper.msRequestFullscreen) {
+                    videoWrapper.msRequestFullscreen();
+                }
+            });
         });
 
         // Click on cinema overlay to re-enter theater mode
