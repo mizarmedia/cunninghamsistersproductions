@@ -5006,11 +5006,10 @@ body.theater-mode .theater-exit-btn {
 }
 
 .epk-team-member img {
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     border-radius: 4px;
-    object-fit: cover;
-    object-position: top;
     margin: 0 auto 16px;
 }
 
@@ -5727,4 +5726,109 @@ body.toolkit-light {
 /* Hero overline in light theme */
 .toolkit-light .hero-content-subtle .overline {
     color: var(--color-gold);
+}
+
+/* ============================================
+   TOOLKIT PAGE: Film Info Layout
+   ============================================ */
+
+.epk-film-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.epk-film-poster {
+    flex-shrink: 0;
+}
+
+.epk-film-poster img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.epk-film-details {
+    text-align: center;
+}
+
+.epk-film-details .epk-film-logo {
+    max-width: 280px;
+    margin-bottom: 20px;
+}
+
+.epk-film-details .epk-tagline {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444444;
+    margin-bottom: 30px;
+}
+
+.epk-meta-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    text-align: left;
+}
+
+.epk-meta-list .epk-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+@media (min-width: 768px) {
+    .epk-film-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 60px;
+    }
+
+    .epk-film-poster img {
+        max-width: 350px;
+    }
+
+    .epk-film-details {
+        text-align: left;
+        flex: 1;
+    }
+
+    .epk-meta-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .epk-film-poster img {
+        max-width: 400px;
+    }
+
+    .epk-film-details .epk-film-logo {
+        max-width: 350px;
+    }
+}
+
+/* ============================================
+   TOOLKIT PAGE: Video Controls
+   ============================================ */
+
+.toolkit-video-controls {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background: #1a1a1a;
+    border-radius: 0 0 8px 8px;
+}
+
+.epk-video-wrapper {
+    position: relative;
+}
+
+.epk-video-wrapper .video-container {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
 }

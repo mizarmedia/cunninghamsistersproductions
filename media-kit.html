@@ -86,35 +86,40 @@
     <!-- Film Info Section -->
     <section class="epk-film-info">
         <div class="epk-section-content">
-            <div class="epk-film-header">
-                <img src="images/resilience-logo.png" alt="Resilience" class="epk-film-logo" loading="lazy">
-                <p class="epk-tagline">A gritty, unflinching drama that exposes the systemic abuse within unregulated teen residential treatment programs.</p>
-            </div>
+            <div class="epk-film-layout">
+                <div class="epk-film-poster">
+                    <img src="images/movie-poster.png" alt="Resilience movie poster" loading="lazy">
+                </div>
+                <div class="epk-film-details">
+                    <img src="images/resilience-logo.png" alt="Resilience" class="epk-film-logo" loading="lazy">
+                    <p class="epk-tagline">A gritty, unflinching drama that exposes the systemic abuse within unregulated teen residential treatment programs.</p>
 
-            <div class="epk-meta-grid">
-                <div class="epk-meta-item">
-                    <span class="meta-label">Release</span>
-                    <span class="meta-value">2026</span>
-                </div>
-                <div class="epk-meta-item">
-                    <span class="meta-label">Runtime</span>
-                    <span class="meta-value">Feature Length</span>
-                </div>
-                <div class="epk-meta-item">
-                    <span class="meta-label">Genre</span>
-                    <span class="meta-value">Drama</span>
-                </div>
-                <div class="epk-meta-item">
-                    <span class="meta-label">Status</span>
-                    <span class="meta-value">Post-Production</span>
-                </div>
-                <div class="epk-meta-item">
-                    <span class="meta-label">Format</span>
-                    <span class="meta-value">Digital</span>
-                </div>
-                <div class="epk-meta-item">
-                    <span class="meta-label">Country</span>
-                    <span class="meta-value">USA</span>
+                    <div class="epk-meta-list">
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Release</span>
+                            <span class="meta-value">2026</span>
+                        </div>
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Runtime</span>
+                            <span class="meta-value">Feature Length</span>
+                        </div>
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Genre</span>
+                            <span class="meta-value">Drama</span>
+                        </div>
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Status</span>
+                            <span class="meta-value">Post-Production</span>
+                        </div>
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Format</span>
+                            <span class="meta-value">Digital</span>
+                        </div>
+                        <div class="epk-meta-item">
+                            <span class="meta-label">Country</span>
+                            <span class="meta-value">USA</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,10 +221,41 @@
             <h2>Proof of Concept</h2>
             <div class="epk-video-wrapper">
                 <div class="video-container" style="padding:56.25% 0 0 0;position:relative;">
-                    <iframe src="https://player.vimeo.com/video/1115004786?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    <iframe id="toolkit-video" src="https://player.vimeo.com/video/1115004786?badge=0&amp;autopause=0&amp;dnt=1"
+                            frameborder="0" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                             style="position:absolute;top:0;left:0;width:100%;height:100%;"
                             title="Resilience - Proof of Concept"></iframe>
+                </div>
+                <!-- Custom Video Controls -->
+                <div class="video-controls toolkit-video-controls">
+                    <button class="video-btn play-btn" aria-label="Play video">
+                        <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        </svg>
+                    </button>
+                    <div class="video-progress">
+                        <div class="video-progress-bar"></div>
+                    </div>
+                    <span class="video-time">0:00</span>
+                    <button class="video-btn mute-btn" aria-label="Unmute video">
+                        <svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                            <line x1="23" y1="9" x2="17" y2="15"/>
+                            <line x1="17" y1="9" x2="23" y2="15"/>
+                        </svg>
+                        <svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        </svg>
+                    </button>
+                    <button class="video-btn fullscreen-btn" aria-label="Fullscreen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
             <div class="video-copy-link">
@@ -378,17 +414,61 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="epk-cta">
-        <div class="epk-cta-content">
-            <h3>Support the Film</h3>
-            <p>Help us complete post-production and bring this story to audiences worldwide.</p>
-            <a href="https://gofund.me/d00b98309" target="_blank" class="btn-donate">
-                <span>Donate on GoFundMe</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+    <!-- CTA Hub - Newsletter, Donate, Instagram -->
+    <section class="cta-hub">
+        <div class="cta-grid">
+            <!-- Newsletter Card -->
+            <div class="cta-card cta-newsletter">
+                <span class="overline">Stay Updated</span>
+                <h3>Join the Movement</h3>
+                <p>Be the first to know about screenings, releases, and ways to help.</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" name="EMAIL" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+
+            <!-- Donate Card -->
+            <div class="cta-card cta-donate">
+                <span class="overline">Support the Film</span>
+                <h3>Help Us Finish</h3>
+                <p>We're in the final phase of post-production.</p>
+                <div class="funding-progress">
+                    <div class="progress-numbers">
+                        <span class="current">$89,111</span>
+                        <span class="goal">$150,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-percent">59% Funded</span>
+                </div>
+                <a href="https://gofund.me/d00b98309" target="_blank" class="btn-donate">
+                    <span>Donate Now</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Instagram Card -->
+            <div class="cta-card cta-instagram">
+                <span class="overline">Follow Our Journey</span>
+                <h3>@thecunninghamsisters</h3>
+                <p>Behind the scenes, updates, and more.</p>
+                <div class="instagram-embed-placeholder">
+                    <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" class="instagram-link">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        <span>View on Instagram</span>
+                    </a>
+                    <p class="embed-note">Instagram feed coming soon</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -440,6 +520,90 @@
                     btn.innerHTML = originalHTML;
                     btn.classList.remove('copied');
                 }, 2000);
+            });
+        }
+
+        // Video Player Controls
+        const toolkitControls = document.querySelector('.toolkit-video-controls');
+        if (toolkitControls) {
+            const iframe = document.getElementById('toolkit-video');
+            const vimeoPlayer = new Vimeo.Player(iframe);
+
+            const playBtn = toolkitControls.querySelector('.play-btn');
+            const muteBtn = toolkitControls.querySelector('.mute-btn');
+            const fullscreenBtn = toolkitControls.querySelector('.fullscreen-btn');
+            const progressBar = toolkitControls.querySelector('.video-progress-bar');
+            const progressContainer = toolkitControls.querySelector('.video-progress');
+            const timeDisplay = toolkitControls.querySelector('.video-time');
+
+            const iconPlay = playBtn.querySelector('.icon-play');
+            const iconPause = playBtn.querySelector('.icon-pause');
+            const iconMuted = muteBtn.querySelector('.icon-muted');
+            const iconUnmuted = muteBtn.querySelector('.icon-unmuted');
+
+            let isPlaying = false;
+            let isMuted = true;
+
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return mins + ':' + (secs < 10 ? '0' : '') + secs;
+            }
+
+            // Update progress bar
+            vimeoPlayer.on('timeupdate', (data) => {
+                const percent = (data.seconds / data.duration) * 100;
+                progressBar.style.width = percent + '%';
+                timeDisplay.textContent = formatTime(data.seconds);
+            });
+
+            // Sync play state
+            vimeoPlayer.on('play', () => {
+                isPlaying = true;
+                iconPlay.style.display = 'none';
+                iconPause.style.display = 'block';
+            });
+
+            vimeoPlayer.on('pause', () => {
+                isPlaying = false;
+                iconPlay.style.display = 'block';
+                iconPause.style.display = 'none';
+            });
+
+            // Play/Pause button
+            playBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    vimeoPlayer.pause();
+                } else {
+                    vimeoPlayer.play();
+                }
+            });
+
+            // Mute button
+            muteBtn.addEventListener('click', () => {
+                isMuted = !isMuted;
+                vimeoPlayer.setMuted(isMuted);
+                iconMuted.style.display = isMuted ? 'block' : 'none';
+                iconUnmuted.style.display = isMuted ? 'none' : 'block';
+            });
+
+            // Fullscreen button
+            fullscreenBtn.addEventListener('click', () => {
+                const wrapper = document.querySelector('.epk-video-wrapper');
+                if (wrapper.requestFullscreen) {
+                    wrapper.requestFullscreen();
+                } else if (wrapper.webkitRequestFullscreen) {
+                    wrapper.webkitRequestFullscreen();
+                }
+            });
+
+            // Click on progress bar to seek
+            progressContainer.addEventListener('click', (e) => {
+                const rect = progressContainer.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                vimeoPlayer.getDuration().then((duration) => {
+                    vimeoPlayer.setCurrentTime(percent * duration);
+                });
             });
         }
     </script>
