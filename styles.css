@@ -5006,10 +5006,11 @@ body.theater-mode .theater-exit-btn {
 }
 
 .epk-team-member img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+    width: 180px;
+    height: 240px;
     border-radius: 4px;
+    object-fit: cover;
+    object-position: top;
     margin: 0 auto 16px;
 }
 
@@ -5728,88 +5729,74 @@ body.toolkit-light {
     color: var(--color-gold);
 }
 
-/* ============================================
-   TOOLKIT PAGE: Film Info Layout
-   ============================================ */
-
-.epk-film-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+/* CTA Hub in light theme */
+.toolkit-light .cta-hub {
+    background: #ffffff;
 }
 
-.epk-film-poster {
-    flex-shrink: 0;
+.toolkit-light .cta-card {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
 }
 
-.epk-film-poster img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+.toolkit-light .cta-card h3 {
+    color: #1a1a1a;
 }
 
-.epk-film-details {
-    text-align: center;
-}
-
-.epk-film-details .epk-film-logo {
-    max-width: 280px;
-    margin-bottom: 20px;
-}
-
-.epk-film-details .epk-tagline {
-    font-size: 16px;
-    line-height: 1.7;
+.toolkit-light .cta-card p {
     color: #444444;
-    margin-bottom: 30px;
 }
 
-.epk-meta-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    text-align: left;
+.toolkit-light .cta-card .overline {
+    color: var(--color-gold);
 }
 
-.epk-meta-list .epk-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.toolkit-light .newsletter-form input {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    color: #1a1a1a;
 }
 
-@media (min-width: 768px) {
-    .epk-film-layout {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 60px;
-    }
-
-    .epk-film-poster img {
-        max-width: 350px;
-    }
-
-    .epk-film-details {
-        text-align: left;
-        flex: 1;
-    }
-
-    .epk-meta-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.toolkit-light .newsletter-form input::placeholder {
+    color: #999999;
 }
 
-@media (min-width: 1024px) {
-    .epk-film-poster img {
-        max-width: 400px;
-    }
-
-    .epk-film-details .epk-film-logo {
-        max-width: 350px;
-    }
+.toolkit-light .newsletter-form button {
+    background: var(--color-gold);
+    color: #1a1a1a;
 }
+
+.toolkit-light .newsletter-privacy {
+    color: #666666;
+}
+
+.toolkit-light .funding-progress .current,
+.toolkit-light .funding-progress .goal {
+    color: #1a1a1a;
+}
+
+.toolkit-light .progress-percent {
+    color: #666666;
+}
+
+.toolkit-light .progress-bar {
+    background: #e5e5e5;
+}
+
+.toolkit-light .instagram-link {
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.toolkit-light .instagram-link:hover {
+    background: var(--color-gold);
+    color: #1a1a1a;
+}
+
+.toolkit-light .embed-note {
+    color: #666666;
+}
+
 
 /* ============================================
    TOOLKIT PAGE: Video Controls
