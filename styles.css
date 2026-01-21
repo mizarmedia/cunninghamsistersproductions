@@ -614,7 +614,7 @@ img {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
-    z-index: 99;
+    z-index: 1099; /* Just below modal, above nav (1000) */
 }
 
 .team-grid-overlay.active {
@@ -629,7 +629,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 200;
+    z-index: 1100; /* Above nav (1000) */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -3851,7 +3851,7 @@ body.theater-mode .theater-exit-btn {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1000;
+    z-index: 1100; /* Above nav (1000) */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3873,7 +3873,7 @@ body.theater-mode .theater-exit-btn {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 999;
+    z-index: 1099; /* Just below modal, above nav (1000) */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
