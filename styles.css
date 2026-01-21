@@ -1972,7 +1972,40 @@ body.theater-mode .video-content h2 {
 }
 
 body.theater-mode .video-wrapper {
-    transform: scale(1.15);
+    transform: none; /* No zoom - keep video centered and clean */
+}
+
+/* Theater mode layout - exit above, video center, controls below */
+body.theater-mode .video-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body.theater-mode .theater-exit-btn {
+    order: -1; /* Move above video */
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+body.theater-mode .video-wrapper {
+    order: 0;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Video controls below video on all screen sizes in theater mode */
+body.theater-mode .video-controls {
+    position: relative;
+    bottom: auto;
+    background: var(--color-black);
+    transform: none;
+}
+
+body.theater-mode .video-controls.revealed {
+    transform: none;
 }
 
 /* Fade adjacent sections to black */
@@ -1992,33 +2025,16 @@ body.theater-mode .video-section {
     touch-action: pan-x pinch-zoom; /* Allow horizontal pan and pinch but not vertical scroll */
 }
 
-/* Mobile theater mode - less aggressive zoom */
+/* Mobile theater mode adjustments */
 @media (max-width: 767px) {
-    body.theater-mode .video-wrapper {
-        transform: scale(1.02); /* Even smaller on mobile - screens are tiny */
-    }
-
-    .video-wrapper {
-        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
-
     .unmute-hint {
         padding: 8px 16px;
         font-size: 11px;
     }
 
-    /* Move video controls BELOW video on mobile */
-    .video-controls {
-        position: relative;
-        bottom: auto;
+    body.theater-mode .video-controls {
         padding: 12px 16px;
         gap: 8px;
-        background: var(--color-black);
-        transform: none;
-    }
-
-    .video-controls.revealed {
-        transform: none;
     }
 
     .video-btn {
