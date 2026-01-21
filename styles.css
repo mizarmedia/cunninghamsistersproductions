@@ -4915,7 +4915,7 @@ body.theater-mode .theater-exit-btn {
 .statement-photo {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 4px;
     object-fit: cover;
     margin: 0 auto;
 }
@@ -4957,7 +4957,7 @@ body.theater-mode .theater-exit-btn {
 .epk-team-member img {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
+    border-radius: 4px;
     object-fit: cover;
     margin: 0 auto 16px;
 }
