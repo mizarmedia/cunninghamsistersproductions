@@ -52,50 +52,49 @@
             <h2>Making Resilience</h2>
             <p class="journey-intro">Every film follows a path from idea to audience. Here's where Resilience stands on that journey.</p>
 
-            <!-- Desktop Timeline (Horizontal) -->
+            <!-- Desktop Timeline (Horizontal) - Single unified line -->
             <div class="journey-timeline-horizontal">
-                <div class="timeline-track">
-                    <div class="timeline-progress-line"></div>
+                <!-- One continuous track -->
+                <div class="h-track">
+                    <!-- Progress fill (61% = complete stages + 67% of post-production) -->
+                    <div class="h-progress"></div>
                 </div>
-                <div class="timeline-stages">
-                    <div class="timeline-stage complete" data-stage="creative">
-                        <div class="stage-bar"></div>
-                        <div class="stage-marker"></div>
-                        <div class="stage-label">
+
+                <!-- Markers at each stage -->
+                <div class="h-markers">
+                    <div class="h-marker complete" data-stage="creative" style="left: 0%">
+                        <div class="h-dot"></div>
+                        <div class="h-label">
                             <h4>Creative Development</h4>
-                            <span class="stage-duration">6 months</span>
+                            <span>6 months</span>
                         </div>
                     </div>
-                    <div class="timeline-stage complete" data-stage="funding">
-                        <div class="stage-bar"></div>
-                        <div class="stage-marker"></div>
-                        <div class="stage-label">
+                    <div class="h-marker complete" data-stage="funding" style="left: 18%">
+                        <div class="h-dot"></div>
+                        <div class="h-label">
                             <h4>Funding & Strategy</h4>
-                            <span class="stage-duration">6 months</span>
+                            <span>6 months</span>
                         </div>
                     </div>
-                    <div class="timeline-stage complete" data-stage="production">
-                        <div class="stage-bar"></div>
-                        <div class="stage-marker"></div>
-                        <div class="stage-label">
+                    <div class="h-marker complete" data-stage="production" style="left: 36%">
+                        <div class="h-dot"></div>
+                        <div class="h-label">
                             <h4>Production</h4>
-                            <span class="stage-duration">3 months</span>
+                            <span>3 months</span>
                         </div>
                     </div>
-                    <div class="timeline-stage active" data-stage="post">
-                        <div class="stage-bar"></div>
-                        <div class="stage-marker"></div>
-                        <div class="stage-label">
+                    <div class="h-marker active" data-stage="post" style="left: 45%">
+                        <div class="h-dot"></div>
+                        <div class="h-label">
                             <h4>Post-Production</h4>
-                            <span class="stage-duration">8 months</span>
+                            <span>8 months</span>
                         </div>
                     </div>
-                    <div class="timeline-stage upcoming" data-stage="distribution">
-                        <div class="stage-bar"></div>
-                        <div class="stage-marker"></div>
-                        <div class="stage-label">
-                            <h4>Marketing & Distribution</h4>
-                            <span class="stage-duration">10-12 months</span>
+                    <div class="h-marker upcoming" data-stage="distribution" style="left: 69%">
+                        <div class="h-dot"></div>
+                        <div class="h-label">
+                            <h4>Distribution</h4>
+                            <span>10-12 months</span>
                         </div>
                     </div>
                 </div>
