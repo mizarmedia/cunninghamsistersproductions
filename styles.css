@@ -2479,10 +2479,9 @@ body.theater-mode .theater-exit-btn {
 /* Timeline hint text */
 .timeline-hint {
     text-align: center;
-    font-size: 13px;
-    color: var(--color-gray-500);
+    font-size: 12px;
+    color: var(--color-gray-600);
     margin-top: 24px;
-    font-style: italic;
 }
 
 .journey-timeline-vertical::before {
