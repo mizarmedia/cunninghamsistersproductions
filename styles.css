@@ -5344,18 +5344,12 @@ body.theater-mode .theater-exit-btn {
 
 .toolkit-hero-bg {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
 }
 
 .toolkit-hero-bg img {
     width: 100%;
-    max-width: 500px;
     height: auto;
     display: block;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .toolkit-hero-content {
