@@ -3270,10 +3270,55 @@ body.theater-mode .theater-exit-btn {
 .ripple-line.right { order: 4; }
 .ripple-destination.right { order: 5; }
 
-/* Desktop: keep vertical, just bigger */
+/* Desktop: horizontal layout with donation in center */
 @media (min-width: 768px) {
     .ripple-container {
-        gap: 20px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    /* Reset order for horizontal: left to right */
+    .ripple-destination.left { order: 1; }
+    .ripple-line.left { order: 2; }
+    .ripple-center { order: 3; }
+    .ripple-line.right { order: 4; }
+    .ripple-destination.right { order: 5; }
+
+    /* Lines become horizontal */
+    .ripple-line {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        transform: scaleX(0);
+        transform-origin: center;
+    }
+
+    .ripple-line.left {
+        transform-origin: right center;
+    }
+
+    .ripple-line.right {
+        transform-origin: left center;
+    }
+
+    /* Animate lines horizontally */
+    .revenue-section.animate .ripple-line {
+        transform: scaleX(1);
+    }
+
+    /* Cards slide from sides instead of top/bottom */
+    .ripple-destination.left {
+        transform: translateX(-20px);
+    }
+
+    .ripple-destination.right {
+        transform: translateX(20px);
+    }
+
+    .revenue-section.animate .ripple-destination {
+        transform: translateX(0);
     }
 }
 
@@ -3458,10 +3503,6 @@ body.theater-mode .theater-exit-btn {
 
 /* Tablet/Desktop adjustments */
 @media (min-width: 768px) {
-    .ripple-line {
-        height: 50px; /* Slightly taller on desktop */
-    }
-
     .ripple-destination {
         width: 220px; /* Equal fixed width on desktop */
     }
