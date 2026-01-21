@@ -5337,51 +5337,85 @@ body.theater-mode .theater-exit-btn {
 
 /* Full-width hero for toolkit */
 .toolkit-fullscreen-hero {
-    background: #ffffff;
-    padding-top: 80px;
-    text-align: center;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .toolkit-hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: calc(100vh - 80px);
-    overflow: hidden;
+    height: 100%;
 }
 
 .toolkit-hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 35%;
+}
+
+.toolkit-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
 }
 
 .toolkit-hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 40px 20px;
-    background: #ffffff;
+    padding: 0 20px;
 }
 
 .toolkit-hero-content .overline {
     display: block;
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-gold);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .toolkit-hero-content h1 {
     font-family: var(--font-display);
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 400;
-    letter-spacing: 0.1em;
-    color: #1a1a1a;
-    margin: 0;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+}
+
+.toolkit-hero-content .hero-tagline {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    line-height: 1.7;
 }
 
 @media (min-width: 768px) {
     .toolkit-hero-content h1 {
-        font-size: 48px;
+        font-size: 56px;
+    }
+
+    .toolkit-hero-content .hero-tagline {
+        font-size: 16px;
     }
 }
 
