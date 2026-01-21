@@ -3333,7 +3333,7 @@ body.theater-mode .theater-exit-btn {
     border: 3px solid var(--color-gold);
     box-shadow: 0 0 30px rgba(201, 169, 98, 0.3);
     line-height: 1;
-    padding-top: 2px; /* Optical centering for $ character */
+    padding-bottom: 4px; /* Optical centering - raises $ character */
 }
 
 .center-label {
