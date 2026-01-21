@@ -4978,6 +4978,25 @@ body.theater-mode .theater-exit-btn {
     font-style: italic;
 }
 
+/* Text-only statement (no photo) */
+.statement-text-only {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.statement-text-only .overline {
+    display: block;
+    margin-bottom: 24px;
+}
+
+.statement-text-only p {
+    color: var(--color-gray-300);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
 .statement-signature {
     font-style: normal;
     color: var(--color-white);
@@ -5716,7 +5735,8 @@ body.toolkit-light {
     color: #444444;
 }
 
-.toolkit-light .statement-text {
+.toolkit-light .statement-text,
+.toolkit-light .statement-text-only p {
     color: #444444;
 }
 
