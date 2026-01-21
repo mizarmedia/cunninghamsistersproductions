@@ -3270,58 +3270,6 @@ body.theater-mode .theater-exit-btn {
 .ripple-line.right { order: 4; }
 .ripple-destination.right { order: 5; }
 
-/* Desktop: horizontal layout with donation in center */
-@media (min-width: 768px) {
-    .ripple-container {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 24px;
-    }
-
-    /* Reset order for horizontal: left to right */
-    .ripple-destination.left { order: 1; }
-    .ripple-line.left { order: 2; }
-    .ripple-center { order: 3; }
-    .ripple-line.right { order: 4; }
-    .ripple-destination.right { order: 5; }
-
-    /* Lines become horizontal */
-    .ripple-line {
-        width: 60px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-        transform: scaleX(0);
-        transform-origin: center;
-    }
-
-    .ripple-line.left {
-        transform-origin: right center;
-    }
-
-    .ripple-line.right {
-        transform-origin: left center;
-    }
-
-    /* Animate lines horizontally */
-    .revenue-section.animate .ripple-line {
-        transform: scaleX(1);
-    }
-
-    /* Cards slide from sides instead of top/bottom */
-    .ripple-destination.left {
-        transform: translateX(-20px);
-    }
-
-    .ripple-destination.right {
-        transform: translateX(20px);
-    }
-
-    .revenue-section.animate .ripple-destination {
-        transform: translateX(0);
-    }
-}
-
 /* Center ripple origin */
 .ripple-center {
     position: relative;
@@ -3499,6 +3447,59 @@ body.theater-mode .theater-exit-btn {
     font-size: 13px;
     color: var(--color-gray-400);
     line-height: 1.5;
+}
+
+/* Desktop: horizontal layout with donation in center */
+@media (min-width: 768px) {
+    .ripple-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0; /* Remove gap, use flex spacing */
+    }
+
+    /* Reset order for horizontal: left to right */
+    .ripple-destination.left { order: 1; }
+    .ripple-line.left { order: 2; }
+    .ripple-center { order: 3; }
+    .ripple-line.right { order: 4; }
+    .ripple-destination.right { order: 5; }
+
+    /* Lines become horizontal - responsive width */
+    .ripple-line {
+        width: clamp(40px, 8vw, 100px);
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        transform: scaleX(0);
+        flex-shrink: 0;
+    }
+
+    .ripple-line.left {
+        transform-origin: right center;
+    }
+
+    .ripple-line.right {
+        transform-origin: left center;
+    }
+
+    /* Animate lines horizontally on desktop */
+    .revenue-section.animate .ripple-line {
+        transform: scaleX(1);
+    }
+
+    /* Cards slide from sides instead of top/bottom */
+    .ripple-destination.left {
+        transform: translateX(-20px);
+    }
+
+    .ripple-destination.right {
+        transform: translateX(20px);
+    }
+
+    .revenue-section.animate .ripple-destination {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Tablet/Desktop adjustments */
