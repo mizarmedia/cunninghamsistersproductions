@@ -2479,15 +2479,15 @@ body.theater-mode .theater-exit-btn {
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        var(--color-gold) 5%,
-        var(--color-gold) 65%,
-        var(--color-gray-800) 65%,
-        var(--color-gray-800) 95%,
+        var(--color-gold) 3%,
+        var(--color-gold) 76%,
+        var(--color-gray-800) 76%,
+        var(--color-gray-800) 97%,
         transparent 100%
     );
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 1.2s ease-out;
+    transition: transform 1s ease-out;
 }
 
 .journey-section.animate .journey-timeline-vertical::before {
@@ -2499,28 +2499,28 @@ body.theater-mode .theater-exit-btn {
     padding-bottom: 32px;
     cursor: pointer;
     opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .journey-section.animate .vtimeline-item {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
 }
 
-/* Staggered delays for each item */
-.journey-section.animate .vtimeline-item:nth-child(1) { transition-delay: 0.2s; }
-.journey-section.animate .vtimeline-item:nth-child(2) { transition-delay: 0.4s; }
-.journey-section.animate .vtimeline-item:nth-child(3) { transition-delay: 0.6s; }
-.journey-section.animate .vtimeline-item:nth-child(4) { transition-delay: 0.8s; }
-.journey-section.animate .vtimeline-item:nth-child(5) { transition-delay: 1.0s; }
+/* Staggered delays - items pop in as line reaches them */
+.journey-section.animate .vtimeline-item:nth-child(1) { transition-delay: 0.15s; }
+.journey-section.animate .vtimeline-item:nth-child(2) { transition-delay: 0.35s; }
+.journey-section.animate .vtimeline-item:nth-child(3) { transition-delay: 0.55s; }
+.journey-section.animate .vtimeline-item:nth-child(4) { transition-delay: 0.75s; }
+.journey-section.animate .vtimeline-item:nth-child(5) { transition-delay: 0.95s; }
 
 .vtimeline-item:last-child {
     padding-bottom: 0;
 }
 
 .journey-section.animate .vtimeline-item:hover {
-    transform: translateX(4px);
+    transform: scale(1.02) translateX(4px);
 }
 
 .vtimeline-marker {
