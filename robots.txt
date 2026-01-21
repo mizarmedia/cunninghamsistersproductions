@@ -1,0 +1,11 @@
+# Robots.txt for Cunningham Sisters Productions
+# Currently blocking indexing until launch on final domain
+
+User-agent: *
+Disallow: /
+
+# TODO: Remove Disallow line when launching on final domain
+# and replace with:
+# User-agent: *
+# Allow: /
+# Sitemap: https://yourdomain.com/sitemap.xml
