@@ -6,19 +6,28 @@
     <title>Resilience | A Cunningham Sisters Production</title>
     <meta name="description" content="Resilience is a gritty drama exposing systemic abuse in unregulated teen treatment programs. A non-profit film by The Cunningham Sisters Productions.">
 
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Resilience | A Cunningham Sisters Production">
     <meta property="og:description" content="Resilience is a gritty drama exposing systemic abuse in unregulated teen treatment programs. A non-profit film by The Cunningham Sisters Productions.">
     <meta property="og:image" content="images/hero-main.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cunningham Sisters Productions">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecunninghamsisters">
     <meta name="twitter:title" content="Resilience | A Cunningham Sisters Production">
     <meta name="twitter:description" content="Resilience is a gritty drama exposing systemic abuse in unregulated teen treatment programs. A non-profit film by The Cunningham Sisters Productions.">
     <meta name="twitter:image" content="images/hero-main.jpg">
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Movie -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -41,13 +50,45 @@
     }
     </script>
 
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "The Cunningham Sisters Productions",
+        "email": "filmresilience@gmail.com",
+        "sameAs": [
+            "https://www.instagram.com/thecunninghamsisters/"
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - VideoObject (Proof of Concept) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Resilience - Proof of Concept",
+        "description": "Proof of concept for Resilience, a gritty drama exposing systemic abuse in unregulated teen treatment programs",
+        "thumbnailUrl": "images/hero-main.jpg",
+        "embedUrl": "https://player.vimeo.com/video/1115004786"
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
+    <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://player.vimeo.com">
+    <link rel="preconnect" href="https://i.vimeocdn.com">
+    <link rel="preload" as="image" href="images/hero-main.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Fixed Navigation -->
     <nav class="nav">
         <a href="index.html" class="nav-logo">THE CUNNINGHAM SISTERS</a>
@@ -64,6 +105,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-bg">
@@ -80,62 +122,6 @@
                     <path d="M12 5v14M5 12l7 7 7-7"/>
                 </svg>
             </a>
-        </div>
-    </section>
-
-    <!-- Quote Interstitial -->
-    <section class="interstitial">
-        <blockquote>
-            "If we don't stand up for the children... then we don't stand up for much."
-        </blockquote>
-        <cite>Marian W. Edelman</cite>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story" id="story">
-        <div class="story-bg parallax">
-            <img src="images/story-bg.jpg" alt="Director Kenna Cunningham on set of Resilience">
-        </div>
-        <div class="story-content">
-            <div class="story-text">
-                <span class="overline">The Film</span>
-                <h2>A story that needs to be heard</h2>
-                <p class="lead">Resilience is a gritty, unflinching drama that exposes the systemic abuse within unregulated teen residential treatment programs.</p>
-                <p>Inspired by real events, this non-profit narrative feature follows young people trapped in an industry that has operated in the shadows for too long. Their stories of survival and courage shine light on practices that demand immediate reform.</p>
-                <div class="story-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Director</span>
-                        <span class="meta-value">Kenna Cunningham</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Writer</span>
-                        <span class="meta-value">Madi Grace Cunningham</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Genre</span>
-                        <span class="meta-value">Drama</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Status</span>
-                        <span class="meta-value">Post-Production</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Break -->
-    <section class="image-break">
-        <div class="image-grid">
-            <div class="image-item">
-                <img src="images/production-still-1.jpg" alt="Scene from Resilience film">
-            </div>
-            <div class="image-item">
-                <img src="images/production-still-2.jpg" alt="Cast members in a scene from Resilience">
-            </div>
-            <div class="image-item">
-                <img src="images/bts-main.jpg" alt="Film crew on the set of Resilience">
-            </div>
         </div>
     </section>
 
@@ -215,6 +201,62 @@
         </div>
     </section>
 
+    <!-- Quote Interstitial -->
+    <section class="interstitial">
+        <blockquote>
+            "If we don't stand up for the children... then we don't stand up for much."
+        </blockquote>
+        <cite>Marian W. Edelman</cite>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="story-bg parallax">
+            <img src="images/story-bg.jpg" alt="Director Kenna Cunningham on set of Resilience" loading="lazy">
+        </div>
+        <div class="story-content">
+            <div class="story-text">
+                <span class="overline">The Film</span>
+                <h2>A story that needs to be heard</h2>
+                <p class="lead">Resilience is a gritty, unflinching drama that exposes the systemic abuse within unregulated teen residential treatment programs.</p>
+                <p>Inspired by real events, this non-profit narrative feature follows young people trapped in an industry that has operated in the shadows for too long. Their stories of survival and courage shine light on practices that demand immediate reform.</p>
+                <div class="story-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Director</span>
+                        <span class="meta-value">Kenna Cunningham</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Writer</span>
+                        <span class="meta-value">Madi Grace Cunningham</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Genre</span>
+                        <span class="meta-value">Drama</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Status</span>
+                        <span class="meta-value">Post-Production</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break -->
+    <section class="image-break">
+        <div class="image-grid">
+            <div class="image-item">
+                <img src="images/production-still-1.jpg" alt="Scene from Resilience film" loading="lazy">
+            </div>
+            <div class="image-item">
+                <img src="images/production-still-2.jpg" alt="Cast members in a scene from Resilience" loading="lazy">
+            </div>
+            <div class="image-item">
+                <img src="images/bts-main.jpg" alt="Film crew on the set of Resilience" loading="lazy">
+            </div>
+        </div>
+    </section>
+
     <!-- Team Section -->
     <section class="team" id="team">
         <div class="team-header">
@@ -224,7 +266,7 @@
 
         <div class="team-spotlight">
             <div class="spotlight-image">
-                <img src="images/kenna-cunningham.jpg" alt="Kenna Cunningham">
+                <img src="images/kenna-cunningham.jpg" alt="Kenna Cunningham" loading="lazy">
             </div>
             <div class="spotlight-content">
                 <h3>Kenna Cunningham</h3>
@@ -236,7 +278,7 @@
 
         <div class="team-spotlight reverse">
             <div class="spotlight-image">
-                <img src="images/madi-cunningham.png" alt="Madi Grace Cunningham">
+                <img src="images/madi-cunningham.png" alt="Madi Grace Cunningham" loading="lazy">
             </div>
             <div class="spotlight-content">
                 <h3>Madi Grace Cunningham</h3>
@@ -249,7 +291,7 @@
         <div class="team-grid">
             <div class="team-card" data-person="david">
                 <div class="team-card-photo">
-                    <img src="images/david-cunningham.jpg" alt="David Cunningham">
+                    <img src="images/david-cunningham.jpg" alt="David Cunningham" loading="lazy">
                 </div>
                 <div class="team-card-body">
                     <h4>David Cunningham</h4>
@@ -264,7 +306,7 @@
             </div>
             <div class="team-card" data-person="mike">
                 <div class="team-card-photo">
-                    <img src="images/mike-leahy.jpg" alt="Mike Leahy">
+                    <img src="images/mike-leahy.jpg" alt="Mike Leahy" loading="lazy">
                 </div>
                 <div class="team-card-body">
                     <h4>Mike Leahy</h4>
@@ -279,7 +321,7 @@
             </div>
             <div class="team-card" data-person="janet">
                 <div class="team-card-photo">
-                    <img src="images/janet-batchler.png" alt="Janet Batchler">
+                    <img src="images/janet-batchler.png" alt="Janet Batchler" loading="lazy">
                 </div>
                 <div class="team-card-body">
                     <h4>Janet Batchler</h4>
@@ -294,7 +336,7 @@
             </div>
             <div class="team-card" data-person="lee">
                 <div class="team-card-photo">
-                    <img src="images/lee-batchler.webp" alt="Lee Batchler">
+                    <img src="images/lee-batchler.webp" alt="Lee Batchler" loading="lazy">
                 </div>
                 <div class="team-card-body">
                     <h4>Lee Batchler</h4>
@@ -328,7 +370,7 @@
     <!-- Impact Section -->
     <section class="impact" id="impact">
         <div class="impact-bg parallax">
-            <img src="images/impact-bg.jpg" alt="Resilience film production">
+            <img src="images/impact-bg.jpg" alt="Resilience film production" loading="lazy">
         </div>
         <div class="impact-content">
             <span class="overline">Our Mission</span>
@@ -472,6 +514,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -485,8 +529,13 @@
     <div class="theater-exit-hint">Scroll to exit theater mode</div>
 
     <script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         // Fixed parallax effect - relative to each section
         function updateParallax() {
+            if (prefersReducedMotion) return; // Skip parallax for users who prefer reduced motion
+
             document.querySelectorAll('.parallax').forEach(container => {
                 const rect = container.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
@@ -505,9 +554,11 @@
             });
         }
 
-        window.addEventListener('scroll', updateParallax);
-        window.addEventListener('resize', updateParallax);
-        updateParallax();
+        if (!prefersReducedMotion) {
+            window.addEventListener('scroll', updateParallax);
+            window.addEventListener('resize', updateParallax);
+            updateParallax();
+        }
 
         // Nav background on scroll
         const nav = document.querySelector('.nav');
