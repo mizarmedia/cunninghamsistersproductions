@@ -2329,9 +2329,15 @@ body.theater-mode .theater-exit-btn {
     }
 }
 
-/* Completed dots get gold after pop */
-.journey-section.animate .h-marker.complete .h-dot {
-    animation: dot-pop-gold 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+/* Completed dots get gold after pop - with staggered delays */
+.journey-section.animate .h-marker.complete[data-stage="creative"] .h-dot {
+    animation: dot-pop-gold 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+}
+.journey-section.animate .h-marker.complete[data-stage="funding"] .h-dot {
+    animation: dot-pop-gold 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards;
+}
+.journey-section.animate .h-marker.complete[data-stage="production"] .h-dot {
+    animation: dot-pop-gold 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards;
 }
 
 @keyframes dot-pop-gold {
@@ -2353,10 +2359,10 @@ body.theater-mode .theater-exit-btn {
     }
 }
 
-/* Active dot gets pulse after pop */
-.journey-section.animate .h-marker.active .h-dot {
-    animation: dot-pop-active 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-               marker-pulse 2.5s ease-in-out 1.6s infinite;
+/* Active dot gets pulse after pop - with delay */
+.journey-section.animate .h-marker.active[data-stage="post"] .h-dot {
+    animation: dot-pop-active 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s forwards,
+               marker-pulse 2.5s ease-in-out 2.8s infinite;
 }
 
 @keyframes dot-pop-active {
