@@ -2257,6 +2257,13 @@ body.theater-mode .theater-exit-btn {
     transition: transform 0.2s ease;
 }
 
+/* Proportional widths based on duration */
+.timeline-stage[data-stage="creative"] { flex: 18; }
+.timeline-stage[data-stage="funding"] { flex: 18; }
+.timeline-stage[data-stage="production"] { flex: 9; }
+.timeline-stage[data-stage="post"] { flex: 24; }
+.timeline-stage[data-stage="distribution"] { flex: 31; }
+
 .timeline-stage:hover {
     transform: translateY(-4px);
 }
@@ -3112,6 +3119,215 @@ body.theater-mode .theater-exit-btn {
 .revenue-content .tax-note {
     font-size: 12px;
     color: var(--color-gray-600);
+}
+
+/* ============================================
+   IMPACT CYCLE - Animated Infographic
+   ============================================ */
+.impact-cycle {
+    max-width: 500px;
+    margin: 0 auto 48px;
+}
+
+.cycle-svg {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+}
+
+/* Central Film Circle */
+.cycle-center {
+    fill: rgba(201, 169, 98, 0.15);
+    stroke: var(--color-gold);
+    stroke-width: 3;
+    transition: all 0.3s ease;
+}
+
+.cycle-center-text {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    fill: var(--color-white);
+    text-anchor: middle;
+    letter-spacing: 0.15em;
+}
+
+/* Flow Paths */
+.cycle-path {
+    fill: none;
+    stroke: var(--color-gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.cycle-path.return-path {
+    stroke-dasharray: 5, 5;
+    animation: dash-flow 1.5s linear infinite;
+}
+
+@keyframes dash-flow {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+/* Nodes */
+.cycle-node {
+    fill: var(--color-dark);
+    stroke: var(--color-gold);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.cycle-node.donation-node {
+    fill: rgba(201, 169, 98, 0.2);
+}
+
+.cycle-node.advocacy-node,
+.cycle-node.future-node {
+    fill: rgba(201, 169, 98, 0.1);
+}
+
+.cycle-node-icon {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    fill: var(--color-gold);
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.cycle-node-icon-small {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    fill: var(--color-gold);
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Animated Pulse Dots */
+.pulse-dot {
+    fill: var(--color-gold);
+    opacity: 0;
+}
+
+.impact-cycle:hover .pulse-dot {
+    animation: pulse-travel 2.5s ease-in-out infinite;
+}
+
+.pulse-dot.donation-pulse {
+    animation-delay: 0s;
+}
+
+.pulse-dot.revenue-pulse {
+    animation-delay: 0.8s;
+}
+
+.pulse-dot.return-pulse {
+    animation-delay: 1.6s;
+}
+
+@keyframes pulse-travel {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Labels */
+.cycle-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 0 8px;
+}
+
+.cycle-label {
+    flex: 1;
+    text-align: center;
+    padding: 16px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(201, 169, 98, 0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.cycle-label:hover {
+    border-color: rgba(201, 169, 98, 0.4);
+    background: rgba(201, 169, 98, 0.05);
+}
+
+.cycle-label h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: 4px;
+}
+
+.cycle-label p {
+    font-size: 11px;
+    color: var(--color-gray-400);
+    line-height: 1.4;
+}
+
+.cycle-tagline {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--color-gray-300);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .cycle-labels {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cycle-label {
+        padding: 12px;
+    }
+
+    .cycle-svg {
+        max-height: 280px;
+    }
+}
+
+@media (min-width: 768px) {
+    .impact-cycle {
+        max-width: 600px;
+        margin-bottom: 64px;
+    }
+
+    .cycle-svg {
+        max-height: 400px;
+    }
+
+    .cycle-label h4 {
+        font-size: 15px;
+    }
+
+    .cycle-label p {
+        font-size: 12px;
+    }
+
+    .cycle-tagline {
+        font-size: 22px;
+    }
 }
 
 /* ============================================
