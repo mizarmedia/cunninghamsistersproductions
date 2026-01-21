@@ -514,6 +514,7 @@
         let vimeoPlayer = null;
         let isPlaying = false;
         let isMuted = true;
+        let hasExitedOnce = false; // Once exited, disable auto-trigger
         const ESCAPE_THRESHOLD = 500;
 
         // Custom control elements
@@ -604,6 +605,7 @@
             theaterMode = false;
             scrollLocked = false;
             scrollAccumulator = 0;
+            hasExitedOnce = true; // Disable auto-trigger after first exit
 
             // Restore scrolling (both html and body for iOS)
             document.documentElement.style.overflow = '';
@@ -688,10 +690,10 @@
             });
         });
 
-        // Detect scroll into video section
+        // Detect scroll into video section (only auto-trigger if never exited)
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5 && !hasExitedOnce) {
                     enterTheaterMode();
                 }
             });
