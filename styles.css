@@ -5091,14 +5091,11 @@ body.theater-mode .theater-exit-btn {
 }
 
 .epk-photos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: auto;
-    gap: 12px;
+    column-count: 2;
+    column-gap: 12px;
     padding: 0 20px 60px;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: start;
 }
 
 .epk-photo-item {
@@ -5106,7 +5103,11 @@ body.theater-mode .theater-exit-btn {
     overflow: hidden;
     border-radius: 4px;
     background: transparent;
-    line-height: 0; /* Remove gap below images */
+    line-height: 0;
+    break-inside: avoid;
+    margin-bottom: 12px;
+    display: inline-block;
+    width: 100%;
 }
 
 .epk-photo-item img {
@@ -5305,8 +5306,8 @@ body.theater-mode .theater-exit-btn {
     }
 
     .epk-photos-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        column-count: 3;
+        column-gap: 16px;
     }
 
     .epk-contact-grid {
@@ -5321,8 +5322,8 @@ body.theater-mode .theater-exit-btn {
     }
 
     .epk-photos-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        column-count: 4;
+        column-gap: 20px;
     }
 
     .epk-film-logo {
