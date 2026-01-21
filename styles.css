@@ -2473,30 +2473,53 @@ body.theater-mode .theater-exit-btn {
     content: '';
     position: absolute;
     left: 10px;
-    top: 15px;
+    top: 0;
     bottom: 0;
     width: 2px;
     background: linear-gradient(
         to bottom,
-        var(--color-gold) 0%,
-        var(--color-gold) 69%,
-        var(--color-gray-800) 69%,
-        var(--color-gray-800) 100%
+        transparent 0%,
+        var(--color-gold) 5%,
+        var(--color-gold) 65%,
+        var(--color-gray-800) 65%,
+        var(--color-gray-800) 95%,
+        transparent 100%
     );
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.2s ease-out;
+}
+
+.journey-section.animate .journey-timeline-vertical::before {
+    transform: scaleY(1);
 }
 
 .vtimeline-item {
     position: relative;
     padding-bottom: 32px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
+.journey-section.animate .vtimeline-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered delays for each item */
+.journey-section.animate .vtimeline-item:nth-child(1) { transition-delay: 0.2s; }
+.journey-section.animate .vtimeline-item:nth-child(2) { transition-delay: 0.4s; }
+.journey-section.animate .vtimeline-item:nth-child(3) { transition-delay: 0.6s; }
+.journey-section.animate .vtimeline-item:nth-child(4) { transition-delay: 0.8s; }
+.journey-section.animate .vtimeline-item:nth-child(5) { transition-delay: 1.0s; }
 
 .vtimeline-item:last-child {
     padding-bottom: 0;
 }
 
-.vtimeline-item:hover {
+.journey-section.animate .vtimeline-item:hover {
     transform: translateX(4px);
 }
 
@@ -2517,17 +2540,7 @@ body.theater-mode .theater-exit-btn {
     border-color: var(--color-gold);
 }
 
-.vtimeline-item.complete .vtimeline-marker::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background: var(--color-dark);
-    border-radius: 50%;
-}
+/* Removed the dark dot inside completed markers - now solid gold */
 
 .vtimeline-item.active .vtimeline-marker {
     border-color: var(--color-gold);
@@ -2580,43 +2593,40 @@ body.theater-mode .theater-exit-btn {
     line-height: 1.6;
 }
 
-/* Substages */
+/* Substages - simplified, no extra line */
 .vtimeline-substages {
-    margin-top: 16px;
-    padding-left: 8px;
-    border-left: 2px solid rgba(201, 169, 98, 0.3);
+    margin-top: 12px;
+    padding-left: 0;
 }
 
 .substage {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 13px;
-    color: var(--color-gray-400);
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 12px;
+    color: var(--color-gray-500);
 }
 
 .substage-marker {
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--color-gray-600);
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--color-dark);
+    background: var(--color-gray-600);
     flex-shrink: 0;
 }
 
 .substage.complete .substage-marker {
     background: var(--color-gold);
-    border-color: var(--color-gold);
 }
 
 .substage.complete span:last-child {
-    color: var(--color-gray-200);
+    color: var(--color-gray-300);
 }
 
 .substage.current .substage-marker {
-    border-color: var(--color-gold);
-    animation: marker-pulse 2.5s ease-in-out infinite;
+    background: var(--color-gold);
+    box-shadow: 0 0 6px rgba(201, 169, 98, 0.6);
 }
 
 .substage.current span:last-child {
