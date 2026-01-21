@@ -270,7 +270,7 @@
             <!-- Ripple Animation Infographic -->
             <div class="ripple-container">
                 <!-- Left destination card -->
-                <div class="ripple-destination left">
+                <div class="ripple-destination left" data-impact="advocacy">
                     <div class="destination-number">50%</div>
                     <h4>Advocacy</h4>
                     <p>Regulating troubled teen programs</p>
@@ -292,15 +292,39 @@
                 <div class="ripple-line right"></div>
 
                 <!-- Right destination card -->
-                <div class="ripple-destination right">
+                <div class="ripple-destination right" data-impact="future">
                     <div class="destination-number">50%</div>
                     <h4>Future Films</h4>
                     <p>More stories, more impact</p>
                 </div>
             </div>
+            <p class="ripple-hint">Click on a card to learn more</p>
             <p class="tax-note">All donations are tax-deductible through The Film Institute 501(c)(3)</p>
         </div>
     </section>
+
+    <!-- Impact Modal -->
+    <div class="impact-modal">
+        <div class="impact-modal-content">
+            <button class="impact-modal-close">&times;</button>
+            <div class="impact-modal-header">
+                <span class="impact-modal-percent"></span>
+                <h3 class="impact-modal-title"></h3>
+            </div>
+            <div class="impact-modal-body">
+                <p class="impact-modal-description"></p>
+                <div class="impact-modal-details">
+                    <h5>How It Works</h5>
+                    <p class="impact-modal-how"></p>
+                </div>
+                <div class="impact-modal-examples">
+                    <h5 class="impact-modal-examples-title"></h5>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="impact-modal-overlay"></div>
 
     <!-- CTA Hub - Newsletter, Donate, Instagram -->
     <section class="cta-hub">
@@ -597,6 +621,90 @@
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && stageModal.classList.contains('active')) {
                 closeStageModal();
+            }
+        });
+
+        // ============================================
+        // Impact Modal Functionality (Advocacy & Future Films)
+        // ============================================
+        const impactData = {
+            advocacy: {
+                percent: '50%',
+                title: 'Advocacy',
+                description: 'Half of all film revenue goes directly toward regulating the troubled teen industry. This isn\'t just charity—it\'s strategic investment in systemic change that protects vulnerable youth.',
+                how: 'Once Resilience generates revenue through distribution, streaming deals, and screenings, 50% flows into advocacy work. We partner with established organizations already fighting for reform, amplifying their impact with dedicated funding.',
+                examplesTitle: 'Where the Money Goes',
+                examples: [
+                    'Supporting legislative efforts to regulate residential treatment programs',
+                    'Funding survivor-led organizations and advocacy groups',
+                    'Creating educational campaigns for parents and policymakers',
+                    'Legal support for survivors seeking accountability',
+                    'Research initiatives documenting industry practices'
+                ]
+            },
+            future: {
+                percent: '50%',
+                title: 'Future Films',
+                description: 'The other half of revenue funds more advocacy films. Resilience is just the beginning—a proof of concept for a new model of filmmaking where entertainment drives real-world change.',
+                how: 'Revenue from Resilience seeds the next project. Each film tackles a different social issue, using the same nonprofit model. Success compounds: more films mean more revenue, which means more advocacy funding and more films.',
+                examplesTitle: 'The Vision Ahead',
+                examples: [
+                    'Developing a slate of advocacy-focused narrative features',
+                    'Stories covering foster care, juvenile justice, and youth mental health',
+                    'Building a sustainable production model for impact filmmaking',
+                    'Creating opportunities for emerging filmmakers in advocacy storytelling',
+                    'Expanding the Cunningham Sisters Productions mission'
+                ]
+            }
+        };
+
+        const impactModal = document.querySelector('.impact-modal');
+        const impactOverlay = document.querySelector('.impact-modal-overlay');
+        const impactCards = document.querySelectorAll('[data-impact]');
+
+        function openImpactModal(impactKey) {
+            const data = impactData[impactKey];
+            if (!data) return;
+
+            // Populate modal
+            impactModal.querySelector('.impact-modal-percent').textContent = data.percent;
+            impactModal.querySelector('.impact-modal-title').textContent = data.title;
+            impactModal.querySelector('.impact-modal-description').textContent = data.description;
+            impactModal.querySelector('.impact-modal-how').textContent = data.how;
+            impactModal.querySelector('.impact-modal-examples-title').textContent = data.examplesTitle;
+
+            // Examples list
+            const examplesList = impactModal.querySelector('.impact-modal-examples ul');
+            examplesList.innerHTML = data.examples.map(e => `<li>${e}</li>`).join('');
+
+            // Show modal
+            impactModal.classList.add('active');
+            impactOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImpactModal() {
+            impactModal.classList.remove('active');
+            impactOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Click handlers for impact cards
+        impactCards.forEach(card => {
+            card.addEventListener('click', () => {
+                openImpactModal(card.dataset.impact);
+            });
+        });
+
+        // Close modal handlers
+        impactModal.querySelector('.impact-modal-close').addEventListener('click', closeImpactModal);
+        impactOverlay.addEventListener('click', closeImpactModal);
+        impactModal.addEventListener('click', (e) => {
+            if (e.target === impactModal) closeImpactModal();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && impactModal.classList.contains('active')) {
+                closeImpactModal();
             }
         });
 
