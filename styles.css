@@ -2207,48 +2207,46 @@ body.theater-mode .theater-exit-btn {
     }
 }
 
+/* Hide the old separate track - stages ARE the track now */
 .timeline-track {
-    position: relative;
-    height: 4px;
-    background: var(--color-gray-800);
-    border-radius: 2px;
-    margin-bottom: 24px;
-    overflow: hidden;
-}
-
-.timeline-progress-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(
-        90deg,
-        var(--color-gold-dark),
-        var(--color-gold)
-    );
-    border-radius: 2px;
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Animate when in view */
-.journey-section.animate .timeline-progress-line {
-    width: 69%; /* 18 + 18 + 9 + 24 = 69% complete */
-    animation: shimmer 2.5s ease-in-out infinite;
-    background-size: 30% 100%, 100% 100%;
-    background-image:
-        linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
-        linear-gradient(90deg, var(--color-gold-dark), var(--color-gold));
-}
-
-@keyframes shimmer {
-    0% { background-position: -30% 0, 0 0; }
-    100% { background-position: 130% 0, 0 0; }
+    display: none;
 }
 
 .timeline-stages {
     display: flex;
-    gap: 4px;
+    gap: 2px;
+    position: relative;
+}
+
+/* Shimmer overlay that travels across the entire timeline */
+.timeline-stages::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 69%; /* Covers completed + active stages */
+    height: 8px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+    );
+    background-size: 40% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 2px;
+}
+
+.journey-section.animate .timeline-stages::after {
+    opacity: 1;
+    animation: timeline-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes timeline-shimmer {
+    0% { background-position: -40% 0; }
+    100% { background-position: 140% 0; }
 }
 
 .timeline-stage {
@@ -2281,12 +2279,6 @@ body.theater-mode .theater-exit-btn {
 
 .timeline-stage.active .stage-bar {
     background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold));
-    animation: pulse-bar 2s ease-in-out infinite;
-}
-
-@keyframes pulse-bar {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 98, 0.4); }
-    50% { box-shadow: 0 0 8px 2px rgba(201, 169, 98, 0.3); }
 }
 
 .timeline-stage.upcoming .stage-bar {
@@ -2534,7 +2526,7 @@ body.theater-mode .theater-exit-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 200;
+    z-index: 1100; /* Above nav (1000) */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -2555,7 +2547,7 @@ body.theater-mode .theater-exit-btn {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 199;
+    z-index: 1099; /* Just below modal */
 }
 
 .stage-modal-overlay.active {
@@ -2569,8 +2561,8 @@ body.theater-mode .theater-exit-btn {
     border: 1px solid var(--color-gold);
     border-radius: 4px;
     width: 100%;
-    max-width: 560px;
-    max-height: 85vh;
+    max-width: 500px;
+    max-height: 80vh;
     overflow-y: auto;
     transform: scale(0.9) translateY(20px);
     transition: transform 0.3s ease;
@@ -2578,6 +2570,25 @@ body.theater-mode .theater-exit-btn {
 
 .stage-modal.active .stage-modal-content {
     transform: scale(1) translateY(0);
+}
+
+/* Compact modal on smaller screens */
+@media (max-height: 700px) {
+    .stage-modal-content {
+        max-height: 90vh;
+    }
+
+    .stage-modal-header {
+        padding: 20px 24px 16px;
+    }
+
+    .stage-modal-body {
+        padding: 16px 24px 24px;
+    }
+
+    .stage-modal-body > div {
+        margin-bottom: 16px;
+    }
 }
 
 .stage-modal-close {
