@@ -164,6 +164,14 @@
                     <span>Tap to watch</span>
                 </button>
             </div>
+            <!-- Exit button - shown during theater mode -->
+            <button class="theater-exit-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+                <span>Exit cinema mode</span>
+            </button>
         </div>
     </section>
 
@@ -522,6 +530,7 @@
         const videoControls = document.querySelector('.video-controls');
         const cinemaOverlay = document.querySelector('.cinema-play-overlay');
         const videoWrapper = document.querySelector('.video-wrapper');
+        const theaterExitBtn = document.querySelector('.theater-exit-btn');
 
         // Initialize Vimeo Player
         function initVimeoPlayer() {
@@ -663,13 +672,9 @@
             enterTheaterMode();
         });
 
-        // Click on video section background (not video) exits theater mode
-        videoSection.addEventListener('click', (e) => {
-            if (!theaterMode) return;
-            // Only exit if clicking outside the video wrapper
-            if (!videoWrapper.contains(e.target)) {
-                exitTheaterMode();
-            }
+        // Click exit button to leave theater mode
+        theaterExitBtn.addEventListener('click', () => {
+            exitTheaterMode();
         });
 
         // Click on progress bar to seek

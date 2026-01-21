@@ -2076,22 +2076,38 @@ body.theater-mode .cinema-play-overlay {
     pointer-events: none !important;
 }
 
-/* Theater exit hint */
-.theater-exit-hint {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    color: var(--color-gray-600);
+/* Theater exit button - shown during theater mode, below video */
+.theater-exit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid var(--color-gray-600);
+    border-radius: 4px;
+    color: var(--color-gray-400);
     font-size: 12px;
-    font-weight: 400;
+    font-family: var(--font-body);
     letter-spacing: 0.1em;
-    z-index: 1001;
+    cursor: pointer;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s, color 0.2s, border-color 0.2s;
 }
 
-body.theater-mode .theater-exit-hint {
+.theater-exit-btn:hover {
+    color: var(--color-white);
+    border-color: var(--color-gray-400);
+}
+
+body.theater-mode .theater-exit-btn {
     opacity: 1;
+    pointer-events: auto;
+}
+
+/* Theater exit hint - hidden, replaced by exit button */
+.theater-exit-hint {
+    display: none;
 }
