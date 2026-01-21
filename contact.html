@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Cunningham Sisters Productions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garabond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">THE CUNNINGHAM SISTERS</a>
+        <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Resilience</a>
+            <a href="the-plan.html">The Plan</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="https://gofund.me/d00b98309" target="_blank" class="nav-cta">Support</a>
+        </div>
+    </nav>
+
+    <!-- Compact Hero -->
+    <section class="hero contact-hero">
+        <div class="hero-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/68ba6cf9482a7b1252fcd276/adec2c06-e582-4dd3-9fec-3f95c9c42749/resiliencebts-170.jpg" alt="Behind the scenes">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-pre">Reach Out</p>
+            <h1 class="hero-title">LET'S CONNECT</h1>
+            <p class="hero-tagline">Questions, partnerships, or just want to say hello.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <span class="overline">Send a Message</span>
+                <h2>Get In Touch</h2>
+                <p class="contact-intro">We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Quick Contact Info -->
+            <div class="contact-info">
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h4>Email Us</h4>
+                    <p>For inquiries, press, or partnerships</p>
+                    <a href="mailto:filmresilience@gmail.com" class="info-link">filmresilience@gmail.com</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </div>
+                    <h4>Follow Our Journey</h4>
+                    <p>Behind the scenes and updates</p>
+                    <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" class="info-link">@thecunninghamsisters</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h4>Support the Film</h4>
+                    <p>Help us finish Resilience</p>
+                    <a href="https://gofund.me/d00b98309" target="_blank" class="info-link">Donate on GoFundMe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-logo">THE CUNNINGHAM SISTERS PRODUCTIONS</span>
+            <p class="footer-copyright">&copy; 2026 All Rights Reserved</p>
+            <p class="footer-credit">Designed by <a href="https://alohamediastudio.com" target="_blank">Aloha Media Studio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Nav background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

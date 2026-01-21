@@ -1454,6 +1454,241 @@ img {
     opacity: 0.7;
 }
 
+/* ============================================
+   Contact Page Styles
+   ============================================ */
+
+/* Compact Hero for Contact Page */
+.contact-hero {
+    min-height: 50vh;
+    height: 50vh;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 20px;
+    background: var(--color-dark);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Contact Form Wrapper */
+.contact-form-wrapper {
+    order: 2; /* Form comes second on mobile */
+}
+
+.contact-form-wrapper h2 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.contact-intro {
+    font-size: 15px;
+    color: var(--color-gray-400);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form .form-group {
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    background: var(--color-gray-800);
+    border: 1px solid var(--color-gray-800);
+    color: var(--color-white);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+}
+
+.contact-form input {
+    min-height: 48px;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--color-gray-600);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.contact-form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--color-gold);
+    color: var(--color-black);
+    border: none;
+    cursor: pointer;
+    min-height: 48px;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+}
+
+.contact-form button:hover {
+    background: var(--color-gold-dark);
+    transform: translateY(-1px);
+}
+
+.contact-form button svg {
+    transition: transform 0.2s;
+}
+
+.contact-form button:hover svg {
+    transform: translateX(4px);
+}
+
+/* Contact Info Cards */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    order: 1; /* Info comes first on mobile */
+}
+
+.contact-info-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(201, 169, 98, 0.15);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-info-card:hover {
+    border-color: rgba(201, 169, 98, 0.4);
+    transform: translateY(-2px);
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    background: rgba(201, 169, 98, 0.1);
+    border-radius: 50%;
+    color: var(--color-gold);
+}
+
+.contact-info-card h4 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.contact-info-card p {
+    font-size: 13px;
+    color: var(--color-gray-400);
+    margin-bottom: 12px;
+}
+
+.info-link {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--color-gold);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.info-link:hover {
+    color: var(--color-white);
+}
+
+/* Contact Page - Tablet+ */
+@media (min-width: 768px) {
+    .contact-hero {
+        min-height: 50vh;
+        height: 50vh;
+    }
+
+    .contact-section {
+        padding: 100px 48px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 64px;
+        align-items: start;
+    }
+
+    .contact-form-wrapper {
+        order: 1; /* Form comes first on desktop */
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: 40px;
+    }
+
+    .contact-info {
+        order: 2; /* Info comes second on desktop */
+        position: sticky;
+        top: 120px;
+    }
+
+    .contact-info-card {
+        padding: 28px;
+    }
+
+    .contact-info-card h4 {
+        font-size: 22px;
+    }
+}
+
+/* Contact Page - Desktop */
+@media (min-width: 1024px) {
+    .contact-section {
+        padding: 120px 64px;
+    }
+
+    .contact-grid {
+        gap: 80px;
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: 48px;
+    }
+}
+
 /* Footer - Mobile First */
 .footer {
     padding: 40px 20px;
