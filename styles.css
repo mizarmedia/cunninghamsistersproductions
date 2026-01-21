@@ -3084,7 +3084,7 @@ body.theater-mode .theater-exit-btn {
     width: 100%;
     height: 120%;
     object-fit: cover;
-    opacity: 0.25;
+    opacity: 0.4;
 }
 
 .revenue-bg::after {
@@ -3240,211 +3240,263 @@ body.theater-mode .theater-exit-btn {
 }
 
 /* ============================================
-   IMPACT CYCLE - Animated Infographic
+   RIPPLE ANIMATION - Revenue Section
    ============================================ */
-.impact-cycle {
-    max-width: 500px;
-    margin: 0 auto 48px;
+.ripple-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin: 48px auto;
+    max-width: 900px;
 }
 
-.cycle-svg {
-    width: 100%;
-    height: auto;
-    max-height: 350px;
-}
-
-/* Central Film Circle */
-.cycle-center {
-    fill: rgba(201, 169, 98, 0.15);
-    stroke: var(--color-gold);
-    stroke-width: 3;
-    transition: all 0.3s ease;
-}
-
-.cycle-center-text {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 500;
-    fill: var(--color-white);
-    text-anchor: middle;
-    letter-spacing: 0.15em;
-}
-
-/* Flow Paths */
-.cycle-path {
-    fill: none;
-    stroke: var(--color-gold);
-    stroke-width: 2;
-    stroke-linecap: round;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-}
-
-.cycle-path.return-path {
-    stroke-dasharray: 5, 5;
-    animation: dash-flow 1.5s linear infinite;
-}
-
-@keyframes dash-flow {
-    to {
-        stroke-dashoffset: -20;
+/* Desktop: horizontal layout */
+@media (min-width: 768px) {
+    .ripple-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
     }
 }
 
-/* Nodes */
-.cycle-node {
-    fill: var(--color-dark);
-    stroke: var(--color-gold);
-    stroke-width: 2;
-    transition: all 0.3s ease;
+/* Center ripple origin */
+.ripple-center {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.cycle-node.donation-node {
-    fill: rgba(201, 169, 98, 0.2);
-}
-
-.cycle-node.advocacy-node,
-.cycle-node.future-node {
-    fill: rgba(201, 169, 98, 0.1);
-}
-
-.cycle-node-icon {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 500;
-    fill: var(--color-gold);
-    text-anchor: middle;
-    dominant-baseline: middle;
-}
-
-.cycle-node-icon-small {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 600;
-    fill: var(--color-gold);
-    text-anchor: middle;
-    dominant-baseline: middle;
-}
-
-/* Animated Pulse Dots */
-.pulse-dot {
-    fill: var(--color-gold);
+/* Ripple rings */
+.ripple-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
 }
 
-.impact-cycle:hover .pulse-dot {
-    animation: pulse-travel 2.5s ease-in-out infinite;
+/* Animate rings on scroll */
+.revenue-section.animate .ripple-ring {
+    animation: ripple-expand 3s ease-out infinite;
 }
 
-.pulse-dot.donation-pulse {
+.revenue-section.animate .ripple-ring:nth-child(1) {
     animation-delay: 0s;
 }
 
-.pulse-dot.revenue-pulse {
-    animation-delay: 0.8s;
+.revenue-section.animate .ripple-ring:nth-child(2) {
+    animation-delay: 1s;
 }
 
-.pulse-dot.return-pulse {
-    animation-delay: 1.6s;
+.revenue-section.animate .ripple-ring:nth-child(3) {
+    animation-delay: 2s;
 }
 
-@keyframes pulse-travel {
-    0%, 100% {
+@keyframes ripple-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
         opacity: 0;
-        transform: scale(0.5);
-    }
-    10%, 90% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
     }
 }
 
-/* Labels */
-.cycle-labels {
+/* Center icon (dollar sign) */
+.center-icon {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--color-gold);
+    z-index: 1;
+    background: var(--color-dark);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 24px;
-    padding: 0 8px;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--color-gold);
+    box-shadow: 0 0 30px rgba(201, 169, 98, 0.3);
 }
 
-.cycle-label {
-    flex: 1;
+.center-label {
+    position: absolute;
+    bottom: -8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-gray-300);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+/* Connecting lines */
+.ripple-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.8s ease-out;
+}
+
+.ripple-line.left {
+    width: 80px;
+    transform-origin: right center;
+}
+
+.ripple-line.right {
+    width: 80px;
+    transform-origin: left center;
+}
+
+/* Animate lines on scroll */
+.revenue-section.animate .ripple-line {
+    transform: scaleX(1);
+}
+
+.revenue-section.animate .ripple-line.left {
+    transition-delay: 0.3s;
+}
+
+.revenue-section.animate .ripple-line.right {
+    transition-delay: 0.3s;
+}
+
+/* Mobile: vertical lines */
+@media (max-width: 767px) {
+    .ripple-line {
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(180deg, transparent, var(--color-gold), transparent);
+    }
+
+    .ripple-line.left,
+    .ripple-line.right {
+        width: 2px;
+        transform-origin: center top;
+    }
+
+    .ripple-line.left {
+        order: 2;
+    }
+
+    .ripple-line.right {
+        order: 4;
+    }
+
+    .ripple-center {
+        order: 1;
+    }
+
+    .ripple-destination.left {
+        order: 3;
+    }
+
+    .ripple-destination.right {
+        order: 5;
+    }
+}
+
+/* Destination cards */
+.ripple-destination {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    border-radius: 8px;
+    padding: 24px 32px;
     text-align: center;
-    padding: 16px 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(201, 169, 98, 0.15);
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-out;
+    min-width: 180px;
+    backdrop-filter: blur(10px);
 }
 
-.cycle-label:hover {
-    border-color: rgba(201, 169, 98, 0.4);
-    background: rgba(201, 169, 98, 0.05);
+.ripple-destination.left {
+    transform: translateX(-30px);
 }
 
-.cycle-label h4 {
-    font-size: 13px;
+.ripple-destination.right {
+    transform: translateX(30px);
+}
+
+/* Mobile: slide from bottom instead */
+@media (max-width: 767px) {
+    .ripple-destination.left,
+    .ripple-destination.right {
+        transform: translateY(20px);
+    }
+}
+
+/* Animate cards on scroll */
+.revenue-section.animate .ripple-destination {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.revenue-section.animate .ripple-destination.left {
+    transition-delay: 0.6s;
+}
+
+.revenue-section.animate .ripple-destination.right {
+    transition-delay: 0.8s;
+}
+
+.ripple-destination:hover {
+    border-color: var(--color-gold);
+    background: rgba(201, 169, 98, 0.1);
+    transform: scale(1.03);
+}
+
+.destination-number {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-gold);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.ripple-destination h4 {
+    font-size: 18px;
     font-weight: 500;
     color: var(--color-white);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
-.cycle-label p {
-    font-size: 11px;
+.ripple-destination p {
+    font-size: 13px;
     color: var(--color-gray-400);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-.cycle-tagline {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-style: italic;
-    color: var(--color-gray-300);
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 480px) {
-    .cycle-labels {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .cycle-label {
-        padding: 12px;
-    }
-
-    .cycle-svg {
-        max-height: 280px;
-    }
-}
-
+/* Tablet/Desktop adjustments */
 @media (min-width: 768px) {
-    .impact-cycle {
-        max-width: 600px;
-        margin-bottom: 64px;
+    .ripple-line {
+        width: 100px;
     }
 
-    .cycle-svg {
-        max-height: 400px;
+    .destination-number {
+        font-size: 56px;
     }
 
-    .cycle-label h4 {
-        font-size: 15px;
+    .ripple-destination h4 {
+        font-size: 20px;
     }
 
-    .cycle-label p {
-        font-size: 12px;
-    }
-
-    .cycle-tagline {
-        font-size: 22px;
+    .ripple-destination p {
+        font-size: 14px;
     }
 }
 

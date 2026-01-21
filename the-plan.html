@@ -266,68 +266,37 @@
             <h2>Your Investment Multiplies</h2>
             <p class="lead">Film revenue flows back into the mission, creating an engine for lasting change.</p>
 
-            <!-- Single Animated Infographic -->
-            <div class="impact-cycle">
-                <svg class="cycle-svg" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet">
-                    <!-- Central Film Circle -->
-                    <circle class="cycle-center" cx="200" cy="140" r="50" />
-                    <text x="200" y="135" class="cycle-center-text">THE</text>
-                    <text x="200" y="155" class="cycle-center-text">FILM</text>
+            <!-- Ripple Animation Infographic -->
+            <div class="ripple-container">
+                <!-- Left destination card -->
+                <div class="ripple-destination left">
+                    <div class="destination-number">50%</div>
+                    <h4>Advocacy</h4>
+                    <p>Regulating troubled teen programs</p>
+                </div>
 
-                    <!-- Donation Flow Path (top) -->
-                    <path class="cycle-path donation-path" d="M200,30 L200,90" />
-                    <circle class="cycle-node donation-node" cx="200" cy="30" r="24" />
-                    <text x="200" y="35" class="cycle-node-icon">$</text>
+                <!-- Connecting line left -->
+                <div class="ripple-line left"></div>
 
-                    <!-- Revenue Flow Path (splits from bottom) -->
-                    <path class="cycle-path revenue-path" d="M200,190 L200,240" />
+                <!-- Center ripple origin -->
+                <div class="ripple-center">
+                    <div class="ripple-ring"></div>
+                    <div class="ripple-ring"></div>
+                    <div class="ripple-ring"></div>
+                    <div class="center-icon">$</div>
+                    <span class="center-label">Your Donation</span>
+                </div>
 
-                    <!-- Split paths -->
-                    <path class="cycle-path split-left" d="M200,240 Q200,260 140,280 L80,300" />
-                    <path class="cycle-path split-right" d="M200,240 Q200,260 260,280 L320,300" />
+                <!-- Connecting line right -->
+                <div class="ripple-line right"></div>
 
-                    <!-- Circular return arrow (from Future Films back to Film) -->
-                    <path class="cycle-path return-path" d="M340,280 Q380,200 340,120 Q300,60 230,90" marker-end="url(#arrowhead)" />
-
-                    <!-- Arrowhead marker -->
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="var(--color-gold)" />
-                        </marker>
-                    </defs>
-
-                    <!-- Advocacy Node (left) -->
-                    <circle class="cycle-node advocacy-node" cx="60" cy="300" r="24" />
-                    <text x="60" y="305" class="cycle-node-icon-small">50%</text>
-
-                    <!-- Future Films Node (right) -->
-                    <circle class="cycle-node future-node" cx="340" cy="300" r="24" />
-                    <text x="340" y="305" class="cycle-node-icon-small">50%</text>
-
-                    <!-- Animated pulse dots -->
-                    <circle class="pulse-dot donation-pulse" cx="200" cy="60" r="4" />
-                    <circle class="pulse-dot revenue-pulse" cx="200" cy="220" r="4" />
-                    <circle class="pulse-dot return-pulse" cx="340" cy="200" r="4" />
-                </svg>
-
-                <!-- Labels below SVG -->
-                <div class="cycle-labels">
-                    <div class="cycle-label donation-label">
-                        <h4>Your Donation</h4>
-                        <p>501(c)(3) tax-deductible</p>
-                    </div>
-                    <div class="cycle-label advocacy-label">
-                        <h4>Advocacy</h4>
-                        <p>Regulating troubled teen programs</p>
-                    </div>
-                    <div class="cycle-label future-label">
-                        <h4>Future Films</h4>
-                        <p>More stories, more impact</p>
-                    </div>
+                <!-- Right destination card -->
+                <div class="ripple-destination right">
+                    <div class="destination-number">50%</div>
+                    <h4>Future Films</h4>
+                    <p>More stories, more impact</p>
                 </div>
             </div>
-
-            <p class="cycle-tagline">The cycle continues with every film we make.</p>
             <p class="tax-note">All donations are tax-deductible through The Film Institute 501(c)(3)</p>
         </div>
     </section>
@@ -707,6 +676,27 @@
 
         window.addEventListener('scroll', animateTimeline);
         animateTimeline(); // Check on load
+
+        // ============================================
+        // Revenue Section Animation
+        // ============================================
+        const revenueSection = document.querySelector('.revenue-section');
+        let revenueAnimated = false;
+
+        function animateRevenue() {
+            if (revenueAnimated || !revenueSection) return;
+
+            const rect = revenueSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.top < windowHeight * 0.7) {
+                revenueAnimated = true;
+                revenueSection.classList.add('animate');
+            }
+        }
+
+        window.addEventListener('scroll', animateRevenue);
+        animateRevenue(); // Check on load
 
     </script>
 </body>
