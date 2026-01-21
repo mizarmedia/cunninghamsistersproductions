@@ -2476,6 +2476,15 @@ body.theater-mode .theater-exit-btn {
     }
 }
 
+/* Timeline hint text */
+.timeline-hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-gray-500);
+    margin-top: 24px;
+    font-style: italic;
+}
+
 .journey-timeline-vertical::before {
     content: '';
     position: absolute;
