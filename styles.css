@@ -4089,9 +4089,28 @@ body.theater-mode .theater-exit-btn {
 /* Press/Toolkit Hero (compact) */
 .press-hero,
 .toolkit-hero {
-    min-height: 50vh;
+    min-height: 40vh;
     height: auto;
     padding-top: 80px;
+}
+
+/* Subtle hero content - less in your face */
+.hero-content-subtle {
+    text-align: center;
+}
+
+.hero-content-subtle .overline {
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.hero-title-small {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-white);
 }
 
 /* Press Release Content */
@@ -4730,5 +4749,519 @@ body.theater-mode .theater-exit-btn {
 
     .toolkit-photos-grid {
         gap: 24px;
+    }
+}
+
+/* ========================================
+   EPK (Electronic Press Kit) Styles
+   ======================================== */
+
+/* Quick Links Bar */
+.epk-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 20px;
+    background: var(--color-gray-900);
+    border-bottom: 1px solid var(--color-gray-800);
+}
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--color-gray-400);
+    transition: color 0.3s ease;
+}
+
+.quick-link:hover {
+    color: var(--color-gold);
+}
+
+.quick-link svg {
+    flex-shrink: 0;
+}
+
+.quick-link-cta {
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+}
+
+.quick-link-cta:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
+}
+
+/* EPK Section Base */
+.epk-section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.epk-section-content h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.epk-section-content h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--color-gold);
+}
+
+/* Film Info Section */
+.epk-film-info {
+    background: var(--color-gray-950);
+    text-align: center;
+}
+
+.epk-film-header {
+    margin-bottom: 40px;
+}
+
+.epk-film-logo {
+    max-width: 300px;
+    margin: 0 auto 24px;
+}
+
+.epk-tagline {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--color-gray-200);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.epk-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.epk-meta-item {
+    text-align: center;
+}
+
+.epk-meta-item .meta-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+    margin-bottom: 4px;
+}
+
+.epk-meta-item .meta-value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+/* Synopsis Section */
+.epk-synopsis {
+    background: var(--color-black);
+}
+
+.synopsis-versions {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.synopsis-block h4 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.synopsis-block p {
+    color: var(--color-gray-300);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.synopsis-block p:last-child {
+    margin-bottom: 0;
+}
+
+/* Director's Statement */
+.epk-statement {
+    background: var(--color-gray-950);
+}
+
+.statement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.statement-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.statement-text p {
+    color: var(--color-gray-300);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.statement-signature {
+    font-style: normal;
+    color: var(--color-white);
+    margin-top: 24px;
+}
+
+.statement-signature span {
+    color: var(--color-gold);
+    font-size: 13px;
+}
+
+/* Team Section */
+.epk-team {
+    background: var(--color-black);
+}
+
+.epk-team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.epk-team-member {
+    text-align: center;
+}
+
+.epk-team-member img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 16px;
+}
+
+.epk-team-member h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.epk-team-member .role {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.epk-team-member p:last-child {
+    font-size: 14px;
+    color: var(--color-gray-400);
+    line-height: 1.6;
+}
+
+.epk-credits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.credit-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray-800);
+}
+
+.credit-role {
+    font-size: 13px;
+    color: var(--color-gray-500);
+}
+
+.credit-name {
+    font-size: 14px;
+    color: var(--color-white);
+}
+
+/* Festivals Section */
+.epk-festivals {
+    background: var(--color-gray-950);
+    text-align: center;
+}
+
+.epk-coming-soon {
+    color: var(--color-gray-500);
+    font-style: italic;
+}
+
+/* Trailer Section */
+.epk-trailer {
+    background: var(--color-black);
+}
+
+.epk-video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Press Photos */
+.epk-photos {
+    background: var(--color-gray-950);
+}
+
+.epk-photos .epk-section-content {
+    padding-bottom: 24px;
+}
+
+.epk-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.epk-photo-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.epk-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.epk-photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.epk-photo-item .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.epk-photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.epk-photo-item .photo-overlay span {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+/* Social Graphics */
+.epk-graphics {
+    background: var(--color-black);
+}
+
+.epk-graphics .epk-section-content {
+    padding-bottom: 24px;
+}
+
+.epk-graphics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 0 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.epk-graphic-item {
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.epk-graphic-item:hover {
+    transform: scale(1.02);
+}
+
+.epk-graphic-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Social Section (Hashtags & Posts) */
+.epk-social {
+    background: var(--color-gray-950);
+}
+
+.epk-hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.sample-posts-intro {
+    color: var(--color-gray-500);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.epk-contact {
+    background: var(--color-black);
+}
+
+.epk-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.contact-card {
+    padding: 24px;
+    background: var(--color-gray-900);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.contact-card h4 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+    margin-bottom: 8px;
+}
+
+.contact-card a {
+    color: var(--color-gold);
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: var(--color-white);
+}
+
+/* EPK CTA */
+.epk-cta {
+    background: var(--color-gray-900);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.epk-cta-content h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.epk-cta-content p {
+    color: var(--color-gray-400);
+    margin-bottom: 24px;
+}
+
+/* EPK Desktop Responsive */
+@media (min-width: 768px) {
+    .epk-quick-links {
+        gap: 24px;
+        padding: 20px 40px;
+    }
+
+    .epk-section-content {
+        padding: 80px 40px;
+    }
+
+    .epk-section-content h2 {
+        font-size: 36px;
+    }
+
+    .epk-meta-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 600px;
+    }
+
+    .epk-tagline {
+        font-size: 24px;
+    }
+
+    .statement-content {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .statement-photo {
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    .epk-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+    }
+
+    .epk-credits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 48px;
+    }
+
+    .epk-photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .epk-contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .epk-meta-grid {
+        grid-template-columns: repeat(6, 1fr);
+        max-width: 800px;
+    }
+
+    .epk-photos-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .epk-film-logo {
+        max-width: 400px;
     }
 }
