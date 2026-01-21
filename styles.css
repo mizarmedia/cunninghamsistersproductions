@@ -2268,29 +2268,27 @@ body.theater-mode .theater-exit-btn {
     border-radius: 2px;
 }
 
-/* Staggered shimmer animation across stages */
-.journey-section.animate .timeline-stage.complete .stage-bar::after,
-.journey-section.animate .timeline-stage.active .stage-bar::after {
-    animation: bar-shimmer 3s ease-in-out infinite;
-}
-
-/* Stagger the animations so shimmer travels left to right */
+/* Shimmer animation - duration proportional to bar width for constant speed */
+/* Base: ~0.06s per flex unit, so speed is consistent across all bars */
 .journey-section.animate .timeline-stage[data-stage="creative"] .stage-bar::after {
+    animation: bar-shimmer 1.1s ease-in-out infinite;
     animation-delay: 0s;
 }
 .journey-section.animate .timeline-stage[data-stage="funding"] .stage-bar::after {
-    animation-delay: 0.4s;
+    animation: bar-shimmer 1.1s ease-in-out infinite;
+    animation-delay: 1.1s;
 }
 .journey-section.animate .timeline-stage[data-stage="production"] .stage-bar::after {
-    animation-delay: 0.8s;
+    animation: bar-shimmer 0.55s ease-in-out infinite;
+    animation-delay: 2.2s;
 }
 .journey-section.animate .timeline-stage[data-stage="post"] .stage-bar::after {
-    animation-delay: 1.2s;
+    animation: bar-shimmer 1.45s ease-in-out infinite;
+    animation-delay: 2.75s;
 }
 
 @keyframes bar-shimmer {
     0% { left: -100%; }
-    40% { left: 100%; }
     100% { left: 100%; }
 }
 
