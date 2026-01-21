@@ -825,24 +825,25 @@ img {
     border: none;
 }
 
-/* Small Unmute Hint Button */
+/* Small Unmute Hint Button - positioned at bottom edge of video */
 .unmute-hint {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.6);
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(201, 169, 98, 0.5);
-    border-radius: 50%;
+    border-radius: 4px 4px 0 0;
     color: var(--color-gold);
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s, background 0.2s, transform 0.2s;
+    transition: opacity 0.3s, background 0.2s;
     z-index: 20;
 }
 
@@ -854,8 +855,14 @@ img {
 
 .unmute-hint:hover {
     background: rgba(201, 169, 98, 0.3);
-    transform: scale(1.1);
     border-color: var(--color-gold);
+}
+
+.unmute-hint span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 @keyframes pulse-hint {
@@ -875,6 +882,7 @@ img {
     padding: 16px 20px;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
     opacity: 0;
+    pointer-events: none;
     transform: translateY(100%);
     transition: opacity 0.4s, transform 0.4s;
     z-index: 10;
@@ -883,6 +891,7 @@ img {
 /* Only show controls after unmuting (revealed class) */
 .video-controls.revealed {
     opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
 }
 
@@ -1994,15 +2003,8 @@ body.theater-mode .video-section {
     }
 
     .unmute-hint {
-        bottom: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
-    }
-
-    .unmute-hint svg {
-        width: 24px;
-        height: 24px;
+        padding: 8px 16px;
+        font-size: 11px;
     }
 
     .video-controls {
@@ -2076,30 +2078,35 @@ body.theater-mode .cinema-play-overlay {
     pointer-events: none !important;
 }
 
-/* Theater exit button - shown during theater mode, below video */
+/* Theater exit text - shown during theater mode, below video */
 .theater-exit-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-    padding: 12px 24px;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 12px;
     background: transparent;
-    border: 1px solid var(--color-gray-600);
-    border-radius: 4px;
-    color: var(--color-gray-400);
-    font-size: 12px;
+    border: none;
+    color: var(--color-gray-600);
+    font-size: 11px;
     font-family: var(--font-body);
+    font-weight: 400;
     letter-spacing: 0.1em;
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s, color 0.2s, border-color 0.2s;
+    transition: opacity 0.3s, color 0.2s;
+}
+
+.theater-exit-btn svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
 }
 
 .theater-exit-btn:hover {
-    color: var(--color-white);
-    border-color: var(--color-gray-400);
+    color: var(--color-gray-400);
 }
 
 body.theater-mode .theater-exit-btn {
