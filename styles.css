@@ -1460,20 +1460,33 @@ img {
 
 /* Compact Hero for Contact Page */
 .contact-hero {
-    min-height: 50vh;
-    height: 50vh;
+    min-height: 60vh;
+    height: auto;
+    padding-top: 80px; /* Account for fixed nav */
+}
+
+.contact-hero .hero-title {
+    font-size: 36px;
+    letter-spacing: 0.1em;
+    margin-right: -0.1em;
+}
+
+.contact-hero .hero-tagline {
+    font-size: 16px;
+    margin-bottom: 0;
+    padding: 0 10px;
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 80px 20px;
+    padding: 60px 16px;
     background: var(--color-dark);
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -1485,23 +1498,23 @@ img {
 
 .contact-form-wrapper h2 {
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 400;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .contact-intro {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--color-gray-400);
     line-height: 1.7;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 /* Contact Form */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .contact-form .form-group {
@@ -1511,22 +1524,24 @@ img {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 14px 16px;
-    font-size: 14px;
+    padding: 16px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
     font-family: var(--font-body);
     background: var(--color-gray-800);
     border: 1px solid var(--color-gray-800);
     color: var(--color-white);
-    border-radius: 2px;
+    border-radius: 4px;
     transition: border-color 0.2s;
+    -webkit-appearance: none; /* Remove iOS styling */
+    appearance: none;
 }
 
 .contact-form input {
-    min-height: 48px;
+    min-height: 52px;
 }
 
 .contact-form textarea {
-    min-height: 150px;
+    min-height: 140px;
     resize: vertical;
 }
 
@@ -1542,12 +1557,13 @@ img {
 }
 
 .contact-form button {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 16px 32px;
-    font-size: 11px;
+    width: 100%; /* Full width on mobile */
+    padding: 18px 32px;
+    font-size: 12px;
     font-weight: 600;
     font-family: var(--font-body);
     letter-spacing: 0.15em;
@@ -1556,15 +1572,18 @@ img {
     color: var(--color-black);
     border: none;
     cursor: pointer;
-    min-height: 48px;
-    border-radius: 2px;
+    min-height: 56px; /* Larger touch target */
+    border-radius: 4px;
     transition: background 0.2s, transform 0.2s;
-    align-self: flex-start;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-form button:hover {
     background: var(--color-gold-dark);
-    transform: translateY(-1px);
+}
+
+.contact-form button:active {
+    transform: scale(0.98);
 }
 
 .contact-form button svg {
@@ -1579,31 +1598,31 @@ img {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     order: 1; /* Info comes first on mobile */
 }
 
 .contact-info-card {
     background: rgba(20, 20, 20, 0.6);
     border: 1px solid rgba(201, 169, 98, 0.15);
-    border-radius: 4px;
-    padding: 24px;
+    border-radius: 8px;
+    padding: 20px;
     text-align: center;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.contact-info-card:hover {
-    border-color: rgba(201, 169, 98, 0.4);
-    transform: translateY(-2px);
+.contact-info-card:active {
+    background: rgba(30, 30, 30, 0.8);
 }
 
 .info-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 16px;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 12px;
     background: rgba(201, 169, 98, 0.1);
     border-radius: 50%;
     color: var(--color-gold);
@@ -1611,15 +1630,16 @@ img {
 
 .contact-info-card h4 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .contact-info-card p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--color-gray-400);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    line-height: 1.5;
 }
 
 .info-link {
@@ -1627,10 +1647,12 @@ img {
     font-size: 14px;
     color: var(--color-gold);
     font-weight: 500;
+    padding: 8px 0; /* Larger touch target */
     transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.info-link:hover {
+.info-link:active {
     color: var(--color-white);
 }
 
@@ -1639,6 +1661,18 @@ img {
     .contact-hero {
         min-height: 50vh;
         height: 50vh;
+        padding-top: 0;
+    }
+
+    .contact-hero .hero-title {
+        font-size: clamp(48px, 8vw, 72px);
+        letter-spacing: 0.15em;
+        margin-right: -0.15em;
+    }
+
+    .contact-hero .hero-tagline {
+        font-size: 20px;
+        padding: 0;
     }
 
     .contact-section {
@@ -1659,18 +1693,46 @@ img {
         font-size: 40px;
     }
 
+    .contact-intro {
+        font-size: 15px;
+    }
+
+    .contact-form {
+        gap: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        width: auto;
+        align-self: flex-start;
+    }
+
     .contact-info {
         order: 2; /* Info comes second on desktop */
         position: sticky;
         top: 120px;
+        gap: 24px;
     }
 
     .contact-info-card {
         padding: 28px;
     }
 
+    .contact-info-card:hover {
+        border-color: rgba(201, 169, 98, 0.4);
+        transform: translateY(-2px);
+    }
+
     .contact-info-card h4 {
         font-size: 22px;
+    }
+
+    .info-link:hover {
+        color: var(--color-white);
     }
 }
 
