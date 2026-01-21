@@ -4917,6 +4917,7 @@ body.theater-mode .theater-exit-btn {
     height: 120px;
     border-radius: 4px;
     object-fit: cover;
+    object-position: top;
     margin: 0 auto;
 }
 
@@ -4959,6 +4960,7 @@ body.theater-mode .theater-exit-btn {
     height: 140px;
     border-radius: 4px;
     object-fit: cover;
+    object-position: top;
     margin: 0 auto 16px;
 }
 
