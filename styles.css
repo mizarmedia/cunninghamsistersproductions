@@ -1576,7 +1576,7 @@ img {
     width: 100%;
 }
 
-.contact-form input,
+.contact-form input:not([type="checkbox"]),
 .contact-form textarea {
     width: 100%;
     padding: 16px;
@@ -1591,7 +1591,7 @@ img {
     appearance: none;
 }
 
-.contact-form input {
+.contact-form input:not([type="checkbox"]) {
     min-height: 52px;
 }
 
@@ -1600,12 +1600,12 @@ img {
     resize: vertical;
 }
 
-.contact-form input::placeholder,
+.contact-form input:not([type="checkbox"])::placeholder,
 .contact-form textarea::placeholder {
     color: var(--color-gray-600);
 }
 
-.contact-form input:focus,
+.contact-form input:not([type="checkbox"]):focus,
 .contact-form textarea:focus {
     border-color: var(--color-gold);
 }
@@ -1646,6 +1646,107 @@ img {
 
 .contact-form button:hover svg {
     transform: translateX(4px);
+}
+
+/* Newsletter opt-in checkbox */
+.form-checkbox {
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--color-gray-300);
+}
+
+.checkbox-label input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    flex-shrink: 0;
+    border: 2px solid var(--color-gray-600);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-black);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label input[type="checkbox"]:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+.checkbox-label span {
+    line-height: 1.4;
+}
+
+/* Form Success Message */
+.form-success {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.form-success .success-icon {
+    margin-bottom: 20px;
+}
+
+.form-success .success-icon svg {
+    stroke: var(--color-gold);
+}
+
+.form-success h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.form-success p {
+    color: var(--color-gray-300);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.form-success .btn-reset {
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.form-success .btn-reset:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
 }
 
 /* Contact Info Cards */
@@ -1755,7 +1856,7 @@ img {
         gap: 16px;
     }
 
-    .contact-form input,
+    .contact-form input:not([type="checkbox"]),
     .contact-form textarea {
         font-size: 14px;
     }
