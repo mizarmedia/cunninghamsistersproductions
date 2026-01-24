@@ -216,8 +216,8 @@
                 const script = document.createElement('script');
                 script.src = mailchimpUrl +
                     '&EMAIL=' + encodeURIComponent(emailInput.value) +
-                    '&FNAME=' + encodeURIComponent(firstName) +
-                    '&LNAME=' + encodeURIComponent(lastName);
+                    '&MERGE1=' + encodeURIComponent(firstName) +
+                    '&MERGE2=' + encodeURIComponent(lastName);
                 document.body.appendChild(script);
                 script.onload = function() { document.body.removeChild(script); };
             }
