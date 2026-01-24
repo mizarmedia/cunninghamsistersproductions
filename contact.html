@@ -205,9 +205,18 @@
 
             // Submit to Mailchimp if checkbox is checked
             if (newsletterCheckbox && newsletterCheckbox.checked && emailInput && emailInput.value) {
+                const nameInput = document.getElementById('contact-name');
+                const fullName = nameInput ? nameInput.value.trim() : '';
+                const nameParts = fullName.split(' ');
+                const firstName = nameParts[0] || '';
+                const lastName = nameParts.slice(1).join(' ') || '';
+
                 const mailchimpUrl = 'https://gmail.us10.list-manage.com/subscribe/post-json?u=80c79c96b8d77b860da8562c5&id=317ee313a9&f_id=0037c2e1f0&c=mcCallback';
                 const script = document.createElement('script');
-                script.src = mailchimpUrl + '&EMAIL=' + encodeURIComponent(emailInput.value);
+                script.src = mailchimpUrl +
+                    '&EMAIL=' + encodeURIComponent(emailInput.value) +
+                    '&FNAME=' + encodeURIComponent(firstName) +
+                    '&LNAME=' + encodeURIComponent(lastName);
                 document.body.appendChild(script);
                 script.onload = function() { document.body.removeChild(script); };
             }
