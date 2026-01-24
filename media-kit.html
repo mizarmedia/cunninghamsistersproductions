@@ -414,12 +414,16 @@
                 <span class="overline">Stay Updated</span>
                 <h3>Join the Movement</h3>
                 <p>Be the first to know about screenings, releases, and ways to help.</p>
-                <form class="newsletter-form" action="https://gmail.us10.list-manage.com/subscribe/post?u=80c79c96b8d77b860da8562c5&amp;id=317ee313a9&amp;f_id=0037c2e1f0" method="POST" target="_blank">
+                <form class="newsletter-form" action="https://gmail.us10.list-manage.com/subscribe/post?u=80c79c96b8d77b860da8562c5&amp;id=317ee313a9&amp;f_id=0037c2e1f0" method="POST" target="_blank" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+                    <input type="text" name="FULLNAME" placeholder="Your name" required>
                     <input type="email" name="EMAIL" placeholder="Your email address" required>
+                    <input type="hidden" name="FNAME" value="">
+                    <input type="hidden" name="LNAME" value="">
                     <!-- Honeypot field - prevents bot signups -->
                     <div aria-hidden="true" style="position: absolute; left: -5000px;">
                         <input type="text" name="b_80c79c96b8d77b860da8562c5_317ee313a9" tabindex="-1" value="">
                     </div>
+                    <input type="hidden" name="subscribe" value="Subscribe">
                     <button type="submit">Subscribe</button>
                 </form>
                 <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
@@ -600,6 +604,23 @@
                 vimeoPlayer.getDuration().then((duration) => {
                     vimeoPlayer.setCurrentTime(percent * duration);
                 });
+            });
+        }
+
+        // Newsletter form - split name into FNAME/LNAME before submit
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                const fullNameInput = this.querySelector('input[name="FULLNAME"]');
+                const fnameInput = this.querySelector('input[name="FNAME"]');
+                const lnameInput = this.querySelector('input[name="LNAME"]');
+
+                if (fullNameInput && fnameInput && lnameInput) {
+                    const fullName = fullNameInput.value.trim();
+                    const nameParts = fullName.split(' ');
+                    fnameInput.value = nameParts[0] || '';
+                    lnameInput.value = nameParts.slice(1).join(' ') || '';
+                }
             });
         }
     </script>
