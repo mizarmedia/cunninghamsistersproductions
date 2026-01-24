@@ -216,35 +216,43 @@
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
 
-                // Create hidden form that POSTs to Mailchimp
+                // Create hidden form that matches Mailchimp's exact structure
                 const mcForm = document.createElement('form');
                 mcForm.action = 'https://gmail.us10.list-manage.com/subscribe/post?u=80c79c96b8d77b860da8562c5&id=317ee313a9&f_id=0037c2e1f0';
                 mcForm.method = 'POST';
                 mcForm.target = 'mailchimp-iframe';
+                mcForm.id = 'mc-embedded-subscribe-form';
+                mcForm.name = 'mc-embedded-subscribe-form';
 
-                // Add form fields
-                const fields = {
-                    'EMAIL': emailInput.value,
-                    'FNAME': firstName,
-                    'LNAME': lastName,
-                    'b_80c79c96b8d77b860da8562c5_317ee313a9': '' // Honeypot
-                };
+                // Add form fields exactly as Mailchimp expects
+                const fields = [
+                    { name: 'EMAIL', value: emailInput.value, type: 'email' },
+                    { name: 'FNAME', value: firstName, type: 'text' },
+                    { name: 'LNAME', value: lastName, type: 'text' },
+                    { name: 'b_80c79c96b8d77b860da8562c5_317ee313a9', value: '', type: 'text' }, // Honeypot
+                    { name: 'subscribe', value: 'Subscribe', type: 'hidden' } // Submit button value
+                ];
 
-                for (const [name, value] of Object.entries(fields)) {
+                fields.forEach(field => {
                     const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = name;
-                    input.value = value;
+                    input.type = field.type;
+                    input.name = field.name;
+                    input.value = field.value;
+                    if (field.name.startsWith('b_')) {
+                        input.tabIndex = -1;
+                        input.style.position = 'absolute';
+                        input.style.left = '-5000px';
+                    }
                     mcForm.appendChild(input);
-                }
+                });
 
                 document.body.appendChild(mcForm);
                 mcForm.submit();
 
                 // Clean up after submission
                 setTimeout(() => {
-                    document.body.removeChild(mcForm);
-                    document.body.removeChild(iframe);
+                    if (document.body.contains(mcForm)) document.body.removeChild(mcForm);
+                    if (document.body.contains(iframe)) document.body.removeChild(iframe);
                 }, 2000);
             }
 
