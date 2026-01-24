@@ -213,11 +213,15 @@
                 console.log('Sending to Mailchimp:', { email: emailInput.value, firstName, lastName });
 
                 const mailchimpUrl = 'https://gmail.us10.list-manage.com/subscribe/post-json?u=80c79c96b8d77b860da8562c5&id=317ee313a9&f_id=0037c2e1f0&c=mcCallback';
-                const script = document.createElement('script');
-                script.src = mailchimpUrl +
+                const fullUrl = mailchimpUrl +
                     '&EMAIL=' + encodeURIComponent(emailInput.value) +
-                    '&MERGE1=' + encodeURIComponent(firstName) +
-                    '&MERGE2=' + encodeURIComponent(lastName);
+                    '&FNAME=' + encodeURIComponent(firstName) +
+                    '&LNAME=' + encodeURIComponent(lastName);
+
+                console.log('Full Mailchimp URL:', fullUrl);
+
+                const script = document.createElement('script');
+                script.src = fullUrl;
                 document.body.appendChild(script);
                 script.onload = function() { document.body.removeChild(script); };
             }
