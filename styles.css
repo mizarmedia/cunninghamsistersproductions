@@ -3930,6 +3930,7 @@ body.theater-mode .theater-exit-btn {
     transition: all 0.6s ease-out;
     width: 200px; /* Fixed width for equal sizing */
     backdrop-filter: blur(10px);
+    cursor: pointer;
 }
 
 /* Slide in from top/bottom */
