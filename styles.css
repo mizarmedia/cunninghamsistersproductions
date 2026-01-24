@@ -1438,47 +1438,37 @@ img {
     transform: translateX(4px);
 }
 
-/* Instagram Embed Placeholder */
-.instagram-embed-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 32px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(201, 169, 98, 0.3);
+/* Instagram Feed Container (Behold Widget) */
+.instagram-feed-container {
+    width: 100%;
+    margin-bottom: 16px;
     border-radius: 4px;
+    overflow: hidden;
 }
 
-.instagram-link {
-    display: flex;
-    flex-direction: column;
+.instagram-feed-container behold-widget {
+    --behold-grid-gap: 4px;
+}
+
+.instagram-follow-link {
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     color: var(--color-gold);
-    transition: color 0.2s, transform 0.2s;
-}
-
-.instagram-link:hover {
-    color: var(--color-white);
-    transform: scale(1.05);
-}
-
-.instagram-link svg {
-    opacity: 0.8;
-}
-
-.instagram-link span {
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    transition: color 0.2s, transform 0.2s;
 }
 
-.embed-note {
-    font-size: 11px;
-    color: var(--color-gray-600);
-    font-style: italic;
+.instagram-follow-link:hover {
+    color: var(--color-white);
+    transform: scale(1.02);
+}
+
+.instagram-follow-link svg {
+    opacity: 0.8;
 }
 
 /* CTA Contact Row */
@@ -2292,8 +2282,8 @@ img {
         max-width: 200px;
     }
 
-    .instagram-embed-placeholder {
-        padding: 40px 20px;
+    .instagram-feed-container {
+        margin-bottom: 20px;
     }
 
     .footer {
@@ -5886,18 +5876,15 @@ body.toolkit-light {
     background: #e5e5e5;
 }
 
-.toolkit-light .instagram-link {
+.toolkit-light .instagram-follow-link {
     color: var(--color-gold);
-    border-color: var(--color-gold);
 }
 
-.toolkit-light .instagram-link:hover {
-    background: var(--color-gold);
+.toolkit-light .instagram-follow-link:hover {
     color: #1a1a1a;
-}
-
-.toolkit-light .embed-note {
-    color: #666666;
+    background: var(--color-gold);
+    padding: 8px 12px;
+    border-radius: 4px;
 }
 
 
