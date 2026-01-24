@@ -118,7 +118,6 @@
                     </div>
                     <h3>Message Sent!</h3>
                     <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
-                    <button type="button" class="btn-reset" onclick="resetForm()">Send Another Message</button>
                 </div>
             </div>
 
@@ -247,16 +246,6 @@
                 alert('There was a problem sending your message. Please try again or email us directly at filmresilience@gmail.com');
             }
         });
-
-        // Reset form to send another message
-        function resetForm() {
-            contactForm.reset();
-            document.getElementById('newsletter-optin').checked = true;
-            formSuccess.style.display = 'none';
-            contactForm.style.display = 'block';
-            submitBtn.disabled = false;
-            submitBtn.querySelector('span').textContent = 'Send Message';
-        }
 
         // Mailchimp callback (required for JSONP)
         function mcCallback(response) {
