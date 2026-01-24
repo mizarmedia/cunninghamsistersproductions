@@ -1614,7 +1614,13 @@ img {
 }
 
 .contact-hero .hero-bg img {
-    object-position: center 25%; /* Show more faces, less stomachs */
+    object-position: center 15%; /* Mobile: show more faces */
+}
+
+@media (min-width: 768px) {
+    .contact-hero .hero-bg img {
+        object-position: center 25%; /* Desktop: show more faces */
+    }
 }
 
 /* Contact Section */
