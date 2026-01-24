@@ -1596,7 +1596,7 @@ img {
 
 /* Compact Hero for Contact Page */
 .contact-hero {
-    min-height: 80vh;
+    min-height: 50vh;
     height: auto;
     padding-top: 80px; /* Account for fixed nav */
 }
