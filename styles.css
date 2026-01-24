@@ -1613,6 +1613,10 @@ img {
     padding: 0 10px;
 }
 
+.contact-hero .hero-bg img {
+    object-position: center 25%; /* Show more faces, less stomachs */
+}
+
 /* Contact Section */
 .contact-section {
     padding: 60px 16px;
