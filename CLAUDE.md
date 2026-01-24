@@ -20,7 +20,7 @@ CLAUDE.md     # This file
 ## The Film: Resilience
 A gritty drama exposing systemic abuse in unregulated teen residential treatment programs. Inspired by real events, following young people trapped in an industry that operates in shadows.
 
-**Status:** Post-Production (April 2024 wrap)
+**Status:** Post-Production (April 2025 wrap)
 
 ## The Team
 - **Kenna Cunningham** - Director/Producer (Netflix, Apple TV, Amazon Prime, Nat Geo credits)
