@@ -1614,7 +1614,7 @@ img {
 }
 
 .contact-hero .hero-bg img {
-    object-position: center 15%; /* Mobile: show more faces */
+    object-position: center top; /* Mobile: show top of image (faces) */
 }
 
 @media (min-width: 768px) {
