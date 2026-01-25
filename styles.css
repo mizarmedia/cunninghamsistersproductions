@@ -2129,6 +2129,7 @@ img {
 
     .hero {
         min-height: 700px;
+        padding-top: 80px; /* Account for fixed nav */
     }
 
     .hero-title {
