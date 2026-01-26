@@ -3508,19 +3508,19 @@ body.theater-mode .theater-exit-btn {
 }
 
 .budget-segment[data-category="production"] {
-    stroke: var(--color-gold);
+    stroke: var(--color-gold); /* Gold */
 }
 
 .budget-segment[data-category="marketing"] {
-    stroke: #a68a4a;
+    stroke: #7eb8a8; /* Soft teal */
 }
 
 .budget-segment[data-category="post-production"] {
-    stroke: #8a7340;
+    stroke: #c87e8a; /* Dusty rose */
 }
 
 .budget-segment[data-category="other"] {
-    stroke: var(--color-gray-600);
+    stroke: #9a9eb8; /* Soft lavender */
 }
 
 .budget-segment.highlighted {
@@ -3587,19 +3587,19 @@ body.theater-mode .theater-exit-btn {
 }
 
 .legend-color.production {
-    background: var(--color-gold);
+    background: var(--color-gold); /* Gold */
 }
 
 .legend-color.marketing {
-    background: #a68a4a;
+    background: #7eb8a8; /* Soft teal */
 }
 
 .legend-color.post-production {
-    background: #8a7340;
+    background: #c87e8a; /* Dusty rose */
 }
 
 .legend-color.other {
-    background: var(--color-gray-600);
+    background: #9a9eb8; /* Soft lavender */
 }
 
 .legend-text h5 {
