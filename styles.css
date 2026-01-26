@@ -3508,19 +3508,19 @@ body.theater-mode .theater-exit-btn {
 }
 
 .budget-segment[data-category="production"] {
-    stroke: var(--color-gold); /* Gold */
+    stroke: #e8c872; /* Bright gold */
 }
 
 .budget-segment[data-category="marketing"] {
-    stroke: #7eb8a8; /* Soft teal */
+    stroke: #b8923a; /* Medium gold */
 }
 
 .budget-segment[data-category="post-production"] {
-    stroke: #c87e8a; /* Dusty rose */
+    stroke: #8a6420; /* Bronze */
 }
 
 .budget-segment[data-category="other"] {
-    stroke: #9a9eb8; /* Soft lavender */
+    stroke: #5c4215; /* Deep bronze */
 }
 
 .budget-segment.highlighted {
@@ -3587,19 +3587,19 @@ body.theater-mode .theater-exit-btn {
 }
 
 .legend-color.production {
-    background: var(--color-gold); /* Gold */
+    background: #e8c872; /* Bright gold */
 }
 
 .legend-color.marketing {
-    background: #7eb8a8; /* Soft teal */
+    background: #b8923a; /* Medium gold */
 }
 
 .legend-color.post-production {
-    background: #c87e8a; /* Dusty rose */
+    background: #8a6420; /* Bronze */
 }
 
 .legend-color.other {
-    background: #9a9eb8; /* Soft lavender */
+    background: #5c4215; /* Deep bronze */
 }
 
 .legend-text h5 {
