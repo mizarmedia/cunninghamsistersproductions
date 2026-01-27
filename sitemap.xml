@@ -1,20 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- TODO: Update URLs when launching on final domain -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+    <!-- Homepage -->
     <url>
-        <loc>index.html</loc>
+        <loc>https://cunninghamsistersproductions.com/</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/hero-main.jpg</image:loc>
+            <image:title>Resilience Film - A Cunningham Sisters Production</image:title>
+            <image:caption>A gritty drama exposing systemic abuse in unregulated teen treatment programs</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/kenna-cunningham.jpg</image:loc>
+            <image:title>Kenna Cunningham - Director</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/madi-cunningham.jpg</image:loc>
+            <image:title>Madi Grace Cunningham - Writer</image:title>
+        </image:image>
+        <video:video>
+            <video:thumbnail_loc>https://cunninghamsistersproductions.com/images/hero-main.jpg</video:thumbnail_loc>
+            <video:title>Resilience - Proof of Concept</video:title>
+            <video:description>Proof of concept for Resilience, a gritty drama exposing systemic abuse in unregulated teen residential treatment programs</video:description>
+            <video:player_loc>https://player.vimeo.com/video/1115004786</video:player_loc>
+            <video:duration>180</video:duration>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>
     </url>
+
+    <!-- The Plan -->
     <url>
-        <loc>the-plan.html</loc>
+        <loc>https://cunninghamsistersproductions.com/the-plan.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/bts-main.jpg</image:loc>
+            <image:title>Behind the Scenes - Resilience Film Production</image:title>
+        </image:image>
     </url>
+
+    <!-- Contact -->
     <url>
-        <loc>contact.html</loc>
+        <loc>https://cunninghamsistersproductions.com/contact.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+
+    <!-- Media Kit -->
     <url>
-        <loc>media-kit.html</loc>
+        <loc>https://cunninghamsistersproductions.com/media-kit.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+
+    <!-- Press (redirects to media-kit) -->
+    <url>
+        <loc>https://cunninghamsistersproductions.com/press.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
 </urlset>
