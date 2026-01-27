@@ -6,6 +6,6 @@ set -e
 cd "$(dirname "$0")"
 
 echo "Deploying to Cloudflare Pages..."
-npx wrangler pages deploy . --project-name=csp-mockup-cinematic
+npx wrangler pages deploy . --project-name=cunninghamsistersproductions
 
-echo "Done! Site live at https://csp-mockup-cinematic.pages.dev/"
+echo "Done! Site live at https://cunninghamsistersproductions.com/"
