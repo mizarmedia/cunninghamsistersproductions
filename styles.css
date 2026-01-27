@@ -28,16 +28,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Lenis Smooth Scroll - overrides CSS smooth when active */
-html.lenis-active {
-    scroll-behavior: auto; /* Lenis handles smoothing */
-}
-
-html.lenis-active,
-html.lenis-active body {
-    height: auto;
-}
-
 body {
     font-family: var(--font-body);
     font-size: 16px;

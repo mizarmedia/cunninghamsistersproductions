@@ -38,9 +38,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Smooth Scrolling -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="scroll-manager.js"></script>
     <!-- Custom Instagram Feed -->
     <script src="instagram-feed.js" defer></script>
 </head>
@@ -451,12 +448,9 @@
     </footer>
 
     <script>
-        // Initialize ScrollManager
-        window.scrollManager.init();
-
         // Nav background on scroll
         const nav = document.querySelector('.nav');
-        scrollManager.onScroll(() => {
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
             } else {
@@ -464,13 +458,18 @@
             }
         });
 
-        // Smooth scroll with ScrollManager
+        // Smooth scroll with nav offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const href = this.getAttribute('href');
-                if (href && href !== '#') {
-                    scrollManager.scrollTo(href);
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
@@ -487,7 +486,7 @@
 
         // Parallax effect for revenue section
         function updateParallax() {
-            if (prefersReducedMotion) return;
+            if (prefersReducedMotion) return; // Skip for users who prefer reduced motion
 
             document.querySelectorAll('.parallax').forEach(container => {
                 const rect = container.getBoundingClientRect();
@@ -503,9 +502,8 @@
             });
         }
 
-        // Use ScrollManager for parallax
         if (!prefersReducedMotion) {
-            scrollManager.onScroll(updateParallax);
+            window.addEventListener('scroll', updateParallax);
             window.addEventListener('resize', updateParallax);
             updateParallax();
         }
@@ -610,18 +608,21 @@
             const data = stageData[stageKey];
             if (!data) return;
 
+            // Populate modal
             stageModal.querySelector('.stage-modal-status').textContent = data.status;
             stageModal.querySelector('.stage-modal-status').className = 'stage-modal-status ' + data.status.toLowerCase().replace(' ', '-');
             stageModal.querySelector('.stage-modal-title').textContent = data.title;
             stageModal.querySelector('.stage-modal-duration').textContent = data.duration;
             stageModal.querySelector('.stage-modal-what p').textContent = data.what;
 
+            // Activities list
             const activitiesList = stageModal.querySelector('.stage-modal-activities ul');
             activitiesList.innerHTML = data.activities.map(a => `<li>${a}</li>`).join('');
 
             stageModal.querySelector('.stage-modal-team p').textContent = data.team;
             stageModal.querySelector('.stage-modal-deliverables p').textContent = data.deliverables;
 
+            // Substages (for post-production)
             const substagesContainer = stageModal.querySelector('.stage-modal-substages');
             if (data.substages) {
                 substagesContainer.innerHTML = `
@@ -643,23 +644,26 @@
                 substagesContainer.style.display = 'none';
             }
 
+            // Show modal
             stageModal.classList.add('active');
             stageOverlay.classList.add('active');
-            scrollManager.lock('modal');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeStageModal() {
             stageModal.classList.remove('active');
             stageOverlay.classList.remove('active');
-            scrollManager.unlock();
+            document.body.style.overflow = '';
         }
 
+        // Click handlers for stages
         allStages.forEach(stage => {
             stage.addEventListener('click', () => {
                 openStageModal(stage.dataset.stage);
             });
         });
 
+        // Close modal handlers
         stageModal.querySelector('.stage-modal-close').addEventListener('click', closeStageModal);
         stageOverlay.addEventListener('click', closeStageModal);
         stageModal.addEventListener('click', (e) => {
@@ -672,13 +676,13 @@
         });
 
         // ============================================
-        // Impact Modal Functionality
+        // Impact Modal Functionality (Advocacy & Future Films)
         // ============================================
         const impactData = {
             advocacy: {
                 percent: '50%',
                 title: 'Advocacy',
-                description: 'Half of all film revenue goes directly toward regulating the troubled teen industry. This is strategic investment in systemic change that protects vulnerable youth.',
+                description: 'Half of all film revenue goes directly toward regulating the troubled teen industry. This isn\'t just charity—it\'s strategic investment in systemic change that protects vulnerable youth.',
                 how: 'Once Resilience generates revenue through distribution, streaming deals, and screenings, 50% flows into advocacy work. We partner with established organizations already fighting for reform, amplifying their impact with dedicated funding.',
                 examplesTitle: 'Where the Money Goes',
                 examples: [
@@ -713,32 +717,37 @@
             const data = impactData[impactKey];
             if (!data) return;
 
+            // Populate modal
             impactModal.querySelector('.impact-modal-percent').textContent = data.percent;
             impactModal.querySelector('.impact-modal-title').textContent = data.title;
             impactModal.querySelector('.impact-modal-description').textContent = data.description;
             impactModal.querySelector('.impact-modal-how').textContent = data.how;
             impactModal.querySelector('.impact-modal-examples-title').textContent = data.examplesTitle;
 
+            // Examples list
             const examplesList = impactModal.querySelector('.impact-modal-examples ul');
             examplesList.innerHTML = data.examples.map(e => `<li>${e}</li>`).join('');
 
+            // Show modal
             impactModal.classList.add('active');
             impactOverlay.classList.add('active');
-            scrollManager.lock('modal');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeImpactModal() {
             impactModal.classList.remove('active');
             impactOverlay.classList.remove('active');
-            scrollManager.unlock();
+            document.body.style.overflow = '';
         }
 
+        // Click handlers for impact cards
         impactCards.forEach(card => {
             card.addEventListener('click', () => {
                 openImpactModal(card.dataset.impact);
             });
         });
 
+        // Close modal handlers
         impactModal.querySelector('.impact-modal-close').addEventListener('click', closeImpactModal);
         impactOverlay.addEventListener('click', closeImpactModal);
         impactModal.addEventListener('click', (e) => {
@@ -759,6 +768,7 @@
         const centerLabel = document.querySelector('.budget-center-label');
 
         function highlightCategory(category) {
+            // Highlight segment
             budgetSegments.forEach(seg => {
                 if (seg.dataset.category === category) {
                     seg.classList.add('highlighted');
@@ -766,6 +776,7 @@
                     seg.classList.add('dimmed');
                 }
             });
+            // Highlight legend
             legendItems.forEach(item => {
                 if (item.dataset.category === category) {
                     item.classList.add('highlighted');
@@ -773,6 +784,7 @@
                     item.classList.add('dimmed');
                 }
             });
+            // Update center text
             const segment = document.querySelector(`.budget-segment[data-category="${category}"]`);
             if (segment) {
                 centerAmount.textContent = segment.dataset.amount;
@@ -791,11 +803,13 @@
             centerLabel.textContent = 'Total Budget';
         }
 
+        // Segment hover
         budgetSegments.forEach(seg => {
             seg.addEventListener('mouseenter', () => highlightCategory(seg.dataset.category));
             seg.addEventListener('mouseleave', resetHighlight);
         });
 
+        // Legend hover
         legendItems.forEach(item => {
             item.addEventListener('mouseenter', () => highlightCategory(item.dataset.category));
             item.addEventListener('mouseleave', resetHighlight);
@@ -805,6 +819,7 @@
         // Timeline Animation on Scroll
         // ============================================
         const journeySection = document.querySelector('.journey-section');
+        const timelineProgressLine = document.querySelector('.timeline-progress-line');
         let hasAnimated = false;
 
         function animateTimeline() {
@@ -819,8 +834,8 @@
             }
         }
 
-        scrollManager.onScroll(animateTimeline);
-        animateTimeline();
+        window.addEventListener('scroll', animateTimeline);
+        animateTimeline(); // Check on load
 
         // ============================================
         // Revenue Section Animation
@@ -840,10 +855,10 @@
             }
         }
 
-        scrollManager.onScroll(animateRevenue);
-        animateRevenue();
+        window.addEventListener('scroll', animateRevenue);
+        animateRevenue(); // Check on load
 
-        // Newsletter form
+        // Newsletter form - split name into FNAME/LNAME before submit
         const newsletterForm = document.querySelector('.newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
