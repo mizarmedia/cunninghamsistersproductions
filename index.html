@@ -215,6 +215,7 @@
                 <div class="video-container">
                     <iframe
                         src="https://player.vimeo.com/video/1115004786?dnt=1&playsinline=1&autoplay=0"
+                        title="Resilience - Proof of Concept Video"
                         allow="autoplay; fullscreen; picture-in-picture"
                         allowfullscreen
                         webkitallowfullscreen
@@ -439,10 +440,10 @@
                 <button class="team-modal-close">×</button>
                 <div class="team-modal-photo"></div>
                 <div class="team-modal-body">
-                    <h4></h4>
+                    <h3 class="team-modal-name"></h3>
                     <span class="team-modal-role"></span>
                     <p class="team-modal-bio"></p>
-                    <a class="team-modal-imdb" target="_blank"></a>
+                    <a class="team-modal-imdb" href="#" target="_blank" rel="noopener">View filmography →</a>
                 </div>
             </div>
         </div>
@@ -462,14 +463,14 @@
                 <a href="the-plan.html#revenue" class="impact-split">
                     <div class="split-number">50%</div>
                     <div class="split-text">
-                        <h4>Advocacy</h4>
+                        <h3>Advocacy</h3>
                         <p>Funds initiatives to regulate troubled teen institutions and protect vulnerable youth.</p>
                     </div>
                 </a>
                 <a href="the-plan.html#revenue" class="impact-split">
                     <div class="split-number">50%</div>
                     <div class="split-text">
-                        <h4>Future Films</h4>
+                        <h3>Future Films</h3>
                         <p>Creates more advocacy films that expose injustice and drive systemic change.</p>
                     </div>
                 </a>
@@ -488,35 +489,35 @@
                 <a href="the-plan.html#timeline" class="timeline-item completed">
                     <div class="timeline-marker"></div>
                     <div class="timeline-info">
-                        <h4>Creative Development</h4>
+                        <h3>Creative Development</h3>
                         <p>Research, screenplay, casting, creative vision</p>
                     </div>
                 </a>
                 <a href="the-plan.html#timeline" class="timeline-item completed">
                     <div class="timeline-marker"></div>
                     <div class="timeline-info">
-                        <h4>Funding & Strategy</h4>
+                        <h3>Funding & Strategy</h3>
                         <p>Legal structure, partnerships, budgeting</p>
                     </div>
                 </a>
                 <a href="the-plan.html#timeline" class="timeline-item completed">
                     <div class="timeline-marker"></div>
                     <div class="timeline-info">
-                        <h4>Production</h4>
+                        <h3>Production</h3>
                         <p>Principal photography wrapped April 2025</p>
                     </div>
                 </a>
                 <a href="the-plan.html#timeline" class="timeline-item active">
                     <div class="timeline-marker"></div>
                     <div class="timeline-info">
-                        <h4>Post-Production</h4>
+                        <h3>Post-Production</h3>
                         <p>Picture lock, sound design, VFX, color</p>
                     </div>
                 </a>
                 <a href="the-plan.html#timeline" class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-info">
-                        <h4>Distribution</h4>
+                        <h3>Distribution</h3>
                         <p>Film festivals, theatrical, streaming</p>
                     </div>
                 </a>
@@ -961,7 +962,7 @@
                 // Populate modal
                 teamModal.querySelector('.team-modal-photo').innerHTML = '';
                 teamModal.querySelector('.team-modal-photo').appendChild(photo);
-                teamModal.querySelector('.team-modal-body h4').textContent = name;
+                teamModal.querySelector('.team-modal-name').textContent = name;
                 teamModal.querySelector('.team-modal-role').textContent = role;
                 teamModal.querySelector('.team-modal-bio').innerHTML = bio;
 

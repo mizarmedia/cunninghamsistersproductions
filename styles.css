@@ -747,7 +747,7 @@ img {
     text-align: center;
 }
 
-.team-modal-body h4 {
+.team-modal-name {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 4px;
@@ -801,7 +801,7 @@ img {
         padding: 16px;
     }
 
-    .team-modal-body h4 {
+    .team-modal-name {
         font-size: 18px;
     }
 
@@ -918,8 +918,14 @@ img {
 }
 
 @keyframes pulse-hint {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 98, 0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(201, 169, 98, 0); }
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
 }
 
 /* Custom Video Controls */
@@ -1102,7 +1108,7 @@ img {
     margin-bottom: 12px;
 }
 
-.split-text h4 {
+.split-text h3 {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -1191,28 +1197,43 @@ img {
 
 .timeline-item.active .timeline-marker {
     border-color: var(--color-gold);
-    box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.2);
+    position: relative;
+}
+
+.timeline-item.active .timeline-marker::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
     animation: marker-pulse 2.5s ease-in-out infinite;
 }
 
 @keyframes marker-pulse {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(201, 169, 98, 0.4);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
     }
     50% {
-        box-shadow: 0 0 0 10px rgba(201, 169, 98, 0), 0 0 15px rgba(201, 169, 98, 0.3);
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
     }
 }
 
-.timeline-info h4 {
+.timeline-info h3 {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 4px;
     color: var(--color-white);
 }
 
-.timeline-item:not(.completed):not(.active) .timeline-info h4 {
-    color: var(--color-gray-600);
+.timeline-item:not(.completed):not(.active) .timeline-info h3 {
+    color: var(--color-gray-400);
 }
 
 .timeline-info p {
@@ -1236,11 +1257,11 @@ img {
         box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.3);
     }
 
-    .timeline-item:hover .timeline-info h4 {
+    .timeline-item:hover .timeline-info h3 {
         color: var(--color-gold);
     }
 
-    .timeline-info h4 {
+    .timeline-info h3 {
         transition: color 0.2s ease;
     }
 
@@ -1282,7 +1303,7 @@ img {
 
 .cta-card > p {
     font-size: 14px;
-    color: var(--color-gray-400);
+    color: var(--color-gray-300);
     margin-bottom: 24px;
     line-height: 1.6;
 }
@@ -1359,7 +1380,7 @@ img {
 
 .progress-numbers .goal {
     font-size: 13px;
-    color: var(--color-gray-600);
+    color: var(--color-gray-300);
     align-self: flex-end;
 }
 
@@ -1374,34 +1395,41 @@ img {
 .progress-fill {
     width: 59%;
     height: 100%;
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.5) 50%,
-            transparent 100%
-        ),
-        linear-gradient(to right, var(--color-gold-dark), var(--color-gold));
-    background-size: 30% 100%, 100% 100%;
-    background-position: -30% 0, 0 0;
-    background-repeat: no-repeat;
+    background: linear-gradient(to right, var(--color-gold-dark), var(--color-gold));
     position: relative;
     border-radius: 2px;
-    animation: progress-pulse 2.5s ease-in-out infinite;
+    overflow: hidden;
 }
 
-@keyframes progress-pulse {
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: progress-shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes progress-shimmer {
     0% {
-        background-position: -30% 0, 0 0;
+        transform: translateX(-100%);
     }
     100% {
-        background-position: 130% 0, 0 0;
+        transform: translateX(100%);
     }
 }
 
 .progress-percent {
     font-size: 12px;
-    color: var(--color-gray-600);
+    color: var(--color-gray-300);
 }
 
 /* Donate Button */
@@ -2307,7 +2335,7 @@ img {
         margin-bottom: 16px;
     }
 
-    .split-text h4 {
+    .split-text h3 {
         font-size: 18px;
         margin-bottom: 12px;
     }
@@ -2344,7 +2372,7 @@ img {
         padding-bottom: 40px;
     }
 
-    .timeline-info h4 {
+    .timeline-info h3 {
         font-size: 18px;
     }
 
@@ -3777,7 +3805,7 @@ body.theater-mode .theater-exit-btn {
     margin-bottom: 12px;
 }
 
-.split-box .split-text h4 {
+.split-box .split-text h3 {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -4289,7 +4317,7 @@ body.theater-mode .theater-exit-btn {
         margin-bottom: 16px;
     }
 
-    .split-box .split-text h4 {
+    .split-box .split-text h3 {
         font-size: 18px;
         margin-bottom: 12px;
     }
