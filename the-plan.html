@@ -447,6 +447,9 @@
         </div>
     </footer>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
     <script>
         // Nav background on scroll
         const nav = document.querySelector('.nav');
@@ -484,6 +487,25 @@
         // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        // ============================================
+        // Lenis Smooth Scroll
+        // ============================================
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            smoothWheel: true,
+            syncTouch: false,
+            touchMultiplier: 1,
+        });
+
+        // Animation loop for Lenis
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
         // Parallax effect for revenue section
         function updateParallax() {
             if (prefersReducedMotion) return; // Skip for users who prefer reduced motion
@@ -503,7 +525,7 @@
         }
 
         if (!prefersReducedMotion) {
-            window.addEventListener('scroll', updateParallax);
+            lenis.on('scroll', updateParallax);
             window.addEventListener('resize', updateParallax);
             updateParallax();
         }
@@ -648,12 +670,14 @@
             stageModal.classList.add('active');
             stageOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            lenis.stop();
         }
 
         function closeStageModal() {
             stageModal.classList.remove('active');
             stageOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            lenis.start();
         }
 
         // Click handlers for stages
@@ -732,12 +756,14 @@
             impactModal.classList.add('active');
             impactOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            lenis.stop();
         }
 
         function closeImpactModal() {
             impactModal.classList.remove('active');
             impactOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            lenis.start();
         }
 
         // Click handlers for impact cards

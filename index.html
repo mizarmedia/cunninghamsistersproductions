@@ -614,9 +614,31 @@
     <!-- Theater Mode Exit Hint -->
     <div class="theater-exit-hint">Scroll to exit theater mode</div>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
     <script>
         // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ============================================
+        // Lenis Smooth Scroll
+        // ============================================
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            smoothWheel: true,
+            syncTouch: false,
+            touchMultiplier: 1,
+        });
+
+        // Animation loop for Lenis
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
 
         // Fixed parallax effect - relative to each section
         function updateParallax() {
@@ -641,7 +663,7 @@
         }
 
         if (!prefersReducedMotion) {
-            window.addEventListener('scroll', updateParallax);
+            lenis.on('scroll', updateParallax);
             window.addEventListener('resize', updateParallax);
             updateParallax();
         }
@@ -749,6 +771,9 @@
             theaterMode = true;
             scrollLocked = true;
 
+            // Stop Lenis smooth scrolling during theater mode
+            lenis.stop();
+
             // Hard lock: prevent ALL scrolling (iOS needs both html and body)
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
@@ -782,6 +807,9 @@
             scrollLocked = false;
             scrollAccumulator = 0;
             hasExitedOnce = true; // Disable auto-trigger after first exit
+
+            // Resume Lenis smooth scrolling
+            lenis.start();
 
             // Restore scrolling (both html and body for iOS)
             document.documentElement.style.overflow = '';
@@ -978,6 +1006,7 @@
                 // Show modal + overlay
                 teamModal.classList.add('active');
                 teamOverlay.classList.add('active');
+                lenis.stop();
             });
         });
 
@@ -985,6 +1014,7 @@
         function closeTeamModal() {
             teamModal.classList.remove('active');
             teamOverlay.classList.remove('active');
+            lenis.start();
         }
 
         // Close modal on X button click
