@@ -19,8 +19,6 @@
     <meta property="og:title" content="Contact | Cunningham Sisters Productions">
     <meta property="og:description" content="Get in touch with The Cunningham Sisters Productions about Resilience. Press inquiries, partnerships, and support opportunities.">
     <meta property="og:image" content="https://cunninghamsistersproductions.com/images/hero-main.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cunninghamsistersproductions.com/contact.html">
     <meta property="og:site_name" content="Cunningham Sisters Productions">
@@ -33,6 +31,47 @@
     <meta name="twitter:description" content="Get in touch with The Cunningham Sisters Productions about Resilience. Press inquiries, partnerships, and support opportunities.">
     <meta name="twitter:image" content="https://cunninghamsistersproductions.com/images/hero-main.jpg">
     <meta name="twitter:image:alt" content="Contact Cunningham Sisters Productions">
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cunninghamsistersproductions.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://cunninghamsistersproductions.com/contact.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - ContactPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Cunningham Sisters Productions",
+        "description": "Get in touch with The Cunningham Sisters Productions about Resilience. Press inquiries, partnerships, and support opportunities.",
+        "url": "https://cunninghamsistersproductions.com/contact.html",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "The Cunningham Sisters Productions",
+            "email": "filmresilience@gmail.com",
+            "sameAs": [
+                "https://www.instagram.com/thecunninghamsisters/"
+            ]
+        }
+    }
+    </script>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +93,7 @@
             <a href="index.html">Resilience</a>
             <a href="the-plan.html">The Plan</a>
             <a href="contact.html" class="active">Contact</a>
-            <a href="https://gofund.me/d00b98309" target="_blank" class="nav-cta">Support</a>
+            <a href="https://gofund.me/d00b98309" target="_blank" rel="noopener noreferrer" class="nav-cta">Support</a>
         </div>
     </nav>
 
@@ -152,7 +191,7 @@
                     </div>
                     <h4>Follow Our Journey</h4>
                     <p>Behind the scenes and updates</p>
-                    <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" class="info-link">@thecunninghamsisters</a>
+                    <a href="https://www.instagram.com/thecunninghamsisters/" target="_blank" rel="noopener noreferrer" class="info-link">@thecunninghamsisters</a>
                 </div>
 
                 <div class="contact-info-card">
@@ -163,7 +202,7 @@
                     </div>
                     <h4>Support the Film</h4>
                     <p>Help us finish Resilience</p>
-                    <a href="https://gofund.me/d00b98309" target="_blank" class="info-link">Donate on GoFundMe</a>
+                    <a href="https://gofund.me/d00b98309" target="_blank" rel="noopener noreferrer" class="info-link">Donate on GoFundMe</a>
                 </div>
             </div>
         </div>
@@ -176,7 +215,7 @@
         <div class="footer-content">
             <span class="footer-logo">THE CUNNINGHAM SISTERS PRODUCTIONS</span>
             <p class="footer-copyright">&copy; 2026 All Rights Reserved</p>
-            <p class="footer-credit">Designed by <a href="https://alohamediastudio.com" target="_blank">Aloha Media Studio</a></p>
+            <p class="footer-credit">Designed by <a href="https://alohamediastudio.com" target="_blank" rel="noopener noreferrer">Aloha Media Studio</a></p>
         </div>
     </footer>
 
