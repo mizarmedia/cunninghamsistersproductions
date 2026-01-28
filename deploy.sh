@@ -5,6 +5,9 @@
 set -e
 cd "$(dirname "$0")"
 
+echo "Minifying CSS..."
+npx csso-cli styles.src.css --output styles.css
+
 echo "Deploying to Cloudflare Pages..."
 npx wrangler pages deploy . --project-name=cunninghamsistersproductions
 

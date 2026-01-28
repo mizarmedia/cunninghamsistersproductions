@@ -180,10 +180,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://player.vimeo.com">
     <link rel="preconnect" href="https://i.vimeocdn.com">
+    <link rel="preload" as="image" href="images/hero-main.webp" type="image/webp">
     <link rel="preload" as="image" href="images/hero-main.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://player.vimeo.com/api/player.js"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap"></noscript>
+    <script src="https://player.vimeo.com/api/player.js" defer></script>
     <!-- Custom Instagram Feed -->
     <script src="instagram-feed.js" defer></script>
 </head>
@@ -210,7 +212,10 @@
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="images/hero-main.jpg" alt="Resilience film - a drama about teen treatment program abuse">
+            <picture>
+                <source srcset="images/hero-main.webp" type="image/webp">
+                <img src="images/hero-main.jpg" alt="Resilience film - a drama about teen treatment program abuse">
+            </picture>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -315,7 +320,10 @@
     <!-- Story Section -->
     <section class="story" id="story">
         <div class="story-bg parallax">
-            <img src="images/story-bg.jpg" alt="Director Kenna Cunningham on set of Resilience" loading="lazy">
+            <picture>
+                <source srcset="images/story-bg.webp" type="image/webp">
+                <img src="images/story-bg.jpg" alt="Director Kenna Cunningham on set of Resilience" loading="lazy">
+            </picture>
         </div>
         <div class="story-content">
             <div class="story-text">
@@ -349,13 +357,22 @@
     <section class="image-break">
         <div class="image-grid">
             <div class="image-item">
-                <img src="images/production-still-1.jpg" alt="Scene from Resilience film" loading="lazy">
+                <picture>
+                    <source srcset="images/production-still-1.webp" type="image/webp">
+                    <img src="images/production-still-1.jpg" alt="Scene from Resilience film" loading="lazy">
+                </picture>
             </div>
             <div class="image-item">
-                <img src="images/production-still-2.jpg" alt="Cast members in a scene from Resilience" loading="lazy">
+                <picture>
+                    <source srcset="images/production-still-2.webp" type="image/webp">
+                    <img src="images/production-still-2.jpg" alt="Cast members in a scene from Resilience" loading="lazy">
+                </picture>
             </div>
             <div class="image-item">
-                <img src="images/bts-main.jpg" alt="Film crew on the set of Resilience" loading="lazy">
+                <picture>
+                    <source srcset="images/bts-main.webp" type="image/webp">
+                    <img src="images/bts-main.jpg" alt="Film crew on the set of Resilience" loading="lazy">
+                </picture>
             </div>
         </div>
     </section>
@@ -369,7 +386,10 @@
 
         <div class="team-spotlight">
             <div class="spotlight-image">
-                <img src="images/kenna-cunningham.jpg" alt="Kenna Cunningham" loading="lazy">
+                <picture>
+                    <source srcset="images/kenna-cunningham.webp" type="image/webp">
+                    <img src="images/kenna-cunningham.jpg" alt="Kenna Cunningham" loading="lazy">
+                </picture>
             </div>
             <div class="spotlight-content">
                 <h3>Kenna Cunningham</h3>
@@ -381,7 +401,10 @@
 
         <div class="team-spotlight reverse">
             <div class="spotlight-image">
-                <img src="images/madi-cunningham.png" alt="Madi Grace Cunningham" loading="lazy">
+                <picture>
+                    <source srcset="images/madi-cunningham.webp" type="image/webp">
+                    <img src="images/madi-cunningham.png" alt="Madi Grace Cunningham" loading="lazy">
+                </picture>
             </div>
             <div class="spotlight-content">
                 <h3>Madi Grace Cunningham</h3>
@@ -473,7 +496,10 @@
     <!-- Impact Section -->
     <section class="impact" id="impact">
         <div class="impact-bg parallax">
-            <img src="images/impact-bg.jpg" alt="Resilience film production" loading="lazy">
+            <picture>
+                <source srcset="images/impact-bg.webp" type="image/webp">
+                <img src="images/impact-bg.jpg" alt="Resilience film production" loading="lazy">
+            </picture>
         </div>
         <div class="impact-content">
             <span class="overline">Our Mission</span>
