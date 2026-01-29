@@ -6,25 +6,25 @@
     <!-- Homepage -->
     <url>
         <loc>https://cunninghamsistersproductions.com/</loc>
-        <lastmod>2026-01-27</lastmod>
+        <lastmod>2026-01-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://cunninghamsistersproductions.com/images/hero-main.jpg</image:loc>
-            <image:title>Resilience Film - A Cunningham Sisters Production</image:title>
+            <image:title>Resilience Movie (2025) - A Cunningham Sisters Production</image:title>
             <image:caption>A gritty drama exposing systemic abuse in unregulated teen treatment programs</image:caption>
         </image:image>
         <image:image>
             <image:loc>https://cunninghamsistersproductions.com/images/kenna-cunningham.jpg</image:loc>
-            <image:title>Kenna Cunningham - Director</image:title>
+            <image:title>Kenna Cunningham - Director of Resilience</image:title>
         </image:image>
         <image:image>
             <image:loc>https://cunninghamsistersproductions.com/images/madi-cunningham.png</image:loc>
-            <image:title>Madi Grace Cunningham - Writer</image:title>
+            <image:title>Madi Grace Cunningham - Writer of Resilience</image:title>
         </image:image>
         <video:video>
             <video:thumbnail_loc>https://cunninghamsistersproductions.com/images/hero-main.jpg</video:thumbnail_loc>
-            <video:title>Resilience - Proof of Concept</video:title>
+            <video:title>Resilience Movie - Proof of Concept</video:title>
             <video:description>Proof of concept for Resilience, a gritty drama exposing systemic abuse in unregulated teen residential treatment programs</video:description>
             <video:player_loc>https://player.vimeo.com/video/1115004786</video:player_loc>
             <video:duration>180</video:duration>
@@ -32,22 +32,38 @@
         </video:video>
     </url>
 
+    <!-- About The Cunningham Sisters -->
+    <url>
+        <loc>https://cunninghamsistersproductions.com/about.html</loc>
+        <lastmod>2026-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/kenna-cunningham.jpg</image:loc>
+            <image:title>Kenna Cunningham - Film Director and Producer</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://cunninghamsistersproductions.com/images/madi-cunningham.png</image:loc>
+            <image:title>Madi Grace Cunningham - Screenwriter, Actor, Producer</image:title>
+        </image:image>
+    </url>
+
     <!-- The Plan -->
     <url>
         <loc>https://cunninghamsistersproductions.com/the-plan.html</loc>
-        <lastmod>2026-01-27</lastmod>
+        <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <image:image>
             <image:loc>https://cunninghamsistersproductions.com/images/bts-main.jpg</image:loc>
-            <image:title>Behind the Scenes - Resilience Film Production</image:title>
+            <image:title>Behind the Scenes - Resilience Movie Production</image:title>
         </image:image>
     </url>
 
     <!-- Contact -->
     <url>
         <loc>https://cunninghamsistersproductions.com/contact.html</loc>
-        <lastmod>2026-01-27</lastmod>
+        <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -55,7 +71,7 @@
     <!-- Media Kit -->
     <url>
         <loc>https://cunninghamsistersproductions.com/media-kit.html</loc>
-        <lastmod>2026-01-27</lastmod>
+        <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -63,7 +79,7 @@
     <!-- Press (redirects to media-kit) -->
     <url>
         <loc>https://cunninghamsistersproductions.com/press.html</loc>
-        <lastmod>2026-01-27</lastmod>
+        <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
