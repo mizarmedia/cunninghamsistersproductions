@@ -2709,6 +2709,23 @@ body.theater-mode .theater-exit-btn {
     display: none;
 }
 
+/* Video share link (Vimeo) */
+.video-share-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.video-share-link:hover {
+    opacity: 1;
+}
+
 /* ============================================
    THE PLAN PAGE STYLES
    ============================================ */
